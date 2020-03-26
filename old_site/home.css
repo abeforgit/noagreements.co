@@ -1,0 +1,310 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: coolvetica;
+  background-color: #f1eef7;
+  min-height: 100%;
+}
+@font-face {
+  font-family: "coolvetica";
+  src: url('coolvetica.ttf');
+}
+
+#sidebarmobile {
+  display: none;
+}
+#sidebar {
+  background-color: #cecece;
+  width: 25%;
+  height: 100vh;
+  float: left;
+}
+#najn {
+  position: relative;
+  color: #836eb4;
+  font-size: 55px;
+  text-align: left;
+  text-transform: uppercase;
+  margin-left: 20px;
+  margin-top: 20px;
+  line-height: 70px;
+  z-index: 2;
+}
+.hoverstate {
+  position: absolute;
+  color: black;
+  opacity: 0;
+  text-decoration: none;
+}
+.hoverstate:hover {
+  opacity: 1;
+}
+.hoverstatesolid {
+  position: absolute;
+  color: black;
+}
+.doggie {
+  position: fixed;
+  bottom: 20px;
+  margin-left: 20px;
+  z-index: 1;
+}
+
+#linkbar {
+  background-color: #836eb4;
+  width: 100%;
+  height: 3vh;
+}
+#barlinks {
+  font-size: 2.5vh;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
+  margin-right: 1vh;
+}
+.link {
+  color: black;
+  text-decoration: none;
+}
+.link2 {
+  color: black;
+  text-decoration: none;
+  text-shadow: .1vh .1vh 0 #f1eef7;
+}
+
+
+#mainpage {
+  height: 97vh;
+  display: flex;
+  position: relative;
+  z-index: 3;
+}
+#newalbum {
+  background-color: #f1eef7;
+  width: 50%;
+}
+.newalbumtext {
+  text-align: center;
+  text-transform: uppercase;
+}
+.outnow {
+  font-size: 55px;
+  font-weight: bold;
+}
+.newgroupalbum {
+  font-size: 32px;
+  font-weight: bold;
+}
+#newalbumlinks {
+  font-size: 40px;
+  font-weight: bold;
+}
+.newalbumlink {
+  text-decoration: underline;
+  color: black;
+}
+.newalbumimg {
+  width: 100%;
+}
+#padding {
+  display: none;
+}
+
+#latestreleases {
+  width: 50%;
+  background-color: #a9a5b3;
+}
+#releases {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  text-align: center;
+  text-transform: uppercase;
+}
+.releaseimage {
+  width: 80%;
+  border: 5px solid black;
+  margin-top: 8%;
+}
+.releasetext {
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+}
+#whatsnew {
+  margin-top: 30px;
+  text-align: center;
+}
+#whatsnewmobile {
+  display: none;
+}
+.whatsnewtext {
+  font-size: 80px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#linkbarmobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1900px) {
+    #najn {
+    font-size: 50px;
+    line-height: 64px;
+  }
+  .doggie {
+    width: 127px;
+  }
+  .releasetext {
+    font-size: 28px;
+  }
+  #newalbumlinks {
+    font-size: 37px;
+  }
+  #whatsnew {
+    margin-top: 25px;
+  }
+  .whatsnewtext {
+    font-size: 73px;
+  }
+  .outnow {
+    font-size: 50px;
+  }
+  .newgroupalbum {
+    font-size: 29px;
+  }
+}
+@media only screen and (max-width: 1700px) {
+  #najn {
+    font-size: 45px;
+    line-height: 57px;
+  }
+  .doggie {
+    width: 112px;
+  }
+  .outnow {
+    font-size: 45px;
+  }
+  .newgroupalbum {
+    font-size: 26px;
+  }
+  .releasetext {
+    font-size: 25px;
+  }
+  #whatsnew {
+    margin-top: 20px;
+  }
+  .whatsnewtext {
+    font-size: 65px;
+  }
+  #newalbumlinks {
+    font-size: 32px;
+  }
+}
+@media only screen and (max-width: 1500px) {
+  #najn {
+    font-size: 37px;
+    line-height: 47px;
+  }
+  .doggie {
+    width: 93px;
+  }
+  .outnow {
+    font-size: 37px;
+  }
+  .newgroupalbum {
+    font-size: 21px;
+  }
+  .releasetext {
+    font-size: 21px;
+  }
+  #whatsnew {
+    margin-top: 10px;
+  }
+  .whatsnewtext {
+    font-size: 55px;
+  }
+  #newalbumlinks {
+    font-size: 26px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  #sidebar {
+    display: none;
+  }
+  #sidebarmobile {
+    display: inherit;
+    background-color: #cecece;
+    color: #463a64;
+    font-size: 3.3vw;
+    text-align: center;
+  }
+  .mobilelink {
+    color: #836eb4;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 3.3vw;
+  }
+
+  #linkbar {
+    display: none;
+  }
+
+
+  #mainpage {
+    display: initial;
+  }
+  #newalbum {
+    width: 100%;
+    height: 100%;
+  }
+  .outnow {
+    font-size: 7.8vw;
+  }
+  .newgroupalbum {
+    font-size: 4.6vw;
+  }
+  #newalbumlinks {
+    font-size: 6vw;
+    padding-bottom: 1vh;
+  }
+
+  #latestreleases {
+    width: 100%;
+  }
+  #whatsnewmobile {
+    text-align: center;
+    display: inherit;
+  }
+  .releasetext {
+    font-size: 5vw;
+  }
+  .whatsnewtext {
+    text-align: center;
+  }
+  #whatsnew {
+    display: none;
+  }
+  #mobilespacer {
+    height: 50px;
+  }
+
+  #linkbarmobile {
+    display: inherit;
+    background-color: #836eb4;
+    width: 100%;
+  }
+  #barlinks {
+    font-size: 4.5vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .link2 {
+    color: black;
+    text-decoration: none;
+    text-shadow: 2px 2px 0 #f1eef7;
+  }
+}
