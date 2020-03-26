@@ -9,7 +9,7 @@ html {
 }
 @font-face {
   font-family: "coolvetica";
-  src: url('coolvetica.ttf');
+  src: url('../fonts/coolvetica.ttf');
 }
 
 #sidebarmobile {
