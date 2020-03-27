@@ -7,6 +7,6 @@
 <body>
 <h1>{{ object.title }}</h1>
 <div>{{ object.pub_date }}</div>
-<div>{{ object.content }}</div>
+<div>{{ object.content | safe }}</div>
 </body>
 </html>
