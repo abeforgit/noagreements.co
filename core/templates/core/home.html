@@ -1,4 +1,5 @@
 {% load static %}
+{% load components %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,28 +9,6 @@
     <link rel="stylesheet" type="text/css" href={% static "core/styles/home.css" %}>
 </head>
 <body>
-<div id="sidebar">
-    <img src={% static "core/img/doggie.png" %} class="doggie"/>
-    <div id="najn">
-        <div>no agreements</div>
-        <div>just noise</div>
-        <div>...</div>
-        <a class="hoverstatesolid">////////</a>
-        <span>home</span><br>
-        <a class="hoverstate" href="about">//////////</a>
-        <span>about</span><br>
-        <a class="hoverstate" href="creators">///////////////</a>
-        <span>creators</span><br>
-        <a class="hoverstate" href="group">//////////</a>
-        <span>group</span><br>
-        <a class="hoverstate" href="news">////////</a>
-        <span>news</span><br>
-        <a class="hoverstate" href="mixes">////////</a>
-        <span>mixes</span><br>
-        <a class="hoverstate" href="store">/////////</a>
-        <span>store</span><br>
-    </div>
-</div>
 <div id="sidebarmobile">
     <a class="mobilelink" href="home">home</a> /
     <a class="mobilelink" href="about">about</a> /
@@ -77,30 +56,9 @@
             <span class="whatsnewtext">what's new?</span>
         </div>
         <div id="releases">
-            <div class="release">
-                <a href="https://soundcloud.com/materialgirlrap/material-girl-funeral-parade-of-roses-ft-coin-locker-kid"
-                   target="_blank"><img src="funeral parade.jpg" class="releaseimage"><br></a>
-                <a href="https://soundcloud.com/materialgirlrap/material-girl-funeral-parade-of-roses-ft-coin-locker-kid"
-                   target="_blank" class="releasetext">Material Girl<br>new single</a>
-            </div>
-            <div class="release">
-                <a href="https://noagreements.bandcamp.com/album/lower-level-ep" target="_blank"><img
-                        src="lower level.jpg" class="releaseimage"><br></a>
-                <a href="https://noagreements.bandcamp.com/album/lower-level-ep" target="_blank" class="releasetext">City
-                    Light Mosaic<br>new ep</a>
-            </div>
-            <div class="release">
-                <a href="https://mondegreenrowan.bandcamp.com/album/absinthe-3" target="_blank"><img src="absinthe.jpg"
-                                                                                                     class="releaseimage"><br></a>
-                <a href="https://mondegreenrowan.bandcamp.com/album/absinthe-3" target="_blank" class="releasetext">Mondegreen<br>new
-                    ep</a>
-            </div>
-            <div class="release">
-                <a href="https://noagreements.bandcamp.com/album/boxing-day-single" target="_blank"><img
-                        src="boxing day.jpg" class="releaseimage"><br></a>
-                <a href="https://noagreements.bandcamp.com/album/boxing-day-single" target="_blank" class="releasetext">Omar
-                    Kooliyat<br>new single</a>
-            </div>
+            {% for post in recent_posts %}
+                {% post_card post %}
+            {% endfor %}
         </div>
         <div id="whatsnew">
             <span class="whatsnewtext">what's new?</span>
