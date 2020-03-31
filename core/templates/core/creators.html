@@ -1,165 +1,138 @@
-<!DOCTYPE HTML>
-<html>
-  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
     <title>No Agreements | Creators</title>
-    <link rel="icon" href="../../static/core/img/doggie.png">
-    <link rel="stylesheet" type="text/css" href="../../static/core/styles/creators.css">
-  </head>
-  <body>
-    <div id="sidebar">
-      <img src="../../static/core/img/doggie.png" class="doggie">
-      <div id="najn">
-        no agreements<br>
-        just noise<br>
-        ...<br>
-        <a class="hoverstate" href="home">////////</a>
-        <span>home</span><br>
-        <a class="hoverstate" href="about">//////////</a>
-        <span>about</span><br>
-        <a class="hoverstatesolid">///////////////</a>
-        <span>creators</span><br>
-        <a class="hoverstate" href="group">//////////</a>
-        <span>group</span><br>
-        <a class="hoverstate" href="news">////////</a>
-        <span>news</span><br>
-        <a class="hoverstate" href="mixes">////////</a>
-        <span>mixes</span><br>
-        <a class="hoverstate" href="store">/////////</a>
-        <span>store</span><br>
-      </div>
-    </div>
-    <div id="sidebarmobile">
-      <a class="mobilelink" href="home">home</a> /
-      <a class="mobilelink" href="about">about</a> /
-      <a class="mobilelink" href="creators">creators</a> /
-      <a class="mobilelink" href="group">group</a> /
-      <a class="mobilelink" href="news">news</a> /
-      <a class="mobilelink" href="mixes">mixes</a> /
-      <a class="mobilelink" href="store">store</a>
-    </div>
-
-    <div id="linkbar">
-      <div id="barlinks">
-        <a class="link" target="_blank" href="https://noagreements.bandcamp.com">bandcamp</a> /
-        <a class="link" target="_blank" href="https://www.facebook.com/noagreements/">facebook</a> /
-        <a class="link" target="_blank" href="https://www.instagram.com/noagreementsofficial/">instagram</a> /
-        <a class="link" target="_blank" href="https://soundcloud.com/noagreements">soundcloud</a> /
-        <a class="link" target="_blank" href="https://open.spotify.com/artist/4Fyt4RSVd6z6h6yhfyfAKJ?si=5_snZYtPTw-6gE52xKoUvQ">spotify</a> /
-        <a class="link" target="_blank" href="https://twitter.com/noagreements">twitter</a> /
-        <a class="link" target="_blank" href="https://www.youtube.com/channel/UCsc2t7ADVYpvNgXZT11syPA">youtube</a> |
-        <a class="link2" target="_blank" href="https://mantratrax.bandcamp.com">mantra</a>
-      </div>
-    </div>
-
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href={% static "core/styles/creators.css" %}>
+{% endblock %}
+{% block content %}
     <div id="creators">
-      <div id="asogi" class="creator">
-        <a><img src="../../static/core/img/asogi.jpg" class="image"></a><br>
-        <a class="title">Asogi</a>
-      </div>
-      <div id="beat-trip" class="creator">
-        <a href="https://beat-trip.bandcamp.com/" target="_blank"><img src="../../static/core/img/beat-trip.jpg" class="image"></a><br>
-        <a href="https://beat-trip.bandcamp.com/" target="_blank" class="title">Beat-Trip</a>
-      </div>
-      <div id="blaiserm" class="creator">
-        <a href="https://soundcloud.com/blaiserm" target="_blank"><img src="../../static/core/img/blaiserm.png" class="image"></a><br>
-        <a href="https://soundcloud.com/blaiserm" target="_blank" class="title">Blaise's Place</a>
-      </div>
-      <div id="city light mosaic" class="creator">
-        <a href="https://citylightmosaic.bandcamp.com/" target="_blank"><img src="../../static/core/img/citylight.jpg" class="image"></a><br>
-        <a href="https://citylightmosaic.bandcamp.com/" target="_blank" class="title">City Light Mosaic</a>
-      </div>
-      <div id="djhfs" class="creator">
-        <a href="https://soundcloud.com/djhfs" target="_blank"><img src="../../static/core/img/djhfs.png" class="image"></a><br>
-        <a href="https://soundcloud.com/djhfs" target="_blank" class="title">djhfs</a>
-      </div>
-      <div id="dagey bape god" class="creator">
-        <a href="https://soundcloud.com/ayyyyelmao" target="_blank"><img src="../../static/core/img/dage.jpg" class="image"></a><br>
-        <a href="https://soundcloud.com/ayyyyelmao" target="_blank" class="title">Dagey Bape God</a>
-      </div>
-      <div id="donotcondone" class="creator">
-        <a href="https://soundcloud.com/donotcondone" target="_blank"><img src="../../static/core/img/donotcondone.png" class="image"></a><br>
-        <a href="https://soundcloud.com/donotcondone" target="_blank" class="title">DoNotCondone</a>
-      </div>
-      <div id="earn raku" class="creator">
-        <a href="https://earnraku.bandcamp.com" target="_blank"><img src="../../static/core/img/earn.png" class="image"></a><br>
-        <a href="https://earnraku.bandcamp.com" target="_blank" class="title">Earn Raku</a>
-      </div>
-      <div id="farboro" class="creator">
-        <a href="http://farboro.com" target="_blank"><img src="../../static/core/img/farboro.png" class="image"></a><br>
-        <a href="http://farboro.com" target="_blank" class="title">Farboro</a>
-      </div>
-      <div id="notelord/ciaran" class="creator">
-        <a href="https://soundcloud.com/notelord" target="_blank"><img src="../../static/core/img/notelord.png" class="image"></a><br>
-        <a href="https://soundcloud.com/notelord" target="_blank" class="title">Ciaran Galati</a>
-      </div>
-      <div id="install a friend" class="creator">
-        <a href="https://installafriend.bandcamp.com" target="_blank"><img src="../../static/core/img/install.jpg" class="image"></a><br>
-        <a href="https://installafriend.bandcamp.com" target="_blank" class="title">Install a Friend</a>
-      </div>
-      <div id="todd jordan" class="creator">
-        <a href="http://toddgoesontheinternet.com/" target="_blank"><img src="../../static/core/img/todd.png" class="image"></a><br>
-        <a href="https://toddgoesontheinternet.com/" target="_blank" class="title">Todd Jordan</a>
-      </div>
-      <div id="kathi kross" class="creator">
-        <a><img src="../../static/core/img/kathi.jpg" class="image"></a><br>
-        <a class="title">Kathi Kross</a>
-      </div>
-      <div id="omar kooliyat" class="creator">
-        <a href="https://omark.bandcamp.com/" target="_blank"><img src="../../static/core/img/omar.jpeg" class="image"></a><br>
-        <a href="https://omark.bandcamp.com/" target="_blank" class="title">Omar Kooliyat</a>
-      </div>
-      <div id="krullebol" class="creator">
-        <a href="https://soundcloud.com/krullebol-809981715" target="_blank"><img src="../../static/core/img/krullebol.png" class="image"></a><br>
-        <a href="https://soundcloud.com/krullebol-809981715" target="_blank" class="title">Krullebol</a>
-      </div>
-      <div id="material girl" class="creator">
-        <a href="https://soundcloud.com/rdotperiod" target="_blank"><img src="../../static/core/img/materialgirl.jpg" class="image"></a><br>
-        <a href="https://soundcloud.com/rdotperiod" target="_blank" class="title">Material Girl</a>
-      </div>
-      <div id="memory lakes" class="creator">
-        <a href="https://memorylakes.bandcamp.com/releases" target="_blank"><img src="../../static/core/img/memory.png" class="image"></a><br>
-        <a href="https://memorylakes.bandcamp.com/releases" target="_blank" class="title">Memory Lakes</a>
-      </div>
-      <div id="mondegreen" class="creator">
-          <a href="https://mondegreenrowan.bandcamp.com/" target="_blank"><img src="../../static/core/img/mondegreen.jpg" class="image"></a><br>
-          <a href="https://mondegreenrowan.bandcamp.com/" target="_blank" class="title">Mondegreen</a>
-      </div>
-      <div id="naaki soul" class="creator">
-        <a href="https://soundcloud.com/naakisoul" target="_blank"><img src="../../static/core/img/naaki.png" class="image"></a><br>
-        <a href="https://soundcloud.com/naakisoul" target="_blank" class="title">Naaki Soul</a>
-      </div>
-      <div id="pink pots" class="creator">
-        <a href="https://pinkpots.bandcamp.com" target="_blank"><img src="../../static/core/img/pinkpots.png" class="image"></a><br>
-        <a href="https://pinkpots.bandcamp.com" target="_blank" class="title">Pink Pots</a>
-      </div>
-      <div id="prismadoll" class="creator">
-        <a href="https://soundcloud.com/prismadoll" target="_blank"><img src="../../static/core/img/prismadoll.png" class="image"></a><br>
-        <a href="https://soundcloud.com/prismadoll" target="_blank" class="title">Prismadoll</a>
-      </div>
-      <div id="therarity" class="creator">
-        <a><img src="../../static/core/img/rarity.png" class="image"></a><br>
-        <a class="title">The Rarity</a>
-      </div>      
-      <div id="saint misery" class="creator">
-        <a href="https://saintmisery.bandcamp.com/" target="_blank"><img src="../../static/core/img/saint.jpg" class="image"></a><br>
-        <a href="https://saintmisery.bandcamp.com/" target="_blank" class="title">Saint Misery</a>
-      </div>
-      <div id="pete sullivan" class="creator">
-        <a><img src="../../static/core/img/peter.jpeg" class="image"></a><br>
-        <a class="title">Pete Sullivan</a>
-      </div>
-      <div id="university press" class="creator">
-        <a><img src="../../static/core/img/universitypress.png" class="image"></a><br>
-        <a class="title">University Press</a>
-      </div>
+        <div id="asogi" class="creator">
+            <a><img src="../../static/core/img/asogi.jpg" class="image"></a>
+            <a class="title">Asogi</a>
+        </div>
+        <div id="beat-trip" class="creator">
+            <a href="https://beat-trip.bandcamp.com/" target="_blank">
+                <img class="image" src={% static "/core/img/beat-trip.jpg" %}/>
+            </a>
+            <a href="https://beat-trip.bandcamp.com/" target="_blank" class="title">Beat-Trip</a>
+        </div>
+        <div id="blaiserm" class="creator">
+            <a href="https://soundcloud.com/blaiserm" target="_blank"><img src="../../static/core/img/blaiserm.png"
+                                                                           class="image"></a>
+            <a href="https://soundcloud.com/blaiserm" target="_blank" class="title">Blaise's Place</a>
+        </div>
+        <div id="city light mosaic" class="creator">
+            <a href="https://citylightmosaic.bandcamp.com/" target="_blank"><img
+                    src="../../static/core/img/citylight.jpg"
+                    class="image"></a><br>
+            <a href="https://citylightmosaic.bandcamp.com/" target="_blank" class="title">City Light Mosaic</a>
+        </div>
+        <div id="djhfs" class="creator">
+            <a href="https://soundcloud.com/djhfs" target="_blank"><img src="../../static/core/img/djhfs.png"
+                                                                        class="image"></a><br>
+            <a href="https://soundcloud.com/djhfs" target="_blank" class="title">djhfs</a>
+        </div>
+        <div id="dagey bape god" class="creator">
+            <a href="https://soundcloud.com/ayyyyelmao" target="_blank"><img src="../../static/core/img/dage.jpg"
+                                                                             class="image"></a><br>
+            <a href="https://soundcloud.com/ayyyyelmao" target="_blank" class="title">Dagey Bape God</a>
+        </div>
+        <div id="donotcondone" class="creator">
+            <a href="https://soundcloud.com/donotcondone" target="_blank"><img
+                    src="../../static/core/img/donotcondone.png"
+                    class="image"></a><br>
+            <a href="https://soundcloud.com/donotcondone" target="_blank" class="title">DoNotCondone</a>
+        </div>
+        <div id="earn raku" class="creator">
+            <a href="https://earnraku.bandcamp.com" target="_blank"><img src="../../static/core/img/earn.png"
+                                                                         class="image"></a><br>
+            <a href="https://earnraku.bandcamp.com" target="_blank" class="title">Earn Raku</a>
+        </div>
+        <div id="farboro" class="creator">
+            <a href="http://farboro.com" target="_blank"><img src="../../static/core/img/farboro.png" class="image"></a><br>
+            <a href="http://farboro.com" target="_blank" class="title">Farboro</a>
+        </div>
+        <div id="notelord/ciaran" class="creator">
+            <a href="https://soundcloud.com/notelord" target="_blank"><img src="../../static/core/img/notelord.png"
+                                                                           class="image"></a><br>
+            <a href="https://soundcloud.com/notelord" target="_blank" class="title">Ciaran Galati</a>
+        </div>
+        <div id="install a friend" class="creator">
+            <a href="https://installafriend.bandcamp.com" target="_blank"><img src="../../static/core/img/install.jpg"
+                                                                               class="image"></a><br>
+            <a href="https://installafriend.bandcamp.com" target="_blank" class="title">Install a Friend</a>
+        </div>
+        <div id="todd jordan" class="creator">
+            <a href="http://toddgoesontheinternet.com/" target="_blank"><img src="../../static/core/img/todd.png"
+                                                                             class="image"></a><br>
+            <a href="https://toddgoesontheinternet.com/" target="_blank" class="title">Todd Jordan</a>
+        </div>
+        <div id="kathi kross" class="creator">
+            <a><img src="../../static/core/img/kathi.jpg" class="image"></a><br>
+            <a class="title">Kathi Kross</a>
+        </div>
+        <div id="omar kooliyat" class="creator">
+            <a href="https://omark.bandcamp.com/" target="_blank"><img src="../../static/core/img/omar.jpeg"
+                                                                       class="image"></a><br>
+            <a href="https://omark.bandcamp.com/" target="_blank" class="title">Omar Kooliyat</a>
+        </div>
+        <div id="krullebol" class="creator">
+            <a href="https://soundcloud.com/krullebol-809981715" target="_blank"><img
+                    src="../../static/core/img/krullebol.png" class="image"></a><br>
+            <a href="https://soundcloud.com/krullebol-809981715" target="_blank" class="title">Krullebol</a>
+        </div>
+        <div id="material girl" class="creator">
+            <a href="https://soundcloud.com/rdotperiod" target="_blank"><img
+                    src="../../static/core/img/materialgirl.jpg"
+                    class="image"></a><br>
+            <a href="https://soundcloud.com/rdotperiod" target="_blank" class="title">Material Girl</a>
+        </div>
+        <div id="memory lakes" class="creator">
+            <a href="https://memorylakes.bandcamp.com/releases" target="_blank"><img
+                    src="../../static/core/img/memory.png"
+                    class="image"></a><br>
+            <a href="https://memorylakes.bandcamp.com/releases" target="_blank" class="title">Memory Lakes</a>
+        </div>
+        <div id="mondegreen" class="creator">
+            <a href="https://mondegreenrowan.bandcamp.com/" target="_blank"><img
+                    src="../../static/core/img/mondegreen.jpg"
+                    class="image"></a><br>
+            <a href="https://mondegreenrowan.bandcamp.com/" target="_blank" class="title">Mondegreen</a>
+        </div>
+        <div id="naaki soul" class="creator">
+            <a href="https://soundcloud.com/naakisoul" target="_blank"><img src="../../static/core/img/naaki.png"
+                                                                            class="image"></a><br>
+            <a href="https://soundcloud.com/naakisoul" target="_blank" class="title">Naaki Soul</a>
+        </div>
+        <div id="pink pots" class="creator">
+            <a href="https://pinkpots.bandcamp.com" target="_blank"><img src="../../static/core/img/pinkpots.png"
+                                                                         class="image"></a><br>
+            <a href="https://pinkpots.bandcamp.com" target="_blank" class="title">Pink Pots</a>
+        </div>
+        <div id="prismadoll" class="creator">
+            <a href="https://soundcloud.com/prismadoll" target="_blank"><img src="../../static/core/img/prismadoll.png"
+                                                                             class="image"></a><br>
+            <a href="https://soundcloud.com/prismadoll" target="_blank" class="title">Prismadoll</a>
+        </div>
+        <div id="therarity" class="creator">
+            <a><img src="../../static/core/img/rarity.png" class="image"></a><br>
+            <a class="title">The Rarity</a>
+        </div>
+        <div id="saint misery" class="creator">
+            <a href="https://saintmisery.bandcamp.com/" target="_blank"><img src="../../static/core/img/saint.jpg"
+                                                                             class="image"></a><br>
+            <a href="https://saintmisery.bandcamp.com/" target="_blank" class="title">Saint Misery</a>
+        </div>
+        <div id="pete sullivan" class="creator">
+            <a><img src="../../static/core/img/peter.jpeg" class="image"></a><br>
+            <a class="title">Pete Sullivan</a>
+        </div>
+        <div id="university press" class="creator">
+            <a><img src="../../static/core/img/universitypress.png" class="image"></a><br>
+            <a class="title">University Press</a>
+        </div>
     </div>
-    <div id="linkbarmobile">
-      <div id="barlinks">
-        <a class="link" target="_blank" href="https://www.facebook.com/noagreements/">facebook</a> /
-        <a class="link" target="_blank" href="https://www.instagram.com/noagreementsofficial/">instagram</a> /
-        <a class="link" target="_blank" href="https://twitter.com/noagreements">twitter</a> |
-        <a class="link2" target="_blank" href="https://mantratrax.bandcamp.com">mantra</a>
-      </div>
-    </div>
-  </body>
-</html>
+{% endblock %}

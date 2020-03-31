@@ -1,174 +1,41 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-html {
-  font-family: coolvetica;
-  background-color: #cecece;
-  height: 100%;
-}
-@font-face {
-  font-family: "coolvetica";
-  src: url('../fonts/coolvetica.ttf');
-}
-
-#sidebarmobile {
-  display: none;
-}
-#sidebar {
-  background-color: #cecece;
-  width: 25%;
-  height: 100vh;
-  float: left;
-}
-#najn {
-  position: relative;
-  color: #836eb4;
-  font-size: 55px;
-  text-align: left;
-  text-transform: uppercase;
-  margin-left: 20px;
-  margin-top: 20px;
-  line-height: 70px;
-  z-index: 2;
-}
-.hoverstate {
-  position: absolute;
-  color: black;
-  opacity: 0;
-  text-decoration: none;
-}
-.hoverstate:hover {
-  opacity: 1;
-}
-.hoverstatesolid {
-  position: absolute;
-  color: black;
-}
-.doggie {
-  max-width: 140px;
-  max-height: 168px;
-  position: fixed;
-  bottom: 20px;
-  margin-left: 20px;
-  z-index: 1;
-}
-
-#linkbar {
-  background-color: #836eb4;
-  width: 100%;
-  height: 3vh;
-}
-#barlinks {
-  font-size: 2.5vh;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: right;
-  margin-right: 1vh;
-}
-.link {
-  color: black;
-  text-decoration: none;
-}
-.link2 {
-  color: black;
-  text-decoration: none;
-  text-shadow: .1vh .1vh 0 #f1eef7;
-}
-
 #group {
-  display: flex;
-  font-size: 140px;
-  background-color: #f1eef7;
-  height: 97vh;
-}
-.grouptext {
-  text-align: center;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin: auto;
+    display: flex;
+    font-size: 140px;
+    background-color: #f1eef7;
+    height: 97vh;
 }
 
-#linkbarmobile {
-  display: none;
+.grouptext {
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin: auto;
 }
 
 @media only screen and (max-width: 1900px) {
-  #najn {
-    font-size: 50px;
-    line-height: 64px;
-  }
-  .doggie {
-    width: 127px;
-  }
-  #group {
-    font-size: 125px;
-  }
+    #group {
+        font-size: 125px;
+    }
 }
+
 @media only screen and (max-width: 1700px) {
-  #najn {
-    font-size: 45px;
-    line-height: 57px;
-  }
-  .doggie {
-    width: 112px;
-  }
-  #group {
-    font-size: 110px;
-  }
+
+    #group {
+        font-size: 110px;
+    }
 }
+
 @media only screen and (max-width: 1500px) {
-  #najn {
-    font-size: 37px;
-    line-height: 47px;
-  }
-  .doggie {
-    width: 93px;
-  }
-  #group {
-    font-size: 90px;
-  }
+
+    #group {
+        font-size: 90px;
+    }
 }
+
 @media only screen and (max-width: 1200px) {
-  #sidebar {
-    display: none;
-  }
-  #sidebarmobile {
-    display: inherit;
-    background-color: #cecece;
-    color: #463a64;
-    font-size: 3.3vw;
-    text-align: center;
-  }
-  .mobilelink {
-    color: #836eb4;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 3.3vw;
-  }
 
-  #linkbar {
-    display: none;
-  }
-
-  #linkbarmobile {
-    display: inherit;
-    background-color: #836eb4;
-    width: 100%;
-  }
-  #barlinks {
-    font-size: 4.5vw;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: right;
-  }
-  .link2 {
-    color: black;
-    text-decoration: none;
-    text-shadow: 2px 2px 0 #f1eef7;
-  }
-  #group {
-    height: 100vh;
-    font-size: 160px;
-  }
+    #group {
+        height: 100vh;
+        font-size: 160px;
+    }
 }
