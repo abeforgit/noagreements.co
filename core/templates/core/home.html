@@ -6,26 +6,27 @@
 {% block css %}
     {{ block.super }}
     <link rel="stylesheet" type="text/css" href={% static "core/styles/home.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "core/styles/post_card.css" %}
 {% endblock %}
 {% block content %}
     <div id="mainpage">
-        <div id="featured">
-            {% for post in featured_posts %}
-                {% include "core/components/featured_post.html" with post=post only %}
+    <div id="featured">
+        {% for post in featured_posts %}
+            {% include "core/components/featured_post.html" with post=post only %}
+        {% endfor %}
+
+
+    </div>
+
+    <div id="latestreleases">
+        <div id="whatsnewmobile">
+            <span class="whatsnewtext">what's new?</span>
+        </div>
+        <div id="releases">
+            {% for post in recent_posts %}
+                {% include "core/components/post_card.html" with post=post only %}
             {% endfor %}
-
-
         </div>
-
-        <div id="latestreleases">
-            <div id="whatsnewmobile">
-                <span class="whatsnewtext">what's new?</span>
-            </div>
-            <div id="releases">
-                {% for post in recent_posts %}
-                    {% include "core/components/post_card.html" with post=post only %}
-                {% endfor %}
-            </div>
-        </div>
+    </div>
     </div>
 {% endblock %}

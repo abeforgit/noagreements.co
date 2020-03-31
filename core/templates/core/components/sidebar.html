@@ -1,32 +1,32 @@
 {% load static %}
 <div id="sidebar">
-    <img src={% static "core/img/doggie.png" %} class="doggie"/>
+    <img alt="doggie" class="doggie" src={% static "core/img/doggie.png" %}/>
     <div id="najn">
         <div>no agreements</div>
         <div>just noise</div>
         <div>...</div>
-        <a class="hoverstatesolid">////////</a>
-        <span>home</span><br>
-        <a class="hoverstate" href="about">//////////</a>
-        <span>about</span><br>
+        <a class="hoverstate" href={% url "home" %}>////////</a>
+        <div>home</div>
+        <a class="hoverstate" href={% url "about" %}>//////////</a>
+        <div>about</div>
         <a class="hoverstate" href="creators">///////////////</a>
-        <span>creators</span><br>
+        <div>creators</div>
         <a class="hoverstate" href="group">//////////</a>
-        <span>group</span><br>
+        <div>group</div>
         <a class="hoverstate" href="news">////////</a>
-        <span>news</span><br>
+        <div>news</div>
         <a class="hoverstate" href="mixes">////////</a>
-        <span>mixes</span><br>
-        <a class="hoverstate" href="store">/////////</a>
-        <span>store</span><br>
+        <div>mixes</div>
+        <a class="hoverstate" href={% url "login" %}>/////////</a>
+        <div>login</div>
     </div>
 </div>
 <div id="sidebarmobile">
-    <a class="mobilelink" href="home">home</a> /
-    <a class="mobilelink" href="about">about</a> /
+    <a class="mobilelink" href={% url "home" %}>home</a> /
+    <a class="mobilelink" href={% url "about" %}>about</a> /
     <a class="mobilelink" href="creators">creators</a> /
     <a class="mobilelink" href="group">group</a> /
     <a class="mobilelink" href="news">news</a> /
     <a class="mobilelink" href="mixes">mixes</a> /
-    <a class="mobilelink" href="store">store</a>
+    <a class="mobilelink" href={% url "login" %}>login</a>
 </div>

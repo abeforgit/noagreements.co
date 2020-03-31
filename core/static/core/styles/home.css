@@ -1,18 +1,3 @@
-.hoverstate {
-    position: absolute;
-    color: black;
-    opacity: 0;
-    text-decoration: none;
-}
-
-.doggie {
-    position: fixed;
-    bottom: 20px;
-    margin-left: 20px;
-    z-index: 1;
-}
-
-
 #mainpage {
     height: 97vh;
     display: flex;
@@ -99,9 +84,6 @@
 
 
 @media only screen and (max-width: 1900px) {
-    .doggie {
-        width: 127px;
-    }
 
     .releasetext {
         font-size: 28px;
@@ -129,9 +111,6 @@
 }
 
 @media only screen and (max-width: 1700px) {
-    .doggie {
-        width: 112px;
-    }
 
     .outnow {
         font-size: 45px;
@@ -159,9 +138,6 @@
 }
 
 @media only screen and (max-width: 1500px) {
-    .doggie {
-        width: 93px;
-    }
 
     .outnow {
         font-size: 37px;

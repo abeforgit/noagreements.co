@@ -1,4 +1,5 @@
 import bleach
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import Form
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
@@ -8,7 +9,8 @@ from blog.models import Post
 from blog.util.content_sanitizer import sanitize
 
 
-class CreatePostPage(CreateView):
+class CreatePostPage(LoginRequiredMixin, CreateView):
+    login_url = "/login"
     object: Post
     model = Post
     fields = ["title", "content", "user"]
