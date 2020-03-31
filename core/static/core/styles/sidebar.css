@@ -1,0 +1,69 @@
+#sidebarmobile {
+    display: none;
+}
+
+#sidebar {
+    background-color: #cecece;
+    width: 25%;
+    height: 100vh;
+    float: left;
+}
+
+.hoverstate:hover {
+    opacity: 1;
+}
+
+.hoverstatesolid {
+    position: absolute;
+    color: black;
+}
+
+#najn {
+    position: relative;
+    color: #836eb4;
+    font-size: 55px;
+    text-align: left;
+    text-transform: uppercase;
+    margin-left: 20px;
+    margin-top: 20px;
+    line-height: 70px;
+    z-index: 2;
+}
+
+@media only screen and (max-width: 1700px) {
+    #najn {
+        font-size: 45px;
+        line-height: 57px;
+    }
+
+}
+
+@media only screen and (max-width: 1500px) {
+
+    #najn {
+        font-size: 37px;
+        line-height: 47px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+
+    #sidebar {
+        display: none;
+    }
+
+    #sidebarmobile {
+        display: inherit;
+        background-color: #cecece;
+        color: #463a64;
+        font-size: 3.3vw;
+        text-align: center;
+    }
+
+    .mobilelink {
+        color: #836eb4;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 3.3vw;
+    }
+}

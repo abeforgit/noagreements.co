@@ -1,80 +1,31 @@
+{% extends "core/base.html" %}
 {% load static %}
-{% load components %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>No Agreements | Home</title>
-    <link rel="icon" href={% static "core/img/doggie.png" %}>
+{% block title %}
+    <title>Home</title>
+{% endblock %}
+{% block css %}
+    {{ block.super }}
     <link rel="stylesheet" type="text/css" href={% static "core/styles/home.css" %}>
-</head>
-<body>
-<div id="sidebarmobile">
-    <a class="mobilelink" href="home">home</a> /
-    <a class="mobilelink" href="about">about</a> /
-    <a class="mobilelink" href="creators">creators</a> /
-    <a class="mobilelink" href="group">group</a> /
-    <a class="mobilelink" href="news">news</a> /
-    <a class="mobilelink" href="mixes">mixes</a> /
-    <a class="mobilelink" href="store">store</a>
-</div>
+{% endblock %}
+{% block content %}
+    <div id="mainpage">
+        <div id="featured">
+            {% for post in featured_posts %}
+                {% include "core/components/featured_post.html" with post=post only %}
+            {% endfor %}
 
-<div id="linkbar">
-    <div id="barlinks">
-        <a class="link" target="_blank" href="https://noagreements.bandcamp.com">bandcamp</a> /
-        <a class="link" target="_blank" href="https://www.facebook.com/noagreements/">facebook</a> /
-        <a class="link" target="_blank" href="https://www.instagram.com/noagreementsofficial/">instagram</a> /
-        <a class="link" target="_blank" href="https://soundcloud.com/noagreements">soundcloud</a> /
-        <a class="link" target="_blank"
-           href="https://open.spotify.com/artist/4Fyt4RSVd6z6h6yhfyfAKJ?si=5_snZYtPTw-6gE52xKoUvQ">spotify</a> /
-        <a class="link" target="_blank" href="https://twitter.com/noagreements">twitter</a> /
-        <a class="link" target="_blank" href="https://www.youtube.com/channel/UCsc2t7ADVYpvNgXZT11syPA">youtube</a> |
-        <a class="link2" target="_blank" href="https://mantratrax.bandcamp.com">mantra</a>
-    </div>
-</div>
 
-<div id="mainpage">
-    <div id="newalbum">
-        <img class="newalbumimg" src="2.png">
-        <div class="newalbumtext">
-            <span class="outnow">disagreement ii out now</span><br>
-            <span class="newgroupalbum">[the new group album by no agreements]</span><br>
-            <div id="newalbumlinks">
-                <a class="newalbumlink" href="https://noagreements.bandcamp.com/album/disagreement-ii" target="_blank">buy
-                    the cd and poster<br></a>
-                <a class="newalbumlink" href="https://noagreements.bandcamp.com/album/disagreement-ii" target="_blank">download
-                    or stream</a>
+        </div>
+
+        <div id="latestreleases">
+            <div id="whatsnewmobile">
+                <span class="whatsnewtext">what's new?</span>
+            </div>
+            <div id="releases">
+                {% for post in recent_posts %}
+                    {% include "core/components/post_card.html" with post=post only %}
+                {% endfor %}
             </div>
         </div>
-        <div id="padding">
-
-        </div>
     </div>
-
-    <div id="latestreleases">
-        <div id="whatsnewmobile">
-            <span class="whatsnewtext">what's new?</span>
-        </div>
-        <div id="releases">
-            {% for post in recent_posts %}
-                {% post_card post %}
-            {% endfor %}
-        </div>
-        <div id="whatsnew">
-            <span class="whatsnewtext">what's new?</span>
-        </div>
-        <div id="mobilespacer">
-
-        </div>
-    </div>
-</div>
-<div id="linkbarmobile">
-    <div id="barlinks">
-        <a class="link" target="_blank" href="https://www.facebook.com/noagreements/">facebook</a> /
-        <a class="link" target="_blank" href="https://www.instagram.com/noagreementsofficial/">instagram</a> /
-        <a class="link" target="_blank" href="https://twitter.com/noagreements">twitter</a> |
-        <a class="link2" target="_blank" href="https://mantratrax.bandcamp.com">mantra</a>
-    </div>
-</div>
-</body>
-</html>
+{% endblock %}
