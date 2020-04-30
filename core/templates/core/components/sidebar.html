@@ -9,15 +9,17 @@
         <div>home</div>
         <a class="hoverstate" href={% url "about" %}>//////////</a>
         <div>about</div>
-        <a class="hoverstate" href="creators">///////////////</a>
+        <a class="hoverstate" href={% url "creators" %}>///////////////</a>
         <div>creators</div>
-        <a class="hoverstate" href="group">//////////</a>
+        <a class="hoverstate" href={% url "group" %}>//////////</a>
         <div>group</div>
-        <a class="hoverstate" href="news">////////</a>
+        <a class="hoverstate" href={% url "news" %}>////////</a>
         <div>news</div>
-        <a class="hoverstate" href="mixes">////////</a>
+        <a class="hoverstate" href={% url "mixes" %}>////////</a>
         <div>mixes</div>
         {% if user.is_authenticated %}
+            <a class="hoverstate" href={% url "new_post" %}>///////////</a>
+            <div>create</div>
             <a class="hoverstate" href={% url "logout" %}>////////////</a>
             <div>logout</div>
         {% else %}
@@ -26,12 +28,12 @@
         {% endif %}
     </div>
 </div>
-<div id="sidebarmobile">
-    <a class="mobilelink" href={% url "home" %}>home</a> /
-    <a class="mobilelink" href={% url "about" %}>about</a> /
-    <a class="mobilelink" href="creators">creators</a> /
-    <a class="mobilelink" href="group">group</a> /
-    <a class="mobilelink" href="news">news</a> /
-    <a class="mobilelink" href="mixes">mixes</a> /
-    <a class="mobilelink" href={% url "login" %}>login</a>
-</div>
+{#<div id="sidebarmobile">#}
+{#    <a class="mobilelink" href={% url "home" %}>home</a> /#}
+{#    <a class="mobilelink" href={% url "about" %}>about</a> /#}
+{#    <a class="mobilelink" href={% url "creators" %}>creators</a> /#}
+{#    <a class="mobilelink" href="group">group</a> /#}
+{#    <a class="mobilelink" href="news">news</a> /#}
+{#    <a class="mobilelink" href="mixes">mixes</a> /#}
+{#    <a class="mobilelink" href={% url "login" %}>login</a>#}
+{#</div>#}

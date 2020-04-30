@@ -1,23 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-</head>
-<body>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
+{% extends "core/base.html" %}
+{% block title %}
+    <title>No Agreements | New Post</title>
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
 
-<script>
-    var simplemde = new SimpleMDE({
-        element: document.getElementById("id_content"),
-        forceSync: true
-    });
-</script>
-</body>
-</html>
+    <script>
+        var simplemde = new SimpleMDE({
+            element: document.getElementById("id_content"),
+            forceSync: true
+        });
+    </script>
+{% endblock %}

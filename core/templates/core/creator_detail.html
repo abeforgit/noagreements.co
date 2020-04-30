@@ -1,0 +1,10 @@
+{% extends "core/base.html" %}
+{% block title %}
+    <title>No Agreements | {{ object.username }}</title>
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+    <h1>{{ object.username }}</h1>
+{% endblock %}

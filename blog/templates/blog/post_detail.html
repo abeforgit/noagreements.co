@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>{{ object.title }}</h1>
-<div>{{ object.pub_date }}</div>
-<div>{{ object.content | safe }}</div>
-</body>
-</html>
+{% extends "core/base.html" %}
+{% block title %}
+    <title>No Agreements | {{ object.title }}</title>
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+{%  endblock %}
+{% block content %}
+    <h1>{{ object.title }}</h1>
+    <div>{{ object.pub_date }}</div>
+    <div>{{ object.content | safe }}</div>
+{% endblock %}
