@@ -7,4 +7,8 @@
 {% endblock %}
 {% block content %}
     <h1>{{ object.username }}</h1>
+    {% for post in posts %}
+        {% include "core/components/post_card.html" with post=post only %}
+    {% endfor %}
+
 {% endblock %}
