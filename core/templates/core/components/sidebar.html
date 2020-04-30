@@ -17,8 +17,13 @@
         <div>news</div>
         <a class="hoverstate" href="mixes">////////</a>
         <div>mixes</div>
-        <a class="hoverstate" href={% url "login" %}>/////////</a>
-        <div>login</div>
+        {% if user.is_authenticated %}
+            <a class="hoverstate" href={% url "logout" %}>////////////</a>
+            <div>logout</div>
+        {% else %}
+            <a class="hoverstate" href={% url "login" %}>/////////</a>
+            <div>login</div>
+        {% endif %}
     </div>
 </div>
 <div id="sidebarmobile">

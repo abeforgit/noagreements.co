@@ -15,5 +15,4 @@ urlpatterns = [
     path("group", GroupPage.as_view(), name="group"),
     path("news", NewsPage.as_view(), name="news"),
     path("mixes", MixesPage.as_view(), name="mixes"),
-    path("login", LoginPage.as_view(), name="login")
 ]
