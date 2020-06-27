@@ -1,3 +1,6 @@
+# secret env variables
+*.env
+
 # jetbrains stuff
 .idea
 # Created by .ignore support plugin (hsz.mobi)

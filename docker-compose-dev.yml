@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  db:
+    environment:
+        - POSTGRES_DB=postgres
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+
+  web:
+    volumes:
+      - .:/code
+    command: python manage.py runserver 0.0.0.0:8000
+    environment:
+      - ENV=dev
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "8000:8000"

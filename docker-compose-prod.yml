@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    env_file:
+      - prod-variables.env
+  web:
+    env_file :
+      - prod-variables.env
+    volumes:
+      - .:/code
+    command: uvicorn noagreements.asgi:application --host "${HOST}" --port 8000
+    ports:
+      - "${PORT}:8000"
+    environment:
+      - ENV=prod
