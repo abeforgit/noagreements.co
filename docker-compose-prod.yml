@@ -5,12 +5,25 @@ services:
     env_file:
       - prod-variables.env
   web:
-    env_file :
+    env_file:
       - prod-variables.env
     volumes:
       - .:/code
-    command: uvicorn noagreements.asgi:application --host "${HOST}" --port 8000
+    command: ./docker-entrypoint.sh runprod
     ports:
-      - "${PORT}:8000"
+      - "${APP_PORT}:8000"
     environment:
       - ENV=prod
+
+  nginx:
+    image: nginx
+    depends_on:
+      - web
+    volumes:
+      - .:/code
+      - ./static:/static
+      - ./conf/nginx:/etc/nginx/conf.d
+    ports:
+      - "${PORT}:80"
+
+

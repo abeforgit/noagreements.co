@@ -117,7 +117,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 
-if os.environ['ENV'] == 'dev':
+if os.environ.get('ENV', "prod") == 'dev':
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = '1=9-qq*2*kr6&g^4e3c1r*mf6d%#hb+lv1r2ond9he#82be_3m'
 
@@ -127,5 +127,6 @@ if os.environ['ENV'] == 'dev':
 else:
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = os.environ['SECRET_KEY']
-    print(SECRET_KEY)
-    ALLOWED_HOSTS = [os.environ['HOST']]
+    ALLOWED_HOSTS = ["web"]
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+    STATIC_URL = "/static/"

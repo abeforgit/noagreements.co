@@ -10,7 +10,7 @@ services:
   web:
     volumes:
       - .:/code
-    command: python manage.py runserver 0.0.0.0:8000
+    command: ./docker-entrypoint.sh rundev
     environment:
       - ENV=dev
       - POSTGRES_DB=postgres

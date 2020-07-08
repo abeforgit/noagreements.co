@@ -1,3 +1,4 @@
+static
 # secret env variables
 *.env
 
