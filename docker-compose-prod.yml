@@ -15,7 +15,7 @@ services:
     environment:
       - ENV=prod
 
-  nginx:
+  noagreements:
     image: nginx
     depends_on:
       - web
