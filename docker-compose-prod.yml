@@ -10,8 +10,6 @@ services:
     volumes:
       - .:/code
     command: ./docker-entrypoint.sh runprod
-    ports:
-      - "${APP_PORT}:8000"
     environment:
       - ENV=prod
 

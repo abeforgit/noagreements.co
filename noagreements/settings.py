@@ -127,6 +127,6 @@ if os.environ.get('ENV', "prod") == 'dev':
 else:
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = os.environ['SECRET_KEY']
-    ALLOWED_HOSTS = ["web", os.environ.get("HOST")]
+    ALLOWED_HOSTS = ["web", os.environ.get("HOST"), "*", "localhost"]
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
     STATIC_URL = "/static/"
