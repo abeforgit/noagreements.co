@@ -58,7 +58,7 @@ This will start the default django development server on port 8000
 but uses a postgresql container for the database.
 
 
-### Flask only
+### Django only
 
 - run the following command
 ```shell script
