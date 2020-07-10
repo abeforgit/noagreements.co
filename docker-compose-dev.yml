@@ -12,7 +12,7 @@ services:
       - .:/code
     command: ./docker-entrypoint.sh rundev
     environment:
-      - ENV=dev
+      - ENV=devdocker
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
