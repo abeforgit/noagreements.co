@@ -1,12 +1,11 @@
-import bleach
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import Form
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
 from markdown import markdown
 
-from blog.models import Post
-from blog.util.content_sanitizer import sanitize
+from core.models import Post
+from core.util.content_sanitizer import sanitize
 
 
 class CreatePostPage(LoginRequiredMixin, CreateView):
@@ -14,7 +13,7 @@ class CreatePostPage(LoginRequiredMixin, CreateView):
     object: Post
     model = Post
     fields = ["title", "content", "user"]
-    template_name = "blog/create_post_page.html"
+    template_name = "core/create_post_page.html"
     success_url = "/post/{id}"
 
     def form_valid(self, form: Form):

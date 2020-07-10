@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.views.generic import DetailView
 
-from blog.models import Post
+from core.models import Post
 
 
 class CreatorDetailPage(DetailView):

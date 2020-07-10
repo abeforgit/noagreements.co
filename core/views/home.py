@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from blog.models import Post
+from core.models import Post
 
 
 class HomeView(TemplateView):
