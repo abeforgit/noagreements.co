@@ -1,5 +1,5 @@
 #mainpage {
-    height: 97vh;
+    height: 100%;
     display: flex;
     position: relative;
     z-index: 3;
@@ -46,6 +46,9 @@
 #latestreleases {
     width: 50%;
     background-color: #a9a5b3;
+    display: flex;
+    min-height: 100vh;
+    height: 100%;
 }
 
 #releases {

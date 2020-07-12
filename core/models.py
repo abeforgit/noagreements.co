@@ -10,6 +10,8 @@ class Post(models.Model):
     pub_date = models.DateTimeField('Date published', default=timezone.now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     featured = models.BooleanField(default=False)
+    cover_img = models.URLField(blank=True)
+    
 
     def __str__(self):
         return self.title

@@ -12,7 +12,7 @@ class CreatePostPage(LoginRequiredMixin, CreateView):
     login_url = "/login"
     object: Post
     model = Post
-    fields = ["title", "content", "user"]
+    fields = ["title", "content", "user", "cover_img"]
     template_name = "core/create_post_page.html"
     success_url = "/post/{id}"
 

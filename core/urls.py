@@ -5,6 +5,7 @@ from .views.creator_detail import CreatorDetailPage
 from .views.creators import CreatorsPage
 from .views.group import GroupPage
 from .views.home import HomeView
+from .views.logout import LogoutPage
 from .views.mixes import MixesPage
 from .views.news import NewsPage
 from .views.create_post import CreatePostPage
@@ -19,9 +20,9 @@ urlpatterns = [
     path("group", GroupPage.as_view(), name="group"),
     path("news", NewsPage.as_view(), name="news"),
     path("mixes", MixesPage.as_view(), name="mixes"),
-    path("post/add", CreatePostPage.as_view(), name="create_post"),
+    path("post/add", CreatePostPage.as_view(), name="new_post"),
     path("post/<int:pk>", PostDetailPage.as_view(), name="post_detail"),
-    path("login", LoginPage.as_view(), name="login")
-
+    path("login", LoginPage.as_view(), name="login"),
+    path("logout", LogoutPage.as_view(), name="logout")
 
 ]

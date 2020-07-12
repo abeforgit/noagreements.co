@@ -1,4 +1,5 @@
 {% extends "core/base.html" %}
+{% load static %}
 {% block title %}
     <title>No Agreements | New Post</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
@@ -6,6 +7,7 @@
 {% endblock %}
 {% block css %}
     {{ block.super }}
+    <link rel="stylesheet" href="{% static "core/styles/post_card.css" />
 {% endblock %}
 {% block content %}
     <form method="post">
