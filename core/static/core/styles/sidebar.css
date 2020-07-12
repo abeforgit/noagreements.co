@@ -5,10 +5,7 @@
 #sidebar {
     background-color: #cecece;
     width: 25%;
-    min-height: 100vh;
     height: 100%;
-    float: left;
-
 }
 
 .hoverstate {
