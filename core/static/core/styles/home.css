@@ -2,19 +2,18 @@
     display: flex;
     flex-direction: row;
     height: 100%;
-    overflow: scroll;
 }
 
-.home #latestreleases {
+
+.home #releases {
     width: 50%;
+    min-height: 100%;
     background-color: #a9a5b3;
-}
-
-.home #latestreleases #releases {
     display: flex;
     flex-wrap: wrap;
     grid-template-columns: 50% 50%;
     text-align: center;
     text-transform: uppercase;
+    overflow: scroll;
 }
 

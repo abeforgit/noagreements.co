@@ -6,6 +6,8 @@
     background-color: #cecece;
     width: 25%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .hoverstate {
@@ -32,9 +34,10 @@
 }
 
 #najn {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     color: #836eb4;
-    font-size: 55px;
+    font-size: 3.5em;
     text-align: left;
     text-transform: uppercase;
     margin-left: 20px;

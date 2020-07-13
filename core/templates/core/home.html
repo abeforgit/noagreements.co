@@ -19,15 +19,10 @@
 
         </div>
 
-        <div id="latestreleases">
-            <div id="whatsnewmobile">
-                <span class="whatsnewtext">what's new?</span>
-            </div>
-            <div id="releases">
-                {% for post in recent_posts %}
-                    {% include "core/components/post_card.html" with post=post only %}
-                {% endfor %}
-            </div>
+        <div id="releases">
+            {% for post in recent_posts %}
+                {% include "core/components/post_card.html" with post=post only %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
