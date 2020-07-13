@@ -7,13 +7,11 @@
 
 .home #releases {
     width: 50%;
-    min-height: 100%;
+    height: 100%;
     background-color: #a9a5b3;
     display: flex;
     flex-wrap: wrap;
-    grid-template-columns: 50% 50%;
     text-align: center;
     text-transform: uppercase;
-    overflow: scroll;
 }
 

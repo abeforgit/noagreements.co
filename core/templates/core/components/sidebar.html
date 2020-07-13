@@ -1,50 +1,52 @@
 {% load static %}
-<div id="sidebar">
-    <img alt="doggie" class="doggie" src="{% static 'core/img/doggie.png' %}"/>
-    <div id="najn">
-        <div>no agreements</div>
-        <div>just noise</div>
-        <div>...</div>
-        <div>
+<div class="sidebar">
+    <div class="sidebar-content">
+
+        <div class="item">
+            <div>no agreements</div>
+            <div>just noise</div>
+            <div>...</div>
+        </div>
+        <div class="item">
             <a class="hoverstate" href={% url "home" %}>////////</a>
             <div>home</div>
         </div>
-        <div>
+        <div class="item">
             <a class="hoverstate" href={% url "about" %}>//////////</a>
             <div>about</div>
         </div>
-        <div>
+        <div class="item">
             <a class="hoverstate" href={% url "creators" %}>///////////////</a>
             <div>creators</div>
         </div>
-        <div>
+        <div class="item">
             <a class="hoverstate" href={% url "group" %}>//////////</a>
             <div>group</div>
         </div>
 
-        <div>
+        <div class="item">
             <a class="hoverstate" href={% url "news" %}>////////</a>
             <div>news</div>
         </div>
-        <div>
+        <div class="item">
             <a class="hoverstate" href={% url "mixes" %}>////////</a>
             <div>mixes</div>
         </div>
         {% if user.is_authenticated %}
-            <div>
+            <div class="item">
                 <a class="hoverstate" href={% url "new_post" %}>///////////</a>
                 <div>create</div>
             </div>
-            <div>
+            <div class="item">
                 <a class="hoverstate" href={% url "creator_detail" user.id %}>//////</a>
                 <div>you</div>
             </div>
-            <div>
+            <div class="item">
                 <a class="hoverstate" href={% url "logout" %}>////////////</a>
                 <div>logout</div>
             </div>
         {% else %}
-            <div>
+            <div class="item">
                 <a class="hoverstate" href={% url "login" %}>/////////</a>
                 <div>login</div>
             </div>
