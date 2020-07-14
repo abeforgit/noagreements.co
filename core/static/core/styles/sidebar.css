@@ -5,7 +5,7 @@
 .sidebar {
     background-color: #cecece;
     width: 25%;
-    min-height: 100%;
+    height: 100%;
     position: fixed;
     z-index: 10;
     display: flex;
@@ -34,6 +34,7 @@
     display: flex;
     flex-direction: column;
     z-index: 2;
+    overflow: auto;
 }
 .sidebar .sidebar-content .item {
     font-size: 3.25em;

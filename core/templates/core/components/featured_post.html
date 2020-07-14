@@ -1,3 +1,12 @@
+{% load static %}
+<a class="featured-post carousel-cell" href={% url "post_detail" post.id %}>
 
-<div>{{ post.title }}</div>
-<div>{{ post.content | safe }}</div>
+    {% if post.cover_img %}
+        <img class="cover" alt="{{ post.title }}" src="{{ post.cover_img }}"/>
+    {% else %}
+        <img class="cover" alt="{{ post.title }}" src="{% static "core/img/doggie.png" %}"/>
+    {% endif %}
+
+    <div>{{ post.title }}</div>
+    <div>{{ post.content | safe }}</div>
+</a>

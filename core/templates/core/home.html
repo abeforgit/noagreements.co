@@ -2,16 +2,25 @@
 {% load static %}
 {% block title %}
     <title>Home</title>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 {% endblock %}
 {% block css %}
     {{ block.super }}
     <link rel="stylesheet" type="text/css" href={% static "core/styles/home.css" %}>
     <link rel="stylesheet" type="text/css" href={% static "core/styles/post_card.css" %}>
+    <link rel="stylesheet" type="text/css" href={% static "core/styles/featured_post.css" %}>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 {% endblock %}
 {% block content %}
 
     <div class="home">
-        <div id="featured">
+        <div class="featured main-carousel"
+             data-flickity=
+                     '{"cell-align": "left",
+                     "contain": "true",
+                     "wrapAround": "true",
+                     "autoPlay": 3000
+                     }'>
             {% for post in featured_posts %}
                 {% include "core/components/featured_post.html" with post=post only %}
             {% endfor %}
