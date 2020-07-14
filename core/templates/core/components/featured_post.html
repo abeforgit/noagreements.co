@@ -7,6 +7,12 @@
         <img class="cover" alt="{{ post.title }}" src="{% static "core/img/doggie.png" %}"/>
     {% endif %}
 
-    <div>{{ post.title }}</div>
-    <div>{{ post.content | safe }}</div>
+    <div class="title-box">
+        <div class="big-text light-color title"
+        >{{ post.title }}</div>
+    </div>
+
+    <div class="content-box">
+        <div class="small-text light-color content">{{ post.content | safe }}</div>
+    </div>
 </a>
