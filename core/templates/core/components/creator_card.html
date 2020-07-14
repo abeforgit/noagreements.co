@@ -1,1 +1,12 @@
-<a class="creator-card" href={% url "creator_detail" creator.id %}>{{ creator.username }}</a>
+{% load static %}
+<a class="creator-card" href={% url "creator_detail" creator.id %}>
+    {% if creator.profile_img %}
+        <img class="cover" alt="{{ post.title }}" src="{{ creator.profile_img }}"/>
+    {% else %}
+        <img class="cover" alt="{{ post.title }}" src="{% static "core/img/doggie.png" %}"/>
+    {% endif %}
+
+    <div class="username-box">
+        <span class="username">{{ creator.username }}</span>
+    </div>
+</a>

@@ -1,14 +1,15 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.views.generic import DetailView
 
 from core.models import Post
 
 
 class CreatorDetailPage(DetailView):
+    context_object_name = "detail_user"
     template_name = "core/creator_detail.html"
-    model = User
+    model = get_user_model()
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.filter(user_id=self.object.id)
+        context["posts"] = Post.objects.order_by("pub_date").reverse().filter(user_id=self.object.id)
         return context

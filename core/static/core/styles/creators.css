@@ -1,5 +1,5 @@
 
-#creators {
+.creators {
     height: 97vh;
     background-color: #f1eef7;
     font-family: coolvetica;
@@ -8,8 +8,8 @@
     font-size: 20px;
     text-align: center;
     text-transform: uppercase;
-    display: grid;
-    grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .image {
