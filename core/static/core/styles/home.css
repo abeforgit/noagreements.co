@@ -1,17 +1,25 @@
 .home {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: row;
-    height: 100%;
 }
 
 
 .home #releases {
-    width: 50%;
+    width: 51%;
     height: 100%;
     background-color: #a9a5b3;
     display: flex;
     flex-wrap: wrap;
     text-align: center;
     text-transform: uppercase;
+    overflow: auto;
+    /*-ms-overflow-style: none;  !* IE and Edge *!*/
+    /*scrollbar-width: none;  !* Firefox *!*/
 }
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+/*.home #releases::-webkit-scrollbar {*/
+/*  display: none;*/
+/*}*/
 

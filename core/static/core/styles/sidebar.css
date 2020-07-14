@@ -6,6 +6,8 @@
     background-color: #cecece;
     width: 25%;
     min-height: 100%;
+    position: fixed;
+    z-index: 10;
     display: flex;
     flex-direction: column;
 }

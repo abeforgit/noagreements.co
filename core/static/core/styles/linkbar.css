@@ -1,7 +1,9 @@
 #linkbar {
     background-color: #836eb4;
     width: 100%;
+    position: fixed;
     height: 2em;
+    z-index: 2;
 }
 
 #linkbarmobile {

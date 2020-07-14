@@ -1,12 +1,13 @@
 .post-card {
-    width: 20em;
-    height: 20em;
+    width: 19em;
+    height: 19em;
     text-decoration: none;
     color: #cecece;
     border-width: 10px;
     border-style: solid;
     border-color: #836eb4;
     position: relative;
+    margin: 1em 1em 0 1em;
 }
 
 .post-card .cover {
@@ -33,6 +34,4 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-
-
 }
