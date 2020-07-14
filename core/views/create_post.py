@@ -12,12 +12,13 @@ class CreatePostPage(LoginRequiredMixin, CreateView):
     login_url = "/login"
     object: Post
     model = Post
-    fields = ["title", "content", "user", "cover_img"]
+    fields = ["title", "content", "cover_img"]
     template_name = "core/create_post_page.html"
     success_url = "/post/{id}"
 
     def form_valid(self, form: Form):
         self.object = form.save(commit=False)
         self.object.content = sanitize(markdown(self.object.content))
+        self.object.user = self.request.user
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())

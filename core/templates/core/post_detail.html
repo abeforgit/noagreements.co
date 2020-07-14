@@ -1,12 +1,17 @@
 {% extends "core/base.html" %}
+{% load static %}
 {% block title %}
     <title>No Agreements | {{ object.title }}</title>
 {% endblock %}
 {% block css %}
     {{ block.super }}
+    <link rel="stylesheet" type="text/css" href={% static "core/styles/post-detail.css" %}>
+
 {%  endblock %}
 {% block content %}
+    <div class="post-detail">
     <h1>{{ object.title }}</h1>
     <div>{{ object.pub_date }}</div>
     <div>{{ object.content | safe }}</div>
+    </div>
 {% endblock %}

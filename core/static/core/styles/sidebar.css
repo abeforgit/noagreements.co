@@ -4,7 +4,7 @@
 
 .sidebar {
     background-color: #cecece;
-    width: 25%;
+    width: 20%;
     height: 100%;
     position: fixed;
     z-index: 10;
@@ -14,6 +14,8 @@
 
 .hoverstate {
     position: absolute;
+    left: 0;
+    bottom: 0;
     color: black;
     opacity: 0;
     text-decoration: none;
@@ -41,8 +43,9 @@
     text-align: left;
     text-transform: uppercase;
     color: #836eb4;
-    padding-left: 20px;
+    margin-left: 20px;
     padding-top: 5px;
+    position: relative;
 
 
 }

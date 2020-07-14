@@ -13,9 +13,9 @@ body {
 }
 
 #mainpage {
-    width: 75%;
+    width: 80%;
     height: calc(100vh - 2em);
-    left: 25%;
+    left: 20%;
     position: relative;
     top: 2em;
 }
