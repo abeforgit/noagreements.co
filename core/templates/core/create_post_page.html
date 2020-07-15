@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load basic_form_field %}
 {% block title %}
     <title>No Agreements | New Post</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
@@ -7,14 +8,20 @@
 {% endblock %}
 {% block css %}
     {{ block.super }}
-    <link rel="stylesheet" href="{% static "core/styles/create-post.css" %}" />
+    <link rel="stylesheet" href="{% static "core/styles/create-post.css" %}"/>
 {% endblock %}
 {% block content %}
-    <form class="create-post-form" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-    </form>
+    <div class="create-post">
+        <form class="create-post-form" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                {% basic_form_field form.title "title" %}
+                {% basic_form_field form.cover_img "cover_img" %}
+            </div>
+            {% basic_form_field form.content "content" %}
+            <input type="submit" value="Save">
+        </form>
+    </div>
 
     <script>
         var simplemde = new SimpleMDE({

@@ -1,0 +1,11 @@
+<div class="basic-form-field">
+    {{ field.errors }}
+    {{ field.label_tag }}
+    <p id="{{ id }}">
+        {{ field }}
+    </p>
+    {% if field.help_text %}
+        <p class="basic-form-help">{{ field.help_text | safe }}</p>
+
+    {% endif %}
+</div>

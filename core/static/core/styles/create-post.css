@@ -1,3 +1,21 @@
-.create-post-form{
+.create-post {
     padding: 1em;
+
 }
+.create-post #content {
+    position: relative;
+    height: 100%;
+    z-index: 100;
+}
+
+.create-post .form-row {
+    display: flex;
+}
+.form-row .basic-form-field {
+    width: 50%;
+    padding-right: 5em;
+}
+.form-row .basic-form-field input {
+    width: 100%;
+}
+
