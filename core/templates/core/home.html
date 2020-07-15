@@ -28,10 +28,13 @@
 
         </div>
 
-        <div id="releases">
-            {% for post in recent_posts %}
-                {% include "core/components/post_card.html" with post=post only %}
-            {% endfor %}
+        <div class="releases">
+            <div class="title big-text light-color">What's new</div>
+            <div class="releases-content">
+                {% for post in recent_posts %}
+                    {% include "core/components/post_card.html" with post=post only %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
