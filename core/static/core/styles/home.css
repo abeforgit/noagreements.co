@@ -46,6 +46,7 @@
     .home .releases {
 
         width: 100%;
+        padding-bottom: 7em;
     }
 
     .home .releases-content {

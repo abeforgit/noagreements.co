@@ -58,8 +58,8 @@
     border-radius: 50%;
     background: #836eb4;
     position: fixed;
-    bottom: 5em;
-    right: 5em;
+    bottom: 1em;
+    right: 1em;
     z-index: 1000;
     display: flex;
     flex-direction: column;
