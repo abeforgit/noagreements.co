@@ -1,7 +1,3 @@
-#sidebarmobile {
-    display: none;
-}
-
 .sidebar {
     background-color: #cecece;
     width: 20%;
@@ -38,6 +34,7 @@
     z-index: 2;
     overflow: auto;
 }
+
 .sidebar .sidebar-content .item {
     font-size: 3.25em;
     text-align: left;
@@ -50,54 +47,82 @@
 
 }
 
-@media only screen and (max-width: 1900px) {
-
-    .doggie {
-        width: 127px;
-    }
+.burger-wrapper {
+    display: none;
 }
 
-@media only screen and (max-width: 1700px) {
-    .doggie {
-        width: 112px;
-    }
+.burger {
+    cursor: pointer;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background: #836eb4;
+    position: fixed;
+    bottom: 5em;
+    right: 5em;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-    #najn {
-        font-size: 45px;
-        line-height: 57px;
-    }
+.burger .line {
+    background: #f1eef7;
+    width: 2.5em;
+    height: 0.3em;
+    margin: 0.3em 0;
+    border-radius: 15%;
+}
+
+.close-wrapper {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.close-button {
+    cursor: pointer;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background: #836eb4;
+    position: fixed;
+    bottom: 5em;
+    right: 5em;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 
-@media only screen and (max-width: 1500px) {
-    .doggie {
-        width: 93px;
-    }
-
-    #najn {
-        font-size: 37px;
-        line-height: 47px;
-    }
+.close-button .close-button-x {
+    font-size: 3em;
+    color: #f1eef7;
+    font-weight: bold;
 }
 
-@media only screen and (max-width: 1200px) {
+@media screen and (max-device-width: 800px) {
+    .burger-wrapper {
+        display: block;
+    }
 
-    #sidebar {
+    .sidebar {
         display: none;
     }
 
-    #sidebarmobile {
-        display: inherit;
-        background-color: #cecece;
-        color: #463a64;
-        font-size: 3.3vw;
-        text-align: center;
-    }
+    .mobile {
+        display: block;
+        position: fixed;
+        z-index: 2000;
+        width: 100%;
+        overflow: auto;
 
-    .mobilelink {
-        color: #836eb4;
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 3.3vw;
+
     }
 }
+

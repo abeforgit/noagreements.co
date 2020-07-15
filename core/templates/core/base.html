@@ -3,6 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
     {% block title %}
         <title>Title</title>
     {% endblock %}
@@ -15,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href={% static "core/styles/text-styles.css" %}>
         <link rel="stylesheet" type="text/css" href={% static "core/styles/linkbar.css" %}>
     {% endblock %}
+    <script src={% static "core/js/burger.js" %}></script>
 </head>
 <body>
 {% block sidebar %}
@@ -26,8 +28,8 @@
 {% endblock %}
 
 <div id="mainpage">
-{% block content %}
-{% endblock %}
+    {% block content %}
+    {% endblock %}
 
 </div>
 </body>

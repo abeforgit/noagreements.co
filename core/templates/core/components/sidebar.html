@@ -1,7 +1,6 @@
 {% load static %}
-<div class="sidebar">
-    <div class="sidebar-content">
-
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-content" onclick="closeBurger()">
         <div class="item">
             <div>no agreements</div>
             <div>just noise</div>
@@ -23,7 +22,6 @@
             <a class="hoverstate" href={% url "group" %}>//////////</a>
             <div>group</div>
         </div>
-
         <div class="item">
             <a class="hoverstate" href={% url "news" %}>////////</a>
             <div>news</div>
@@ -53,12 +51,18 @@
         {% endif %}
     </div>
 </div>
-{#<div id="sidebarmobile">#}
-{#    <a class="mobilelink" href={% url "home" %}>home</a> /#}
-{#    <a class="mobilelink" href={% url "about" %}>about</a> /#}
-{#    <a class="mobilelink" href={% url "creators" %}>creators</a> /#}
-{#    <a class="mobilelink" href="group">group</a> /#}
-{#    <a class="mobilelink" href="news">news</a> /#}
-{#    <a class="mobilelink" href="mixes">mixes</a> /#}
-{#    <a class="mobilelink" href={% url "login" %}>login</a>#}
-{#</div>#}
+<div class="burger-wrapper">
+    <div class="burger" onclick="openBurger()">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</div>
+
+<div class="close-wrapper" id="close-wrapper">
+    <div class="close-button" onclick="closeBurger()">
+        <p class="close-button-x">X</p>
+    </div>
+</div>
+
+
