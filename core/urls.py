@@ -1,4 +1,6 @@
 from django.urls import path
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetCompleteView
+from django.contrib.auth.views import PasswordResetConfirmView
 
 from .views.about import AboutPage
 from .views.creator_detail import CreatorDetailPage
@@ -23,6 +25,9 @@ urlpatterns = [
     path("post/add", CreatePostPage.as_view(), name="new_post"),
     path("post/<int:pk>", PostDetailPage.as_view(), name="post_detail"),
     path("login", LoginPage.as_view(), name="login"),
-    path("logout", LogoutPage.as_view(), name="logout")
-
+    path("logout", LogoutPage.as_view(), name="logout"),
+    path("password_reset", PasswordResetView.as_view(), name="password_reset"),
+    path("reset/<uidb64>/<token>", PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
+    path("reset/done", PasswordResetDoneView.as_view(), name="password_reset_done"),
+    path("reset/complete", PasswordResetCompleteView.as_view(), name="password_reset_complete")
 ]

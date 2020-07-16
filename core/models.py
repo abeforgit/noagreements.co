@@ -6,6 +6,7 @@ from noagreements import settings
 
 
 class User(AbstractUser):
+    email = models.EmailField(blank=False)
     profile_img = models.URLField(blank=True)
 
 
