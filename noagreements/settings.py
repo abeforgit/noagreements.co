@@ -19,9 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'django.contrib.admin',
@@ -47,7 +45,7 @@ ROOT_URLCONF = 'noagreements.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['noagreements/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,8 +104,10 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
+DEFAULT_FROM_EMAIL = "noreply@noagreements.co"
 
 if os.environ.get('ENV', "prod") == 'dev':
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = '1=9-qq*2*kr6&g^4e3c1r*mf6d%#hb+lv1r2ond9he#82be_3m'
 
@@ -121,6 +121,7 @@ if os.environ.get('ENV', "prod") == 'dev':
         }
     }
 elif os.environ.get('ENV', "prod") == 'devdocker':
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = '1=9-qq*2*kr6&g^4e3c1r*mf6d%#hb+lv1r2ond9he#82be_3m'
 
@@ -138,6 +139,13 @@ elif os.environ.get('ENV', "prod") == 'devdocker':
         }
     }
 else:
+    EMAIL_HOST = os.environ.get("EMAIL_HOST")
+    EMAIL_PORT = os.environ.get("EMAIL_PORT")
+    EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+
+    EMAIL_USE_SSL = True
+
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = os.environ['SECRET_KEY']
     ALLOWED_HOSTS = ["web", os.environ.get("HOST"), "*", "localhost"]
