@@ -10,7 +10,6 @@ class User(AbstractUser):
 
 
 class Post(models.Model):
-    'core.apps.CoreConfig'
     title = models.CharField(max_length=255)
     content = models.TextField()
     pub_date = models.DateTimeField('Date published', default=timezone.now)
