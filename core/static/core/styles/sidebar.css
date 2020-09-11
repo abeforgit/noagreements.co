@@ -1,128 +1,117 @@
-.sidebar {
-    background-color: #cecece;
-    width: 20%;
-    height: 100%;
-    position: fixed;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-}
-
-.hoverstate {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    color: black;
-    opacity: 0;
-    text-decoration: none;
-}
-
-.hoverstate:hover {
-    opacity: 1;
-}
+/*.sidebar {*/
+/*    background-color: #cecece;*/
+/*    width: 20%;*/
+/*    height: 100%;*/
+/*    position: fixed;*/
+/*    z-index: 10;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
 
 
-.sidebar .doggie {
-    position: fixed;
-    bottom: 20px;
-    z-index: 1;
-}
-
-.sidebar .sidebar-content {
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    overflow: auto;
-}
-
-.sidebar .sidebar-content .item {
-    font-size: 3.25em;
-    text-align: left;
-    text-transform: uppercase;
-    color: #836eb4;
-    margin-left: 20px;
-    padding-top: 5px;
-    position: relative;
 
 
-}
+/*.sidebar .doggie {*/
+/*    position: fixed;*/
+/*    bottom: 20px;*/
+/*    z-index: 1;*/
+/*}*/
 
-.burger-wrapper {
-    display: none;
-}
+/*.sidebar .sidebar-content {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    z-index: 2;*/
+/*    overflow: auto;*/
+/*}*/
 
-.burger {
-    cursor: pointer;
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
-    background: #836eb4;
-    position: fixed;
-    bottom: 1em;
-    right: 1em;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.burger .line {
-    background: #f1eef7;
-    width: 2.5em;
-    height: 0.3em;
-    margin: 0.3em 0;
-    border-radius: 15%;
-}
-
-.close-wrapper {
-    display: none;
-}
-
-.active {
-    display: block;
-}
-
-.close-button {
-    cursor: pointer;
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
-    background: #836eb4;
-    position: fixed;
-    bottom: 1em;
-    right: 1em;
-    z-index: 3000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.close-button .close-button-x {
-    font-size: 3em;
-    color: #f1eef7;
-    font-weight: bold;
-}
-
-@media all and (max-width: 800px) {
-    .burger-wrapper {
-        display: block;
-    }
-
-    .sidebar {
-        display: none;
-    }
-
-    .mobile {
-        display: block;
-        position: fixed;
-        z-index: 2000;
-        width: 100%;
-        overflow: auto;
+/*.sidebar .sidebar-content .item {*/
+/*    font-size: 3.25em;*/
+/*    text-align: left;*/
+/*    text-transform: uppercase;*/
+/*    color: #836eb4;*/
+/*    margin-left: 20px;*/
+/*    padding-top: 5px;*/
+/*    position: relative;*/
 
 
-    }
-}
+/*}*/
+
+/*.burger-wrapper {*/
+/*    display: none;*/
+/*}*/
+
+/*.burger {*/
+/*    cursor: pointer;*/
+/*    width: 5em;*/
+/*    height: 5em;*/
+/*    border-radius: 50%;*/
+/*    background: #836eb4;*/
+/*    position: fixed;*/
+/*    bottom: 1em;*/
+/*    right: 1em;*/
+/*    z-index: 1000;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.burger .line {*/
+/*    background: #f1eef7;*/
+/*    width: 2.5em;*/
+/*    height: 0.3em;*/
+/*    margin: 0.3em 0;*/
+/*    border-radius: 15%;*/
+/*}*/
+
+/*.close-wrapper {*/
+/*    display: none;*/
+/*}*/
+
+/*.active {*/
+/*    display: block;*/
+/*}*/
+
+/*.close-button {*/
+/*    cursor: pointer;*/
+/*    width: 5em;*/
+/*    height: 5em;*/
+/*    border-radius: 50%;*/
+/*    background: #836eb4;*/
+/*    position: fixed;*/
+/*    bottom: 1em;*/
+/*    right: 1em;*/
+/*    z-index: 3000;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+
+/*}*/
+
+/*.close-button .close-button-x {*/
+/*    font-size: 3em;*/
+/*    color: #f1eef7;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*@media all and (max-width: 800px) {*/
+/*    .burger-wrapper {*/
+/*        display: block;*/
+/*    }*/
+
+/*    .sidebar {*/
+/*        display: none;*/
+/*    }*/
+
+/*    .mobile {*/
+/*        display: block;*/
+/*        position: fixed;*/
+/*        z-index: 2000;*/
+/*        width: 100%;*/
+/*        overflow: auto;*/
+
+
+/*    }*/
+/*}*/
 

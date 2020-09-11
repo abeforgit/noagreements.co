@@ -1,56 +1,27 @@
 {% load static %}
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-content" onclick="closeBurger()">
-        <div class="item">
+<aside class="dib flex flex-column bg-light-gray mw-30" id="sidebar">
+    <div class="pa4" onclick="closeBurger()">
+        <div class="f1 purple ttu">
             <div>no agreements</div>
             <div>just noise</div>
             <div>...</div>
         </div>
-        <div class="item">
-            <a class="hoverstate" href={% url "home" %}>////////</a>
-            <div>home</div>
-        </div>
-        <div class="item">
-            <a class="hoverstate" href={% url "about" %}>//////////</a>
-            <div>about</div>
-        </div>
-        <div class="item">
-            <a class="hoverstate" href={% url "creators" %}>///////////////</a>
-            <div>creators</div>
-        </div>
-        <div class="item">
-            <a class="hoverstate" href={% url "group" %}>//////////</a>
-            <div>group</div>
-        </div>
-        <div class="item">
-            <a class="hoverstate" href={% url "news" %}>////////</a>
-            <div>news</div>
-        </div>
-        <div class="item">
-            <a class="hoverstate" href={% url "mixes" %}>////////</a>
-            <div>mixes</div>
-        </div>
+        {% include "core/components/sidebar_item.html" with label="home" url="home" only %}
+        {% include "core/components/sidebar_item.html" with label="about" url="about" only %}
+        {% include "core/components/sidebar_item.html" with label="creators" url="creators" only %}
+        {% include "core/components/sidebar_item.html" with label="group" url="group" only %}
+        {% include "core/components/sidebar_item.html" with label="news" url="news" only %}
+        {% include "core/components/sidebar_item.html" with label="mixes" url="mixes" only %}
+
         {% if user.is_authenticated %}
-            <div class="item">
-                <a class="hoverstate" href={% url "new_post" %}>///////////</a>
-                <div>create</div>
-            </div>
-            <div class="item">
-                <a class="hoverstate" href={% url "creator_detail" user.id %}>//////</a>
-                <div>you</div>
-            </div>
-            <div class="item">
-                <a class="hoverstate" href={% url "logout" %}>////////////</a>
-                <div>logout</div>
-            </div>
+            {% include "core/components/sidebar_item.html" with label="create" url="new_post" only %}
+            {% include "core/components/sidebar_item.html" with label="you" url="creator_detail" only %}
+            {% include "core/components/sidebar_item.html" with label="logout" url="logout" only %}
         {% else %}
-            <div class="item">
-                <a class="hoverstate" href={% url "login" %}>/////////</a>
-                <div>login</div>
-            </div>
+            {% include "core/components/sidebar_item.html" with label="login" url="login" only %}
         {% endif %}
     </div>
-</div>
+</aside>
 <div class="burger-wrapper">
     <div class="burger" onclick="openBurger()">
         <div class="line"></div>

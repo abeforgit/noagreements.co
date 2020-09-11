@@ -13,6 +13,22 @@ body {
     height: 100vh;
 }
 
+.hoverstate {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: black;
+    opacity: 0;
+    text-decoration: none;
+    text-overflow: clip;
+}
+.hoverstate:hover {
+    opacity: 1;
+}
+.wmc {
+    width: max-content;
+}
+
 #mainpage {
     width: 80%;
     height: calc(100vh - 2em);
@@ -29,5 +45,6 @@ body {
     }
 
 }
+
 
 
