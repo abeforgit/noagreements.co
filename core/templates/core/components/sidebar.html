@@ -1,4 +1,5 @@
 {% load static %}
+{% load sidebar_item %}
 <aside class="dib flex flex-column bg-light-gray mw-30" id="sidebar">
     <div class="pa4" onclick="closeBurger()">
         <div class="f1 purple ttu">
@@ -6,19 +7,19 @@
             <div>just noise</div>
             <div>...</div>
         </div>
-        {% include "core/components/sidebar_item.html" with label="home" url="home" only %}
-        {% include "core/components/sidebar_item.html" with label="about" url="about" only %}
-        {% include "core/components/sidebar_item.html" with label="creators" url="creators" only %}
-        {% include "core/components/sidebar_item.html" with label="group" url="group" only %}
-        {% include "core/components/sidebar_item.html" with label="news" url="news" only %}
-        {% include "core/components/sidebar_item.html" with label="mixes" url="mixes" only %}
-
+        {% sidebar_item "home" "home" 8 %}
+        {% sidebar_item "about" "about" 10 %}
+        {% sidebar_item "creators" "creators" 15 %}
+        {% sidebar_item "group" "group" 10 %}
+        {% sidebar_item "news" "news" 9 %}
+        {% sidebar_item "mixes" "mixes" 9 %}
         {% if user.is_authenticated %}
-            {% include "core/components/sidebar_item.html" with label="create" url="new_post" only %}
-            {% include "core/components/sidebar_item.html" with label="you" url="creator_detail" only %}
-            {% include "core/components/sidebar_item.html" with label="logout" url="logout" only %}
+            {% sidebar_item "create" "new_post" 11 %}
+            {% sidebar_item "you" "creator_detail" 6 user.id %}
+            {% sidebar_item "logout" "logout" 12 %}
         {% else %}
-            {% include "core/components/sidebar_item.html" with label="login" url="login" only %}
+            {% sidebar_item "login" "login" 9 %}
+
         {% endif %}
     </div>
 </aside>

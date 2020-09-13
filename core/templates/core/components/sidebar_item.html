@@ -1,9 +1,9 @@
 {% load static %}
 
 <div class="relative f1 purple ttu">
-        <div >
-            <a class="link hoverstate overflow-hidden" href={% url url %}>
-                {% for c in label %}{% if c == "i" %}/{% else %}//{% endif %}{% endfor %}
+        <div>
+            <a class="link hoverstate overflow-hidden" href={{ url }}>
+                {% for c in slashes %}/{% endfor %}
             </a>
             {{ label }}</div>
 </div>
