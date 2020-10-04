@@ -25,7 +25,7 @@ class Post(models.Model):
     pub_date = models.DateTimeField('Date published', default=timezone.now)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     cover_img = models.URLField(blank=True)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     class Meta:
         ordering = ["pub_date"]

@@ -3,11 +3,18 @@
 {% load basic_form_field %}
 {% block title %}
     <title>No Agreements | New Post</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <style>
+        input, select {
+            width: 100%
+        }
+    </style>
 {% endblock %}
 {% block css %}
     {{ block.super }}
+    {{ form.media.css }}
     <link rel="stylesheet" href="{% static "core/styles/create-post.css" %}"/>
 {% endblock %}
 {% block content %}
@@ -19,7 +26,12 @@
                 {% basic_form_field form.cover_img "cover_img" %}
             </div>
             {% basic_form_field form.content "content" %}
-            <input type="submit" value="Save">
+            <div class="w-50">
+                {% basic_form_field form.tags "tags" %}
+            </div>
+            <button type="submit" >Save</button>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            {{ form.media.js }}
         </form>
     </div>
 

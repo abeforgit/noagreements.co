@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
 from markdown import markdown
 
+from core.forms import PostForm
 from core.models import Post
 from core.util.content_sanitizer import sanitize
 
@@ -12,7 +13,7 @@ class CreatePostPage(LoginRequiredMixin, CreateView):
     login_url = "/login"
     object: Post
     model = Post
-    fields = ["title", "content", "cover_img"]
+    form_class = PostForm
     template_name = "core/create_post_page.html"
     success_url = "/post/{id}"
 
@@ -21,4 +22,5 @@ class CreatePostPage(LoginRequiredMixin, CreateView):
         self.object.content = sanitize(markdown(self.object.content))
         self.object.user = self.request.user
         self.object.save()
+        self.object.tags.set(form.cleaned_data["tags"])
         return HttpResponseRedirect(self.get_success_url())
