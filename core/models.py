@@ -10,13 +10,30 @@ class User(AbstractUser):
     profile_img = models.URLField(blank=True)
 
 
+class Tag(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=2000)
+    show_on_home = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=500)
     content = models.TextField()
     pub_date = models.DateTimeField('Date published', default=timezone.now)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    featured = models.BooleanField(default=False)
     cover_img = models.URLField(blank=True)
+    tags = models.ManyToManyField(Tag)
+
+    class Meta:
+        ordering = ["pub_date"]
 
     def __str__(self):
         return self.title
+
+    def show_tags(self):
+        return ", ".join(map(lambda t: str(t), self.tags.all().iterator()))
+
+    show_tags.short_description = "tags"

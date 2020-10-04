@@ -13,3 +13,9 @@
 .hover-bg-moon-purple:hover,
 .hover-bg-moon-purple:focus { background-color: var(--moon-purple); }
 .b--moon-purple { border-color: var(--moon-purple); }
+
+
+.h-95 {
+    height: 95%;
+
+}
