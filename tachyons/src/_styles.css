@@ -6,3 +6,10 @@
 
 */
 
+.moon-purple { color: var(--moon-purple); }
+.bg-moon-purple { background-color: var(--moon-purple); }
+.hover-moon-purple:hover,
+.hover-moon-purple:focus { color: var(--moon-purple); }
+.hover-bg-moon-purple:hover,
+.hover-bg-moon-purple:focus { background-color: var(--moon-purple); }
+.b--moon-purple { border-color: var(--moon-purple); }

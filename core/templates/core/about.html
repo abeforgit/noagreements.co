@@ -5,52 +5,53 @@
 {% endblock %}
 {% block css %}
     {{ block.super }}
-    <link rel="stylesheet" type="text/css" href={% static "core/styles/about.css" %}>
+    <link rel="stylesheet" type="text/css"
+          href={% static "core/styles/about.css" %}>
 {% endblock %}
 {% block content %}
 
-    <div id="about">
-        <div id="bio">
-            <h1>No Agreements is an internet based multimedia
-                art collective founded by City Light Mosaic in
-                2018 with members all across the globe</h1>
-        </div>
-        <div id="members">
-            <h1><span class="current">The current members/groups of No Agreements are:</span><br>
-                <span class="member">Asogi</span>,
-                <span class="member">beat-trip</span>,
-                <span class="member">Blaise's Place/djhfs</span>,
-                <span class="member">Dagey Bape God</span>,
-                <span class="member">DoNotCondone</span>,
-                <span class="member">Earn Raku</span>,
-                <span class="member">Farboro</span>,
-                <span class="member">Install a Friend</span>,
-                <span class="member">Todd Jordan</span>,
-                <span class="member">Kathi Kross</span>,
-                <span class="member">Omar Kooliyat</span>,
-                <span class="member">Krullebol</span>,
-                <span class="member">Material Girl</span>,
-                <span class="member">Memory Lakes</span>,
-                <span class="member">Mondegreen</span>,
-                <span class="member">Naaki Soul</span>,
-                <span class="member">NoteLord/Ciaran Galati</span>,
-                <span class="member">Pink Pots</span>,
-                <span class="member">Prismadoll</span>,
-                <span class="member">Saint Misery</span>,
-                <span class="member">Pete Sullivan</span>,
-                <span class="member">University Press</span>,
-                and <span class="member">The Rarity</span></h1>
-        </div>
-        <div id="contact">
-            <h1 class="contact">contact:</h1>
-            <br>
-            <h1 class="general">general: <a href="mailto: contact@noagreements.co"
-                                            class="link">contact@noagreements.co</a>
+    <div class="h-100 flex flex-column bg-moon-purple">
+        <h1 class="pa5 f1 tac">No Agreements is an internet based multimedia
+            art collective founded by City Light Mosaic in
+            2018 with members all across the globe</h1>
+        <div class="tac pa3">
+            <h1>
+                <span class="f2 underline">The current members/groups of No Agreements are:</span><br>
+                {% include "core/components/about_member.html" with name="Asogi" only %},
+                {% include "core/components/about_member.html" with name="beat-trip" only %},
+                {% include "core/components/about_member.html" with name="Blaise's Place/djhfs" only %},
+                {% include "core/components/about_member.html" with name="Dagey Bape God" only %},
+                {% include "core/components/about_member.html" with name="DoNotCondone" only %},
+                {% include "core/components/about_member.html" with name="Earn Raku" only %},
+                {% include "core/components/about_member.html" with name="Farboro" only %},
+                {% include "core/components/about_member.html" with name="Install a Friend" only %},
+                {% include "core/components/about_member.html" with name="Todd Jordan" only %},
+                {% include "core/components/about_member.html" with name="Kathi Kross" only %},
+                {% include "core/components/about_member.html" with name="Omar Kooliyat" only %},
+                {% include "core/components/about_member.html" with name="Krullebol" only %},
+                {% include "core/components/about_member.html" with name="Material Girl" only %},
+                {% include "core/components/about_member.html" with name="Memory Lakes" only %},
+                {% include "core/components/about_member.html" with name="Mondegreen" only %},
+                {% include "core/components/about_member.html" with name="Naaki Soul" only %},
+                {% include "core/components/about_member.html" with name="NoteLord/Ciaran Galati" only %},
+                {% include "core/components/about_member.html" with name="Pink Pots" only %},
+                {% include "core/components/about_member.html" with name="Prismadoll" only %},
+                {% include "core/components/about_member.html" with name="Saint Misery" only %},
+                {% include "core/components/about_member.html" with name="Pete Sullivan" only %},
+                {% include "core/components/about_member.html" with name="University Press" only %},
+                and {% include "core/components/about_member.html" with name="The Rarity" only %}
             </h1>
-            <h1 class="support">support: <a href="mailto: support@noagreements.co"
-                                            class="link">support@noagreements.co</a>
+        </div>
+        <div>
+            <h1>contact:</h1>
+            <h1>general:
+                <a href="mailto: contact@noagreements.co">contact@noagreements.co</a>
             </h1>
-            <h1 class="submissions">submissions: <a href="mailto: submissions@noagreements.co" class="link">submissions@noagreements.co</a>
+            <h1>support:
+                <a href="mailto: support@noagreements.co">support@noagreements.co</a>
+            </h1>
+            <h1>submissions:
+                <a href="mailto: submissions@noagreements.co">submissions@noagreements.co</a>
             </h1>
         </div>
     </div>
