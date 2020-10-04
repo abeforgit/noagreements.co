@@ -1,6 +1,6 @@
 {% load static %}
 {% load sidebar_item %}
-<aside class="dib flex flex-column bg-light-gray mw-30" id="sidebar">
+<aside class="dib flex flex-column bg-moon-gray mw-30 h-100 overflow-auto w-100" id="sidebar">
     <div class="pa4" onclick="closeBurger()">
         <div class="f1 purple ttu">
             <div>no agreements</div>
@@ -10,9 +10,7 @@
         {% sidebar_item "home" "home" 8 %}
         {% sidebar_item "about" "about" 10 %}
         {% sidebar_item "creators" "creators" 15 %}
-        {% sidebar_item "group" "group" 10 %}
         {% sidebar_item "news" "news" 9 %}
-        {% sidebar_item "mixes" "mixes" 9 %}
         {% if user.is_authenticated %}
             {% sidebar_item "create" "new_post" 11 %}
             {% sidebar_item "you" "creator_detail" 6 user.id %}
@@ -23,7 +21,7 @@
         {% endif %}
     </div>
 </aside>
-<div class="burger-wrapper">
+<div class="burger-wrapper dn-l">
     <div class="burger" onclick="openBurger()">
         <div class="line"></div>
         <div class="line"></div>
@@ -31,7 +29,7 @@
     </div>
 </div>
 
-<div class="close-wrapper" id="close-wrapper">
+<div class="close-wrapper dn-l" id="close-wrapper">
     <div class="close-button" onclick="closeBurger()">
         <p class="close-button-x">X</p>
     </div>
