@@ -1,14 +1,16 @@
 {% load static %}
-<a class="post-card" href={% url "post_detail" post.id %}>
+<a class="w5 h5 relative carousel-cell ba bw2 b--black mr3"
+   href={% url "post_detail" post.id %}>
 
     {% if post.cover_img %}
-        <img class="cover" alt="{{ post.title }}" src="{{ post.cover_img }}"/>
+        <img class="h-100" alt="{{ post.title }}" src="{{ post.cover_img }}"/>
     {% else %}
-        <img class="cover" alt="{{ post.title }}" src="{% static "core/img/doggie.png" %}"/>
+        <img class="h-100" alt="{{ post.title }}"
+             src="{% static "core/img/doggie.png" %}"/>
     {% endif %}
 
-    <div class="title-box">
-        <span class="title">{{ post.title }}</span>
+    <div class="absolute bg-black-20 h4 bottom-0 left-0 right-0 ph2 flex justify-center items-center">
+        <span class="title f2 tc white ttu">{{ post.title }}</span>
 
     </div>
 </a>

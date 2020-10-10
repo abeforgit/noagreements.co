@@ -4,18 +4,18 @@
    href={% url "post_detail" post.id %}>
 
     {% if post.cover_img %}
-        <img class="w-100" alt="{{ post.title }}" src="{{ post.cover_img }}"/>
+        <img class="h-100" alt="{{ post.title }}" src="{{ post.cover_img }}"/>
     {% else %}
-        <img class="w-100" alt="{{ post.title }}"
+        <img class="h-100" alt="{{ post.title }}"
              src="{% static "core/img/doggie.png" %}"/>
     {% endif %}
 
-    <div class="absolute w-100 bg-moon-gray bottom-1">
-        <div class="pa1 f2 tc"
+    <div class="absolute w-100 bg-black-30 bottom-0">
+        <div class="pa3 f2 tc white ttc"
         >{{ post.title }}</div>
     </div>
 
-    <div class="h-100 w-100 absolute left-0 bottom-0 flex flex-column justify-center">
-        <div class="tc">{{ post.content | safe }}</div>
+    <div class="hide-child bg-animate hover-bg-black-50 h-100 w-100 absolute left-0 bottom-0 flex flex-column justify-center">
+        <div class="child tc f3 white">{{ post.content | safe }}</div>
     </div>
 </a>

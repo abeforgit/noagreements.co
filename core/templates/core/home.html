@@ -29,11 +29,21 @@
         <div class="w-100 w-50-l h-100-l bg-light-purple overflow-auto-l">
             <div class="flex flex-wrap tac ttu">
                 {% for tag in tags %}
-                    <div class="tac big-text light-color">{{ tag.description }}</div>
+                    {% if tag.post_set.count %}
+                        <div class="w-100 pv2 tc f3 underline black">{{ tag.description }}</div>
 
-                    {% for post in tag.post_set.all %}
-                        {% include "core/components/post_card.html" with post=post only %}
-                    {% endfor %}
+                        <div class="w-100 main-carousel w-50-l h5"
+                             data-flickity=
+                                     '{
+                     "contain": true,
+                     "prevNextButtons": false,
+                     "pageDots": false
+                     }'>
+                            {% for post in tag.post_set.all %}
+                                {% include "core/components/post_card.html" with post=post only %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
