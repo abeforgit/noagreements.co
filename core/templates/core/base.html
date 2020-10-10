@@ -18,16 +18,19 @@
 </head>
 <body>
 <div class="flex vh-100">
-    <div class="dn dib-l h-100 w-25">
+    <div class="dn dib-l h-100 w-100 w-25-l absolute z-max relative-l" id="sidebar">
         {% block sidebar %}
             {% include "core/components/sidebar.html" %}
         {% endblock %}
     </div>
-    <div class="flex flex-column w-100 w-75-l vh-100">
-        <div class="db">
+    <div class="flex flex-column w-100 w-7-l vh-100">
+        <div class="dn db-l">
         {% block linkbar %}
             {% include "core/components/linkbar.html" %}
         {% endblock %}
+        </div>
+        <div class="dn-l db">
+            {% include "core/components/menubar.html" %}
         </div>
         <div class="h-100-l overflow-auto">
             {% block content %}

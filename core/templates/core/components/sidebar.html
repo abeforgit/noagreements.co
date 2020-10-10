@@ -1,7 +1,10 @@
 {% load static %}
 {% load sidebar_item %}
-<aside class="dib flex flex-column bg-moon-gray mw-30 h-100 overflow-auto w-100" id="sidebar">
+<aside class="dib flex flex-column bg-moon-gray mw-30 h-100 overflow-auto w-100"
+       id="sidebar">
     <div class="pa4" onclick="closeBurger()">
+        <div class="f1 absolute top-0 mt3 mr4 right-0 dn-l">X</div>
+
         <div class="f1 purple ttu">
             <div>no agreements</div>
             <div>just noise</div>
@@ -17,22 +20,9 @@
             {% sidebar_item "logout" "logout" 12 %}
         {% else %}
             {% sidebar_item "login" "login" 9 %}
-
         {% endif %}
     </div>
 </aside>
-<div class="burger-wrapper dn-l">
-    <div class="burger" onclick="openBurger()">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
-</div>
 
-<div class="close-wrapper dn-l" id="close-wrapper">
-    <div class="close-button" onclick="closeBurger()">
-        <p class="close-button-x">X</p>
-    </div>
-</div>
 
 

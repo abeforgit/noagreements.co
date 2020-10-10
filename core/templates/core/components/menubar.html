@@ -1,0 +1,8 @@
+{% load static %}
+<div class="w-100 h3 bg-purple flex items-center justify-between center">
+    <img onclick="openBurger()" class="w-25 h2"
+         src={% static "core/img/menu.svg" %}/>
+    <a class="w-100 tc f3 ttu tracked white no-underline" href={% url "home" %}>NO
+        AGREEMENTS</a>
+    <img class="w-25 h3 pa1" src={% static "core/img/doggie.png" %}/>
+</div>
