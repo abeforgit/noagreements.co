@@ -3,7 +3,7 @@
 <aside class="dib flex flex-column bg-moon-gray mw-30 h-100 overflow-auto w-100"
        id="sidebar">
     <div class="pa4" onclick="closeBurger()">
-        <div class="f1 absolute top-0 mt3 mr4 right-0 dn-l">X</div>
+        <div class="f1 absolute top-0 mt3 mr4 right-0 dn-l pointer">X</div>
 
         <div class="f1 purple ttu">
             <div>no agreements</div>
@@ -13,14 +13,71 @@
         {% sidebar_item "home" "home" 8 %}
         {% sidebar_item "about" "about" 10 %}
         {% sidebar_item "creators" "creators" 15 %}
-        {% sidebar_item "news" "news" 9 %}
+        <div class="relative f1 black ttu">
+            <div>
+                <a class="link hoverstate overflow-hidden purple"
+                   href="https://noagreements.bandcamp.com/">
+                    ////////////////
+                </a>
+                bandcamp
+            </div>
+        </div>
         {% if user.is_authenticated %}
+            <div class="f1 purple ttu">...</div>
             {% sidebar_item "create" "new_post" 11 %}
             {% sidebar_item "you" "creator_detail" 6 user.id %}
             {% sidebar_item "logout" "logout" 12 %}
         {% else %}
             {% sidebar_item "login" "login" 9 %}
         {% endif %}
+        <div class="f1 purple ttu">...</div>
+        <div class="flex flex-wrap justify-between dn-l items-center">
+            <a class="pa2 bg-purple br-100 ma2 w3 h3" target="_blank"
+               href="https://www.facebook.com/noagreements/">
+                <img class="w-100"
+                     alt="facebook"
+                     src={% static "core/img/facebook-app-symbol.svg" %}>
+            </a>
+            <a class="pa2 bg-purple br-100 ma2 w3 h3" target="_blank"
+               href="https://www.instagram.com/noagreementsofficial/">
+                <img class="w-100"
+                     alt="instagram"
+                     src={% static "core/img/instagram.svg" %}>
+            </a>
+            <a class="pa2 bg-purple br-100 ma2 w3 h3" target="_blank"
+               href="https://soundcloud.com/noagreements">
+                <img class="w-100"
+                     alt="soundcloud"
+                     src={% static "core/img/soundcloud.svg" %}>
+            </a>
+
+            <a class="pa2 bg-purple br-100 ma2 w3 h3" target="_blank"
+               href="https://open.spotify.com/artist/4Fyt4RSVd6z6h6yhfyfAKJ?si=5_snZYtPTw-6gE52xKoUvQ">
+                <img class="w-100"
+                     alt="spotify"
+                     src={% static "core/img/spotify.svg" %}>
+            </a>
+
+            <a class="pa2 bg-purple br-100 ma2 w3 h3" target="_blank"
+               href="https://twitter.com/noagreements">
+                <img class="w-100"
+                     alt="twitter"
+                     src={% static "core/img/twitter.svg" %}>
+            </a>
+            <a class="pa2 bg-purple br-100 ma2 w3 h3" target="_blank"
+               href="https://www.youtube.com/channel/UCsc2t7ADVYpvNgXZT11syPA">
+                <img class="w-100"
+                     alt="youtube"
+                     src={% static "core/img/youtube.svg" %}>
+            </a>
+            <a class="bg-purple br-100 w3 h3 ma2 pa2 flex flex-column justify-center items-center f4 tc justify-center black text-shadow"
+               target="_blank"
+               href="https://mantratrax.bandcamp.com">
+                <p class="tc">mantra</p>
+            </a>
+
+
+        </div>
     </div>
 </aside>
 
