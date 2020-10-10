@@ -6,36 +6,35 @@
 {% endblock %}
 {% block css %}
     {{ block.super }}
-    <link rel="stylesheet" type="text/css" href={% static "core/styles/post_card.css" %}>
-    <link rel="stylesheet" type="text/css" href={% static "core/styles/featured_post.css" %}>
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" type="text/css"
+          href={% static "core/styles/post_card.css" %}>
+    <link rel="stylesheet"
+          href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 {% endblock %}
 {% block content %}
 
-    <div class="flex flex-row h-100">
-        <div class="w-50 h-95"
+    <div class="flex flex-column flex-row-l h-100-l">
+        <div class="main-carousel w-50-l vh-50 h-95-l"
              data-flickity=
                      '{
-                     "contain":"true",
-                     "groupCells": "true",
-                     "autoPlay": 3000
+                     "contain": true,
+                     "groupCells": true,
+                     "pageDots": false
                      }'>
             {% for post in featured_posts %}
                 {% include "core/components/featured_post.html" with post=post only %}
             {% endfor %}
-
-
         </div>
 
-        <div class="w-50 h-100 bg-light-purple overflow-auto">
+        <div class="w-100 w-50-l h-100-l bg-light-purple overflow-auto-l">
             <div class="flex flex-wrap tac ttu">
-            {% for tag in tags %}
-                <div class="tac big-text light-color">{{ tag.description }}</div>
+                {% for tag in tags %}
+                    <div class="tac big-text light-color">{{ tag.description }}</div>
 
-                {% for post in tag.post_set.all %}
-                    {% include "core/components/post_card.html" with post=post only %}
+                    {% for post in tag.post_set.all %}
+                        {% include "core/components/post_card.html" with post=post only %}
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
             </div>
         </div>
     </div>

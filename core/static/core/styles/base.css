@@ -28,6 +28,9 @@ body {
 .wmc {
     width: max-content;
 }
+.text-shadow{
+    text-shadow: .1vh .1vh 0 #f1eef7;
+}
 
 #mainpage {
     width: 80%;
