@@ -5,11 +5,9 @@
 {% endblock %}
 {% block css %}
     {{ block.super }}
-    <link rel="stylesheet" type="text/css" href={% static "core/styles/creators.css" %}>
-    <link rel="stylesheet" type="text/css" href={% static "core/styles/creator-card.css" %}>
 {% endblock %}
 {% block content %}
-    <div class="creators">
+    <div class="pa2 flex flex-wrap">
     {% for creator in creators %}
         {% include "core/components/creator_card.html" with creator=creator only %}
     {% endfor %}

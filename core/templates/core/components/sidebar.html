@@ -22,15 +22,15 @@
                 bandcamp
             </div>
         </div>
+        <div class="f1 purple ttu">...</div>
         {% if user.is_authenticated %}
-            <div class="f1 purple ttu">...</div>
             {% sidebar_item "create" "new_post" 11 %}
             {% sidebar_item "you" "creator_detail" 6 user.id %}
             {% sidebar_item "logout" "logout" 12 %}
         {% else %}
             {% sidebar_item "login" "login" 9 %}
         {% endif %}
-        <div class="f1 purple ttu">...</div>
+        <div class="f1 purple ttu dn-l">...</div>
         <div class="flex flex-wrap justify-between dn-l items-center">
             <a class="pa2 bg-purple br-100 ma2 w3 h3" target="_blank"
                href="https://www.facebook.com/noagreements/">

@@ -8,18 +8,21 @@
     {{ block.super }}
     <link rel="stylesheet" type="text/css"
           href={% static "core/styles/post_card.css" %}>
+    <link rel="stylesheet" type="text/css"
+          href={% static "core/styles/flickity.css" %}>
     <link rel="stylesheet"
           href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 {% endblock %}
 {% block content %}
 
     <div class="flex flex-column flex-row-l h-100-l">
-        <div class="main-carousel w-50-l vh-50 h-95-l"
+        <div class="main-carousel w-50-l vh-50 h-100-l"
              data-flickity=
                      '{
                      "contain": true,
                      "groupCells": true,
-                     "pageDots": false
+                     "pageDots": false,
+                     "autoPlay": true
                      }'>
             {% for post in featured_posts %}
                 {% include "core/components/featured_post.html" with post=post only %}
@@ -27,21 +30,23 @@
         </div>
 
         <div class="w-100 w-50-l h-100-l bg-light-purple overflow-auto-l">
-            <div class="flex flex-wrap tac ttu">
+            <div class="flex flex-wrap flex-column tac ttu">
                 {% for tag in tags %}
                     {% if tag.post_set.count %}
-                        <div class="w-100 pv2 tc f3 underline black">{{ tag.description }}</div>
+                        <div class="flex flex-column">
+                            <div class="w-100 pv2 tc f3 underline black">{{ tag.description }}</div>
 
-                        <div class="w-100 main-carousel w-100-l h5"
-                             data-flickity=
-                                     '{
+                            <div class="w-100 main-carousel w-100-l h5 h-inherit-l"
+                                 data-flickity=
+                                         '{
                      "contain": true,
                      "prevNextButtons": false,
                      "pageDots": false
                      }'>
-                            {% for post in tag.post_set.all %}
-                                {% include "core/components/post_card.html" with post=post only %}
-                            {% endfor %}
+                                {% for post in tag.post_set.all %}
+                                    {% include "core/components/post_card.html" with post=post only %}
+                                {% endfor %}
+                            </div>
                         </div>
                     {% endif %}
                 {% endfor %}

@@ -8,6 +8,17 @@ from noagreements import settings
 class User(AbstractUser):
     email = models.EmailField(blank=False)
     profile_img = models.URLField(blank=True)
+    description = models.TextField(blank=True)
+    artist_name = models.CharField(max_length=500, blank=True)
+    bandcamp_url = models.URLField(blank=True)
+    facebook_url = models.URLField(blank=True)
+    instagram_url = models.URLField(blank=True)
+    spotify_url = models.URLField(blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.artist_name:
+            self.artist_name = self.username
+        super().save(*args, **kwargs)
 
 
 class Tag(models.Model):

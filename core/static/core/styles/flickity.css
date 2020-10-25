@@ -1,0 +1,12 @@
+/* enable Flickity by default */
+.main-carousel:after {
+  content: 'flickity';
+  display: none; /* hide :after */
+}
+
+/*@media screen and ( min-width: 60em ) {*/
+/*  !* disable Flickity for large devices *!*/
+/*  .main-carousel:after {*/
+/*    content: 'flickity';*/
+/*  }*/
+/*}*/

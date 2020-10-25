@@ -6,16 +6,19 @@ from .models import Post, User, Tag
 
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
-        *UserAdmin.fieldsets,
-        (
-            "Extra info",
-            {
-                "fields": [
-                    "profile_img"
-                ]
-            }
-        )
+        ('Account info', {"fields": (("username", "email"), "password")}),
+        ('Personal info',
+         {'fields': ('artist_name', ('first_name', 'last_name'), "description")}),
+        ("Social info", {"fields": (
+            "profile_img", ("bandcamp_url", "spotify_url"), ("facebook_url",
+                                                             "instagram_url"))}),
+        ('Permissions', {
+            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups',
+                       'user_permissions'),
+        }),
+        ('Important dates', {'fields': ('last_login', 'date_joined')}),
     )
+    save_on_top = True
     add_fieldsets = (
         (
             None,
@@ -23,6 +26,7 @@ class CustomUserAdmin(UserAdmin):
                 "fields": [
                     "email",
                     "username",
+                    "artist_name",
                     "password1",
                     "password2"
                 ]

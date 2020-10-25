@@ -1,12 +1,12 @@
 {% load static %}
-<a class="creator-card" href={% url "creator_detail" creator.id %}>
+<a class="w4 h4 w5-l h5-l no-underline moon-purple ba bw3 b--purple relative ma2" href={% url "creator_detail" creator.id %}>
     {% if creator.profile_img %}
-        <img class="cover" alt="{{ post.title }}" src="{{ creator.profile_img }}"/>
+        <img class="w-100 h-100 object-cover" alt="{{ post.title }}" src="{{ creator.profile_img }}"/>
     {% else %}
-        <img class="cover" alt="{{ post.title }}" src="{% static "core/img/doggie.png" %}"/>
+        <img class="w-100 h-100 object-cover" alt="{{ post.title }}" src="{% static "core/img/doggie.png" %}"/>
     {% endif %}
 
-    <div class="username-box">
-        <span class="username">{{ creator.username }}</span>
+    <div class="absolute bg-black-20 bg-black-40-l h-100 h4-l bottom-0 left-0 right-0 ph2 tc flex content-center items-center">
+        <span class="f4 f2-l overflow-hidden-l truncate-l pv2">{{ creator.artist_name }}</span>
     </div>
 </a>

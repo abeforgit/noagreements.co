@@ -3,19 +3,44 @@
 {% block title %}
     <title>No Agreements | {{ object.username }}</title>
 {% endblock %}
-{% block css %}
-    {{ block.super }}
-    <link rel="stylesheet" type="text/css" href={% static "core/styles/post_card.css" %}>
-    <link rel="stylesheet" type="text/css" href={% static "core/styles/creator-detail.css" %}>
-{% endblock %}
 {% block content %}
-    <div class="creator-detail">
-        <h1>{{ object.username }}</h1>
-    <div class="feed">
-        {% for post in posts %}
-            {% include "core/components/post_card.html" with post=post only %}
+    <div >
+
+        {% if object.profile_img %}
+            <img class="fl-l h-0 w-50-l object-cover mr4-l"
+                 src={{ object.profile_img }} alt={{ object.username }}>
+        {% else %}
+            <img class="fl-l h-50 w-50-l object-cover mr4-l"
+                 src={% static "core/img/doggie.png" %} alt={{ object.username }}>
+        {% endif %}
+        <div class="pa4-l">
+            <div class="pa1 ml-auto mr-auto tc">
+                <h1 class="f2">{{ object.artist_name }}</h1>
+            </div>
+            <div class="f2 pa3 mr-auto ml-auto tc">
+                {% if object.bandcamp_url %}
+                    <a class="purple ttu no-underline"
+                       href={{ object.bandcamp_url }}>/bandcamp/</a>
+                {% endif %}
+                {% if object.spotify_url %}
+                    <a class="purple ttu no-underline"
+                       href={{ object.spotify_url }}>/spotify/</a>
+                {% endif %}
+                {% if object.facebook_url %}
+                    <a class="purple ttu no-underline"
+                       href={{ object.facebook_url }}>/facebook/</a>
+                {% endif %}
+                {% if object.instagram_url %}
+                    <a class="purple ttu no-underline"
+                       href={{ object.instagram_url }}>/instagram/</a>
+                {% endif %}
+
+            </div>
+        </div>
+        {% for paragraph in description_paragraphs %}
+            <p class="ph3 tc f3">{{ paragraph }}</p>
         {% endfor %}
-    </div>
+
     </div>
 
 {% endblock %}
