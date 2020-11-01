@@ -10,7 +10,7 @@ services:
       - db
 
   smtp:
-    image: "docker.pkg.github.com/namshi/docker-smtp/smtp:0.0.2"
+    image: namshi/smtp
     environment:
       - "MAILNAME=noagreements.co"
     ports:

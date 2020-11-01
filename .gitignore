@@ -2,6 +2,10 @@ static/**/**
 # secret env variables
 *.env
 
+# backups
+daily
+weekly
+monthly
 # jetbrains stuff
 .idea
 # Created by .ignore support plugin (hsz.mobi)

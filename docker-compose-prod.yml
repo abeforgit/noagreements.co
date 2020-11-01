@@ -4,6 +4,20 @@ services:
   db:
     env_file:
       - prod-variables.env
+  pgbackups:
+    image: prodrigestivill/postgres-backup-local
+    restart: always
+    user: postgres:postgres
+    volumes:
+        - /var/opt/pgbackups:/backups
+    links:
+        - db:postgres
+    depends_on:
+        - db
+    env_file:
+      - prod-variables.env
+    ports:
+      - 8080:8080
   web:
     env_file:
       - prod-variables.env

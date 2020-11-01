@@ -37,6 +37,18 @@ docker-compose -f docker-compose.yml -f docker-compose-prod.yml --env-file prod-
 docker exec <id of the web container> python3 manage.py migrate
 ```
 
+# Maintenance
+
+## Manual backup
+
+Replace relevant postgres settings, should be the same as the production environment
+Also recommended to replace the PWD with the directory where you want the backups, as it generates 3 folders.
+``` shell
+docker run --rm -v "$PWD:/backups" -u "$(id -u):$(id -g)" -e POSTGRES_HOST=postgres -e POSTGRES_DB=noagreements -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password  --network noagreementsco_default --link db:postgres prodrigestivill/postgres-backup-local /backup.sh
+```
+
+
+
 
 # Development setup
 
