@@ -19,6 +19,8 @@ services:
     ports:
       - 8080:8080
   web:
+    depends_on:
+      - db
     env_file:
       - prod-variables.env
     volumes:
