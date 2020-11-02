@@ -1,6 +1,8 @@
 static/**/**
 # secret env variables
 *.env
+# database
+data
 
 # backups
 daily

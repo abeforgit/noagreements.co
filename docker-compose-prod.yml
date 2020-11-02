@@ -4,6 +4,8 @@ services:
   db:
     env_file:
       - prod-variables.env
+    volumes:
+      - ./data:/var/lib/postgresql/data
   pgbackups:
     image: prodrigestivill/postgres-backup-local
     restart: always
