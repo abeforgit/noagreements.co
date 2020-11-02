@@ -24,7 +24,12 @@
         </div>
         <div class="f1 purple ttu">...</div>
         {% if user.is_authenticated %}
-            {% sidebar_item "create" "new_post" 11 %}
+            {% if perms.core.add_post %}
+                {% sidebar_item "create" "new_post" 11 %}
+            {% endif %}
+            {% if perms.auth.add_group %}
+                {% sidebar_item "admin" "admin:index" 9 %}
+            {% endif %}
             {% sidebar_item "you" "creator_detail" 6 user.id %}
             {% sidebar_item "logout" "logout" 12 %}
         {% else %}

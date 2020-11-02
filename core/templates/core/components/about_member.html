@@ -1,2 +1,9 @@
 {% load static %}
-<span class="i underline dark-gray ttn">{{ name }}</span>
+<a class="i underline dark-gray ttn"
+   href={% url "creator_detail" user.id %}>
+    {% if user.artist_name %}
+        {{ user.artist_name }}
+    {% else %}
+        {{ user.username }}
+    {% endif %}
+</a>

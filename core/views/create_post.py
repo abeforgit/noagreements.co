@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.forms import Form
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
@@ -9,7 +9,8 @@ from core.models import Post
 from core.util.content_sanitizer import sanitize
 
 
-class CreatePostPage(LoginRequiredMixin, CreateView):
+class CreatePostPage(PermissionRequiredMixin, CreateView):
+    permission_required = "core.add_post"
     login_url = "/login"
     object: Post
     model = Post

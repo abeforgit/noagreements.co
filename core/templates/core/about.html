@@ -8,49 +8,37 @@
 {% endblock %}
 {% block content %}
 
-    <div class="min-h-100-l flex flex-column bg-moon-purple">
-        <h1 class="pa3 pa4-l f2 f1-l">No Agreements is an internet based multimedia
-            art collective founded by City Light Mosaic in
-            2018 with members all across the globe</h1>
-        <div class="tac pv3 ph3 ph4-l">
-            <h1>
-                <span class="f2 underline">The current members/groups of No Agreements are:</span><br>
-                {% include "core/components/about_member.html" with name="Asogi" only %},
-                {% include "core/components/about_member.html" with name="beat-trip" only %},
-                {% include "core/components/about_member.html" with name="Blaise's Place/djhfs" only %},
-                {% include "core/components/about_member.html" with name="Dagey Bape God" only %},
-                {% include "core/components/about_member.html" with name="DoNotCondone" only %},
-                {% include "core/components/about_member.html" with name="Earn Raku" only %},
-                {% include "core/components/about_member.html" with name="Farboro" only %},
-                {% include "core/components/about_member.html" with name="Install a Friend" only %},
-                {% include "core/components/about_member.html" with name="Todd Jordan" only %},
-                {% include "core/components/about_member.html" with name="Kathi Kross" only %},
-                {% include "core/components/about_member.html" with name="Omar Kooliyat" only %},
-                {% include "core/components/about_member.html" with name="Krullebol" only %},
-                {% include "core/components/about_member.html" with name="Material Girl" only %},
-                {% include "core/components/about_member.html" with name="Memory Lakes" only %},
-                {% include "core/components/about_member.html" with name="Mondegreen" only %},
-                {% include "core/components/about_member.html" with name="Naaki Soul" only %},
-                {% include "core/components/about_member.html" with name="NoteLord/Ciaran Galati" only %},
-                {% include "core/components/about_member.html" with name="Pink Pots" only %},
-                {% include "core/components/about_member.html" with name="Prismadoll" only %},
-                {% include "core/components/about_member.html" with name="Saint Misery" only %},
-                {% include "core/components/about_member.html" with name="Pete Sullivan" only %},
-                {% include "core/components/about_member.html" with name="University Press" only %},
-                and {% include "core/components/about_member.html" with name="The Rarity" only %}
-            </h1>
-        </div>
-        <div class="pv2 ph2 ph4-l">
-            <h1 class="ttu" >contact:</h1>
-            <h1>general:
-                <a class="f3" href="mailto: contact@noagreements.co">contact@noagreements.co</a>
-            </h1>
-            <h1>support:
-                <a class="f3" href="mailto: support@noagreements.co">support@noagreements.co</a>
-            </h1>
-            <h1>submissions:
-                <a class="f3" href="mailto: submissions@noagreements.co">submissions@noagreements.co</a>
-            </h1>
-        </div>
+<div class="min-h-100-l flex flex-column bg-moon-purple">
+    <h1 class="pa3 pa4-l f2 f1-l">No Agreements is an internet based
+        multimedia
+        art collective founded by City Light Mosaic in
+        2018 with members all across the globe</h1>
+    <div class="tac pv3 ph3 ph4-l">
+        <h1>
+            <span class="f2 underline">The current members/groups of No Agreements are:</span><br>
+            {% for creator in creators %}
+            {% include "core/components/about_member.html" with user=creator only %}
+            {% if forloop.revcounter0 == 1 %}
+                <span>and</span>
+            {% elif forloop.revcounter0 == 0 %}
+                <span>.</span>
+            {% else %}
+                <span>,</span>
+            {% endif %}
+            {% endfor %}
+        </h1>
     </div>
+    <div class="pv2 ph2 ph4-l">
+        <h1 class="ttu">contact:</h1>
+        <h1>general:
+            <a class="f3" href="mailto: contact@noagreements.co">contact@noagreements.co</a>
+        </h1>
+        <h1>support:
+            <a class="f3" href="mailto: support@noagreements.co">support@noagreements.co</a>
+        </h1>
+        <h1>submissions:
+            <a class="f3" href="mailto: submissions@noagreements.co">submissions@noagreements.co</a>
+        </h1>
+    </div>
+</div>
 {% endblock %}
