@@ -2,8 +2,11 @@
 {% load sidebar_item %}
 <aside class="dib flex flex-column bg-moon-gray mw-30 h-100 overflow-auto w-100"
        id="sidebar">
-    <div class="pa4" onclick="closeBurger()">
-        <div class="f1 absolute top-0 mt3 mr4 right-0 dn-l pointer">X</div>
+    <div class="pa4">
+        <div id="closeButton"
+             class="f1 absolute top-0 mt3 mr4 right-0 dn-l pointer"
+             onclick="closeBurger()">X
+        </div>
 
         <div class="f1 purple ttu">
             <div>no agreements</div>
@@ -13,6 +16,7 @@
         {% sidebar_item "home" "home" 8 %}
         {% sidebar_item "about" "about" 10 %}
         {% sidebar_item "creators" "creators" 15 %}
+        <div class="f1 purple ttu">...</div>
         <div class="relative f1 black ttu">
             <div>
                 <a class="link hoverstate overflow-hidden purple"
