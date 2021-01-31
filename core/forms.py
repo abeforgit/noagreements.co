@@ -1,20 +1,7 @@
 from django import forms
-from django_select2 import forms as s2forms
+from django.forms import CheckboxSelectMultiple
 
-from core.models import Post, Tag
-
-
-class TagsWidget(s2forms.ModelSelect2MultipleWidget):
-    queryset = Tag.objects.all()
-    model = Tag
-    search_fields = ["name__icontains"]
-
-    def build_attrs(self, base_attrs, extra_attrs=None):
-        attrs = super().build_attrs(base_attrs, extra_attrs=extra_attrs)
-        attrs["data-minimum-input-length"] = 0;
-        return attrs
-
-
+from core.models import Post
 
 
 class PostForm(forms.ModelForm):
@@ -22,5 +9,5 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ["title", "content", "cover_img", "tags"]
         widgets = {
-            "tags": TagsWidget
+            "tags": CheckboxSelectMultiple
         }

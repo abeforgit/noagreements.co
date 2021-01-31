@@ -5,7 +5,7 @@ from django.views.generic import CreateView
 from markdown import markdown
 
 from core.forms import PostForm
-from core.models import Post
+from core.models import Post, Tag
 from core.util.content_sanitizer import sanitize
 
 
@@ -25,3 +25,4 @@ class CreatePostPage(PermissionRequiredMixin, CreateView):
         self.object.save()
         self.object.tags.set(form.cleaned_data["tags"])
         return HttpResponseRedirect(self.get_success_url())
+
