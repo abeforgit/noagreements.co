@@ -3,7 +3,6 @@
 case $1 in
     runprod )
         python manage.py collectstatic --no-input
-        python manage.py migrate
         uvicorn noagreements.asgi:application --host web --port 8000 --env-file prod-variables.env
         ;;
     rundev)
