@@ -27,6 +27,16 @@ other versions may work as well but are untested.
   be configured. Grant the [required permissions][django-req-perm] to this user and make sure
   to select a strong password.
   
+- make sure postgres is setup to receive outside connections. To do so:
+  - find postgresql.conf with `find / -name "postgresql.conf"`
+  - edit the file and set the `listen_addresses` key to `'*'`
+    - edit `pg_hba.conf` which lives in the same directory, and append the following lines:
+      (replacing noagreements with the database and user name, respectively, in each line)
+    ```
+    host    noagreements    noagreements    0.0.0.0/0
+    host    noagreements    noagreements    ::/0
+    ```
+  - restart the postgres server
 
 - Clone this repo. Use the master branch for the production build, and the development 
 branch for the staging build. Any commands past this point assume your working dir 
@@ -43,12 +53,12 @@ branch for the staging build. Any commands past this point assume your working d
 - configure the required environment variables. See prod-variables.env.example for
   a detailed overview. Either use an env-file or multiple -e directives
   
-- start the docker container:
-`docker run noagreements:latest \
-  -p 8000:8000 \
+- start the docker container (use the tag of the image you created earlier):
+`docker run \
+  -p 8000:80 \
   --env-file prod-variables.env \
   --network noagreements-net \
-  --name noagreements-site -d`
+  --name noagreements-site -d noagreements:latest`
   
 - setup an nginx config to route requests to the docker container
 
