@@ -1,8 +1,8 @@
-FROM python:3.8.6
+FROM python:3.9.2
 ENV PYTHONUNBUFFERED 1
 RUN mkdir /code
 WORKDIR /code
 COPY requirements.txt /code/
-RUN pip --use-feature=2020-resolver install -r requirements.txt
+RUN pip install -r requirements.txt
 COPY . /code/
 RUN chmod +x /code/docker-entrypoint.sh

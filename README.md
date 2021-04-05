@@ -29,12 +29,15 @@ other versions may work as well but are untested.
   
 
 - Clone this repo. Use the master branch for the production build, and the development 
-branch for the staging build.
+branch for the staging build. Any commands past this point assume your working dir 
+  is the project's root.
   
 
 - configure the required environment variables. See prod-variables.env.example for
 a detailed overview.
   
+- build the docker image:
+  `docker build .`
 - start the docker container:
 `docker run -d `
 
