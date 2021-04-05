@@ -33,17 +33,22 @@ branch for the staging build. Any commands past this point assume your working d
   is the project's root.
   
 
-- configure the required environment variables. See prod-variables.env.example for
-a detailed overview.
   
 - build the docker image (using tag is optional but recommended:
   `docker build . --tag noagreements:latest`
   
 - setup a docker network
-  `docker network create -d bridge --subnet 192.168.0.0/24` --gateway 192.168.0.1 noagreements-net
+  `docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 noagreements-net`
+
+- configure the required environment variables. See prod-variables.env.example for
+  a detailed overview. Either use an env-file or multiple -e directives
   
 - start the docker container:
-`docker run -d `
+`docker run noagreements:latest \
+  -p 8000:8000 \
+  --env-file prod-variables.env \
+  --network noagreements-net \
+  --name noagreements-site -d`
   
 - setup an nginx config to route requests to the docker container
 
