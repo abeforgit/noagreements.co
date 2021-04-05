@@ -38,8 +38,14 @@ a detailed overview.
   
 - build the docker image (using tag is optional but recommended:
   `docker build . --tag noagreements:latest`
+  
+- setup a docker network
+  `docker network create -d bridge --subnet 192.168.0.0/24` --gateway 192.168.0.1 noagreements-net
+  
 - start the docker container:
 `docker run -d `
+  
+- setup an nginx config to route requests to the docker container
 
 [postgres]: https://www.postgresql.org/docs/11/tutorial-install.html
 [nginx]: https://nginx.org/en/
