@@ -36,8 +36,8 @@ branch for the staging build. Any commands past this point assume your working d
 - configure the required environment variables. See prod-variables.env.example for
 a detailed overview.
   
-- build the docker image:
-  `docker build .`
+- build the docker image (using tag is optional but recommended:
+  `docker build . --tag noagreements:latest`
 - start the docker container:
 `docker run -d `
 
