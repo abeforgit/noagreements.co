@@ -1,3 +1,5 @@
+[![Build Status](https://drone.abeforweb.me/api/badges/abeforgit/noagreements.co/status.svg)](https://drone.abeforweb.me/abeforgit/noagreements.co)
+
 # Deployment
 
 
