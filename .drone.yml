@@ -16,16 +16,16 @@ steps:
       - docker rm --force noagreements-site
   - name: run
     environment:
-      - POSTGRES_PASSWORD:
-          - from_secret: pg_password
-      - SECRET_KEY:
-          - from_secret: secret_key
-      - HOST: noagreements.abeforweb.me
-      - EMAIL_HOST: mail.noagreements.co
-      - EMAIL_PORT: 465
-      - EMAIL_HOST_USER: noreply@noagreements.co
-      - EMAIL_HOST_PASSWORD:
-          - from_secret: email_password
+      POSTGRES_PASSWORD:
+          from_secret: pg_password
+      SECRET_KEY:
+          from_secret: secret_key
+      HOST: noagreements.abeforweb.me
+      EMAIL_HOST: mail.noagreements.co
+      EMAIL_PORT: 465
+      EMAIL_HOST_USER: noreply@noagreements.co
+      EMAIL_HOST_PASSWORD:
+          from_secret: email_password
     commands:
       - >-
         docker run -p 8000:8000
