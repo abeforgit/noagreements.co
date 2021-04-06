@@ -116,7 +116,7 @@ steps:
       PGPASSWORD:
         from_secret: pg_password
     commands:
-      - pg_dump -U noagreements noagreements > /root/daily_backup.sql
+      - pg_dump -F d -f /root/daily_backup -U noagreements noagreements
 trigger:
   event:
     - cron
@@ -131,6 +131,9 @@ platform:
   arch: amd64
 
 steps:
+  - name: remove old backup
+    commands:
+      - rm -rf /root/daily_backup
   - name: get backup
     environment:
       PGPASSWORD:
@@ -138,13 +141,13 @@ steps:
       PROD_HOST:
         from_secret: prod_host
     commands:
-      - pg_dump -U noagreements -F directory -h $PROD_HOST noagreements > /root/daily_backup.sql
+      - pg_dump -F d -f /root/daily_backup -U noagreements -h $PROD_HOST noagreements
   - name: import backup
     environment:
       PGPASSWORD:
         from_secret: pg_password
     commands:
-      - pg_restore -Cc -U noagreements /root/daily_backup.sql
+      - pg_restore -c -U noagreements -d noagreements /root/daily_backup
 trigger:
   event:
     - cron
