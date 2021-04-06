@@ -1,0 +1,42 @@
+---
+kind: pipeline
+type: exec
+name: deploy_staging
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: build
+    commands:
+      - docker build . --tag noagreements:latest
+  - name: stop_and_remove
+    commands:
+      - docker rm --force noagreements-site
+  - name: run
+    environment:
+      POSTGRES_PASSWORD:
+        from_secret: pg_password
+      SECRET_KEY:
+        from_secret: secret_key
+      HOST: noagreements.abeforweb.me
+      EMAIL_HOST: mail.noagreements.co
+      EMAIL_PORT: 465
+      EMAIL_HOST_USER: noreply@noagreements.co
+      EMAIL_HOST_PASSWORD:
+        from_secret: email_password
+    commands:
+      - >-
+        docker run -p 8000:8000
+        --network noagreements-net
+        -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+        -e SECRET_KEY=$SECRET_KEY
+        -e HOST=$HOST
+        -e EMAIL_HOST=$EMAIL_HOST
+        -e EMAIL_PORT=$EMAIL_PORT
+        -e EMAIL_HOST_USER=$EMAIL_HOST_USER
+        -e EMAIL_HOST_PASSWORD=$EMAIL_HOST_PASSWORD
+        --name noagreements-site
+        -v noagreements-static:/code/static
+        -d noagreements:latest

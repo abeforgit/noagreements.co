@@ -28,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_select2'
 ]
 
 MIDDLEWARE = [
@@ -140,6 +139,7 @@ elif os.environ.get('ENV', "prod") == 'devdocker':
         }
     }
 else:
+    DEBUG = False
     EMAIL_HOST = os.environ.get("EMAIL_HOST")
     EMAIL_PORT = os.environ.get("EMAIL_PORT")
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
@@ -155,10 +155,10 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ['POSTGRES_DB'],
-            'USER': os.environ['POSTGRES_USER'],
-            'PASSWORD': os.environ['POSTGRES_PASSWORD'],
-            'HOST': 'db',
-            'PORT': '5432'
+            'NAME': os.environ.get('POSTGRES_DB', 'noagreements'),
+            'USER': os.environ.get('POSTGRES_USER', 'noagreements'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_HOST', '192.168.0.1'),
+            'PORT': os.environ.get('POSTGRES_PORT', 5432)
         }
     }

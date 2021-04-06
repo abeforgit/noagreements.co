@@ -1,76 +1,104 @@
 # Deployment
 
-Deployment is designed to work with docker and docker-compose.
+
+## Docker + postgres + nginx
+
+This is the recommended deploy method, using the provided docker image for the application
+in combination with a native installation of postgres and a reverse proxy.
 
 ### Prerequisites
 
-- [docker][docker]
-- [docker-compose][dc]
+- [postgres 11][postgres] (it is recommended to use your distributions package manager to install postgres, 
+  look for specific installation guides for your distro)
+- [nginx 1.18.0][nginx]
+- [docker 20.10.5][docker]
+- git
+
+The abovementioned versions are the ones that are actively used and supported,
+other versions may work as well but are untested.
+
+### setup
+
+- Setup the database. Default name is `noagreements` but you are free to choose
+  a different name, just be sure to configure it correctly (see below)
 
 
+- create a database user. Again, default is `noagreements`, but a different name can
+  be configured. Grant the [required permissions][django-req-perm] to this user and make sure
+  to select a strong password.
+  
+
+- make sure postgres is setup to receive outside connections. To do so:
+  - find postgresql.conf with `find / -name "postgresql.conf"`
+  - edit the file and set the `listen_addresses` key to `'*'`
+  - edit `pg_hba.conf` which lives in the same directory, and append the following lines:
+      (replacing noagreements with the database and user name, respectively, in each line)
+    ```
+    host    noagreements    noagreements    0.0.0.0/0
+    host    noagreements    noagreements    ::/0
+    ```
+  - restart the postgres server
+
+
+- Clone this repo. Use the master branch for the production build, and the development 
+branch for the staging build. Any commands past this point assume your working dir 
+  is the project's root.
+  
+  
+- build the docker image (using tag is optional but recommended:
+  `docker build . --tag noagreements:latest`
+  
+
+- setup a docker network
+  `docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 noagreements-net`
+  
+
+- create a docker volume for the static files
+`docker volume create noagreements-static`
+
+
+- configure the required environment variables. See prod-variables.env.example for
+  a detailed overview. Either use an env-file or multiple -e directives
+  
+
+- start the docker container (use the tag of the image you created earlier):
+```
+docker run \
+  -p 8000:8000 \
+  --env-file prod-variables.env \
+  --network noagreements-net \
+  --name noagreements-site  \
+  -v noagreements-static:/code/static \
+  -d noagreements:latest
+  ```
+  
+
+- setup an nginx config to route requests to the docker container. (which should now be exposed on 127.0.0.1:8000). use the `alias` directive
+to reroute requests to `/static/` to the location of the volume mount (which you can find with `docker volume inspect noagreements-static`)
+
+
+- `docker exec -it noagreements-site bash` into the container and run the migrations with
+`python manage.py migrate`
+
+[postgres]: https://www.postgresql.org/docs/11/tutorial-install.html
+[nginx]: https://nginx.org/en/
+[django-req-perm]: https://docs.djangoproject.com/en/3.1/topics/install/#get-your-database-running
 [docker]: https://www.docker.com/
-[dc]: https://docs.docker.com/compose/
-
-### Procedure
-
-- copy the example environment file:
- ```
- cp prod-variables.env.example prod-variables.env
-```
-
-- edit the variables file, fill in the appropriate values and uncomment them
-
-- build the app with
-
-```shell script
-docker-compose -f docker-compose.yml -f docker-compose-prod.yml --env-file prod-variables.env build
-```
-- launch the server with
-
-```shell script
-docker-compose -f docker-compose.yml -f docker-compose-prod.yml --env-file prod-variables.env up -d
-```
-
-- run the migrations
-
-```shell script
-docker exec <id of the web container> python3 manage.py migrate
-```
-
-# Maintenance
-
-## Manual backup
-
-Replace relevant postgres settings, should be the same as the production environment
-Also recommended to replace the PWD with the directory where you want the backups, as it generates 3 folders.
-``` shell
-docker run --rm -v "$PWD:/backups" -u "$(id -u):$(id -g)" -e POSTGRES_HOST=postgres -e POSTGRES_DB=noagreements -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password  --network noagreementsco_default --link db:postgres prodrigestivill/postgres-backup-local /backup.sh
-```
-
-
 
 
 # Development setup
 
-### Using docker
+### Prerequisites:
+- python 3.9.2
+- sqlite 3.35.4
 
-- run the runDev script:
-
-```shell script
-./runDev.sh
-```
-
-Running the script with the `-n` argument will skip the build phase.
-
-Running the script with the `-m` argument will also run the migrations.
-
-Any code changes should update automatically without having to restart the container.
-
-This will start the default django development server on port 8000 
-but uses a postgresql container for the database.
+(again, later versions are probably fine but untested)
 
 
-### Django only
+### Procedure
+
+- (optional but recommended) create and activate a python virtual environment
+- install prerequisites: `pip install -r requirements.txt`
 
 - run the following command
 ```shell script
@@ -83,3 +111,8 @@ This will start the default django dev server on port 8000 with an sqlite databa
 ```shell script
 python manage.py migrate
 ```
+
+[postgres]: https://www.postgresql.org/docs/11/tutorial-install.html
+[nginx]: https://nginx.org/en/
+[django-req-perm]: https://docs.djangoproject.com/en/3.1/topics/install/#get-your-database-running
+[docker]: https://www.docker.com/

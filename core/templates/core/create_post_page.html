@@ -27,12 +27,16 @@
                 {% basic_form_field form.cover_img "cover_img" %}
             </div>
             {% basic_form_field form.content "content" %}
-            <div class="w-50">
-                {% basic_form_field form.tags "tags" %}
+            <div class="w-75-l w-100 flex flex-row flex-wrap">
+                {% for tag in form.tags %}
+                    <label class="pa1 w5" for="{{ tag.id_for_label }}">
+                        <span class="dib fl pr2">{{ tag.tag }}</span>
+                        <span class="dib">{{ tag.choice_label }}</span>
+                    </label>
+                {% endfor %}
             </div>
-            <button type="submit" >Save</button>
+            <button type="submit">Save</button>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            {{ form.media.js }}
         </form>
     </div>
 

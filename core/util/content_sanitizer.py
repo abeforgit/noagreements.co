@@ -8,7 +8,8 @@ _ALLOWED_TAGS = [
 _ALLOWED_ATTRS = {
     'a': ['href', 'title'], 'abbr': ['title'],
     'acronym': ['title'],
-    'iframe': ['style', 'src', 'seamless'],
+    'iframe': ['style', 'src', 'seamless', 'allow', 'allowfullscreen', 'height',
+               'width', 'name', 'srcdoc', 'class', 'id', 'title', 'frameborder'],
     'img': ['alt', 'src']
 }
 _ALLOWED_STYLES = [
@@ -17,4 +18,5 @@ _ALLOWED_STYLES = [
 
 
 def sanitize(content: str):
-    return bleach.clean(content, tags=_ALLOWED_TAGS, attributes=_ALLOWED_ATTRS, styles=_ALLOWED_STYLES)
+    return bleach.clean(content, tags=_ALLOWED_TAGS, attributes=_ALLOWED_ATTRS,
+                        styles=_ALLOWED_STYLES)
