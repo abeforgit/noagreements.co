@@ -43,3 +43,52 @@ steps:
 trigger:
   branch:
     - development
+
+---
+kind: pipeline
+type: ssh
+name: deploy_prod
+
+server:
+  host:
+    from_secret: prod_host
+  user:
+    from_secret: prod_user
+  ssh_key:
+    from_secret: ssh_key
+steps:
+  - name: build
+    commands:
+      - docker build . --tag noagreements:latest
+  - name: stop_and_remove
+    commands:
+      - docker rm --force noagreements-site
+  - name: run
+    environment:
+      POSTGRES_PASSWORD:
+        from_secret: prod_pg_password
+      SECRET_KEY:
+        from_secret: prod_secret_key
+      HOST: 162.243.168.205
+      EMAIL_HOST: mail.noagreements.co
+      EMAIL_PORT: 465
+      EMAIL_HOST_USER: noreply@noagreements.co
+      EMAIL_HOST_PASSWORD:
+        from_secret: email_password
+    commands:
+      - >-
+        docker run -p 8000:8000
+        --network noagreements-net
+        -e POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+        -e SECRET_KEY=$SECRET_KEY
+        -e HOST=$HOST
+        -e EMAIL_HOST=$EMAIL_HOST
+        -e EMAIL_PORT=$EMAIL_PORT
+        -e EMAIL_HOST_USER=$EMAIL_HOST_USER
+        -e EMAIL_HOST_PASSWORD=$EMAIL_HOST_PASSWORD
+        --name noagreements-site
+        -v noagreements-static:/code/static
+        -d noagreements:latest
+trigger:
+  branch:
+    - master
