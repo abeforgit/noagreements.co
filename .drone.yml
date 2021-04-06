@@ -1,3 +1,4 @@
+---
 kind: pipeline
 type: exec
 name: deploy_staging
@@ -39,6 +40,3 @@ steps:
         --name noagreements-site
         -v noagreements-static:/code/static
         -d noagreements:latest
-trigger:
-  branch:
-    - development
