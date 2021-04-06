@@ -98,3 +98,53 @@ steps:
 trigger:
   branch:
     - master
+---
+kind: pipeline
+type: ssh
+name: backup_prod
+
+server:
+  host:
+    from_secret: prod_host
+  user:
+    from_secret: prod_user
+  ssh_key:
+    from_secret: ssh_key
+steps:
+  - name: make_backup
+    environment:
+      PGPASSWORD:
+        from_secret: prod_pg_password
+    commands:
+      - pg_dump -U noagreements noagreements > /root/daily_backup.sql
+trigger:
+  event:
+    - cron
+
+---
+kind: pipeline
+type: exec
+name: import_backup
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+  - name: get backup
+    environment:
+      PGPASSWORD:
+        from_secret: prod_pg_password
+      PROD_HOST:
+        from_secret: prod_host
+    commands:
+      - pg_dump -U noagreements -h $PROD_HOST > /root/daily_backup.sql
+  - name: import backup
+    environment:
+      PGPASSWORD:
+        from_secret: pg_password
+    commands:
+      - psql -U noagreements noagreements < /root/daily_backup.sql
+trigger:
+  event:
+    - cron
