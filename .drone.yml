@@ -139,12 +139,6 @@ steps:
         from_secret: prod_host
     commands:
       - pg_dump -U noagreements -h $PROD_HOST > /root/daily_backup.sql
-  - name: drop database
-    environment:
-      PGPASSWORD:
-        from_secret: pg_password
-    commands:
-      - dropdb -U noagreements noagreements
   - name: import backup
     environment:
       PGPASSWORD:
