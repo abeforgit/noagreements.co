@@ -69,7 +69,7 @@ steps:
   - name: run
     environment:
       POSTGRES_PASSWORD:
-        from_secret: prod_pg_password
+        from_secret: pg_password
       SECRET_KEY:
         from_secret: prod_secret_key
       HOST: 162.243.168.205
@@ -114,7 +114,7 @@ steps:
   - name: make_backup
     environment:
       PGPASSWORD:
-        from_secret: prod_pg_password
+        from_secret: pg_password
     commands:
       - pg_dump -U noagreements noagreements > /root/daily_backup.sql
 trigger:
@@ -134,11 +134,11 @@ steps:
   - name: get backup
     environment:
       PGPASSWORD:
-        from_secret: prod_pg_password
+        from_secret: pg_password
       PROD_HOST:
         from_secret: prod_host
     commands:
-      - pg_dump -U noagreements -h $PROD_HOST > /root/daily_backup.sql
+      - pg_dump -U noagreements -F directory -h $PROD_HOST noagreements > /root/daily_backup.sql
   - name: import backup
     environment:
       PGPASSWORD:
