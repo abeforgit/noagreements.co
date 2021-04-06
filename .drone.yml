@@ -42,7 +42,7 @@ steps:
         -d noagreements:latest
   - name: migrations
     commands:
-      - docker exec -it noagreements-site bash -c 'python manage.py migrate'
+      - docker exec noagreements-site bash -c 'python manage.py migrate'
 trigger:
   branch:
     - development
@@ -94,7 +94,7 @@ steps:
         -d noagreements:latest
   - name: migrations
     commands:
-      - docker exec -it noagreements-site bash -c 'python manage.py migrate'
+      - docker exec noagreements-site bash -c 'python manage.py migrate'
 trigger:
   branch:
     - master
