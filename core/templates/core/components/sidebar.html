@@ -33,6 +33,7 @@
             {% endif %}
             {% if perms.auth.add_group %}
                 {% sidebar_item "admin" "admin:index" 9 %}
+                {% sidebar_item "posts" "posts" 9 %}
             {% endif %}
             {% sidebar_item "you" "creator_detail" 6 user.id %}
             {% sidebar_item "logout" "logout" 12 %}
