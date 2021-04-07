@@ -105,6 +105,7 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_FROM_EMAIL = "noreply@noagreements.co"
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 if os.environ.get('ENV', "prod") == 'dev':
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
