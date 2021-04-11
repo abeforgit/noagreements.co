@@ -8,6 +8,7 @@
     <table class="w5 w-100-ns overflow-auto">
         <thead>
         <tr class="f3">
+            <th scope="col"></th>
             <th scope="col">Date published</th>
             <th scope="col">Post title</th>
             <th scope="col">Published by</th>
@@ -20,6 +21,9 @@
         <tbody>
         {% for post in posts %}
             <tr class="f3 normal">
+                <th class="normal">
+                    <a href={% url "edit_post" post.id %}>edit</a>
+                </th>
                 <th class="normal">
                     {{ post.pub_date }}
                 </th>

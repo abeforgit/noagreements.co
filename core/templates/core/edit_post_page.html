@@ -1,0 +1,49 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load basic_form_field %}
+{% block title %}
+    <title>No Agreements | New Post</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <style>
+        input, select {
+            width: 100%
+        }
+    </style>
+    {{ form.media.js }}
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+    {{ form.media.css }}
+    <link rel="stylesheet" href="{% static "core/styles/create-post.css" %}"/>
+{% endblock %}
+{% block content %}
+    <div class="create-post">
+        <form class="create-post-form" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                {% basic_form_field form.title "title" %}
+                {% basic_form_field form.cover_img "cover_img" %}
+            </div>
+            {% basic_form_field form.content "content" %}
+            <div class="w-75-l w-100 flex flex-row flex-wrap">
+                {% for tag in form.tags %}
+                    <label class="pa1 w5" for="{{ tag.id_for_label }}">
+                        <span class="dib fl pr2">{{ tag.tag }}</span>
+                        <span class="dib">{{ tag.choice_label }}</span>
+                    </label>
+                {% endfor %}
+            </div>
+            <button type="submit">Save</button>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        </form>
+    </div>
+
+    <script>
+        var simplemde = new SimpleMDE({
+            element: document.getElementById("id_content"),
+            forceSync: true
+        });
+    </script>
+{% endblock %}
