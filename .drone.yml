@@ -153,7 +153,7 @@ steps:
       PGPASSWORD:
         from_secret: pg_password
     commands:
-      - pg_restore -C -U noagreements -d postgres /root/daily_backup
+      - pg_restore -C -U postgres -d postgres /root/daily_backup
 trigger:
   event:
     - cron
