@@ -118,7 +118,7 @@ steps:
     commands:
       - rm -f ~/.pgpass
       - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
-      - chmod 0600 ~/.pgpass
+      - chmod 0600 /root/.pgpass
   - name: make_backup
     commands:
       - pg_dump -w -F d -f /root/daily_backup -U noagreements noagreements
@@ -146,7 +146,7 @@ steps:
       - rm -f ~/.pgpass
       - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
       - echo "$PROD_HOST:5432:noagreements:noagreements:$PGPASSWORD" >> /root/.pgpass
-      - chmod 0600 ~/.pgpass
+      - chmod 0600 /root/.pgpass
   - name: remove old old backup
     commands:
       - rm -rf /root/daily_backup_old
