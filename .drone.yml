@@ -131,9 +131,11 @@ platform:
   arch: amd64
 
 steps:
-  - name: remove old backup
+  - name: remove old old backup
     commands:
-      - rm -rf /root/daily_backup
+      - rm -rf /root/daily_backup_old
+  - name: move old backup
+    commands: mv /root/daily_backup /root/daily_backup_old
   - name: get backup
     environment:
       PGPASSWORD:
@@ -150,7 +152,7 @@ steps:
       PGPASSWORD:
         from_secret: pg_password
     commands:
-      - pg_restore -C -O -U noagreements -d postgres /root/daily_backup
+      - pg_restore -C -U noagreements -d postgres /root/daily_backup
 trigger:
   event:
     - cron
