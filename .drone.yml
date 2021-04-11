@@ -122,6 +122,12 @@ steps:
       - rm -f /root/.pgpass
       - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
       - chmod 0600 /root/.pgpass
+  - name: remove old old backup
+    commands:
+      - rm -rf /root/daily_backup_old
+  - name: move old backup
+    commands:
+      - "[ ! -d /root/daily_backup ] || mv /root/daily_backup /root/daily_backup_old"
   - name: make_backup
     commands:
       - pg_dump -w -F d -f /root/daily_backup -U noagreements noagreements
