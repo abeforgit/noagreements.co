@@ -117,7 +117,7 @@ steps:
         from_secret: pg_password
     commands:
       - rm -f ~/.pgpass
-      - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > ~/.pgpass
+      - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
       - chmod 0600 ~/.pgpass
   - name: make_backup
     commands:
@@ -144,8 +144,8 @@ steps:
         from_secret: prod_host
     commands:
       - rm -f ~/.pgpass
-      - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > ~/.pgpass
-      - echo "$PROD_HOST:5432:noagreements:noagreements:$PGPASSWORD" >> ~/.pgpass
+      - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
+      - echo "$PROD_HOST:5432:noagreements:noagreements:$PGPASSWORD" >> /root/.pgpass
       - chmod 0600 ~/.pgpass
   - name: remove old old backup
     commands:
