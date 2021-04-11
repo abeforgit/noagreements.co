@@ -111,12 +111,16 @@ server:
   ssh_key:
     from_secret: ssh_key
 steps:
-  - name: make_backup
+  - name: recreate pgpass
     environment:
       PGPASSWORD:
         from_secret: pg_password
     commands:
-      - pg_dump -F d -f /root/daily_backup -U noagreements noagreements
+      - rm -f ~/.pgpass
+      - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > ~/.pgpass
+  - name: make_backup
+    commands:
+      - pg_dump -w -F d -f /root/daily_backup -U noagreements noagreements
 trigger:
   event:
     - cron
@@ -131,6 +135,16 @@ platform:
   arch: amd64
 
 steps:
+  - name: recreate pgpass
+    environment:
+      PGPASSWORD:
+        from_secret: pg_password
+      PROD_HOST:
+        from_secret: prod_host
+    commands:
+      - rm -f ~/.pgpass
+      - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > ~/.pgpass
+      - echo "$PROD_HOST:5432:noagreements:noagreements:$PGPASSWORD" >> ~/.pgpass
   - name: remove old old backup
     commands:
       - rm -rf /root/daily_backup_old
@@ -139,19 +153,14 @@ steps:
       - "[ ! -d /root/daily_backup ] || mv /root/daily_backup /root/daily_backup_old"
   - name: get backup
     environment:
-      PGPASSWORD:
-        from_secret: pg_password
       PROD_HOST:
         from_secret: prod_host
     commands:
-      - pg_dump -F d -f /root/daily_backup -U noagreements -h $PROD_HOST noagreements
+      - pg_dump -w -F d -f /root/daily_backup -U noagreements -h $PROD_HOST noagreements
   - name: remove db
     commands:
       - dropdb --if-exists -U postgres noagreements
   - name: import backup
-    environment:
-      PGPASSWORD:
-        from_secret: pg_password
     commands:
       - pg_restore -C -U postgres -d postgres /root/daily_backup
 trigger:
