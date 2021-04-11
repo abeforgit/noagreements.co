@@ -144,7 +144,7 @@ steps:
       - pg_dump -F d -f /root/daily_backup -U noagreements -h $PROD_HOST noagreements
   - name: remove db
     commands:
-      - su postgres; dropdb noagreements
+      - dropdb --if-exists -U postgres noagreements
   - name: import backup
     environment:
       PGPASSWORD:
