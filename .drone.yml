@@ -119,8 +119,8 @@ steps:
       PGPASSWORD:
         from_secret: pg_password
     commands:
-      - rm -f ~/.pgpass
-      - echo "0.0.0.0:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
+      - rm -f /root/.pgpass
+      - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
       - chmod 0600 /root/.pgpass
   - name: make_backup
     commands:
@@ -146,7 +146,7 @@ steps:
       PROD_HOST:
         from_secret: prod_host
     commands:
-      - rm -f ~/.pgpass
+      - rm -f /root/.pgpass
       - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
       - echo "$PROD_HOST:5432:noagreements:noagreements:$PGPASSWORD" >> /root/.pgpass
       - chmod 0600 /root/.pgpass
