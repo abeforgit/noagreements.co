@@ -135,7 +135,8 @@ steps:
     commands:
       - rm -rf /root/daily_backup_old
   - name: move old backup
-    commands: mv /root/daily_backup /root/daily_backup_old
+    commands:
+      - mv /root/daily_backup /root/daily_backup_old
   - name: get backup
     environment:
       PGPASSWORD:
