@@ -98,6 +98,9 @@ steps:
 trigger:
   branch:
     - master
+  event:
+    exclude:
+      - cron
 ---
 kind: pipeline
 type: ssh
@@ -117,7 +120,7 @@ steps:
         from_secret: pg_password
     commands:
       - rm -f ~/.pgpass
-      - echo "localhost:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
+      - echo "0.0.0.0:5432:noagreements:noagreements:$PGPASSWORD" > /root/.pgpass
       - chmod 0600 /root/.pgpass
   - name: make_backup
     commands:
