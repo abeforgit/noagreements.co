@@ -13,7 +13,7 @@ class EditPostPage(PermissionRequiredMixin, UpdateView):
     login_url = "/login"
     model = Post
     form_class = PostForm
-    template_name = "core/edit_post_page.html"
+    template_name = "core/create_post_page.html"
     success_url = "/post/{id}"
     object: Post
 
