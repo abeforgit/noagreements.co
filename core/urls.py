@@ -5,6 +5,7 @@ from django.contrib.auth.views import PasswordResetConfirmView
 from .views.about import AboutPage
 from .views.creator_detail import CreatorDetailPage
 from .views.creators import CreatorsPage
+from .views.edit_post import EditPostPage
 from .views.group import GroupPage
 from .views.home import HomeView
 from .views.logout import LogoutPage
@@ -13,6 +14,7 @@ from .views.news import NewsPage
 from .views.create_post import CreatePostPage
 from .views.post_detail import PostDetailPage
 from .views.login import LoginPage
+from .views.posts import PostsPage
 
 urlpatterns = [
     path("", HomeView.as_view(), name="home"),
@@ -22,7 +24,9 @@ urlpatterns = [
     path("group", GroupPage.as_view(), name="group"),
     path("news", NewsPage.as_view(), name="news"),
     path("mixes", MixesPage.as_view(), name="mixes"),
+    path("posts", PostsPage.as_view(), name="posts"),
     path("post/add", CreatePostPage.as_view(), name="new_post"),
+    path("post/<int:pk>/edit", EditPostPage.as_view(), name="edit_post"),
     path("post/<int:pk>", PostDetailPage.as_view(), name="post_detail"),
     path("login", LoginPage.as_view(), name="login"),
     path("logout", LogoutPage.as_view(), name="logout"),

@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}
+    <title>No Agreements | Manage Posts</title>
+{% endblock %}
+{% block content %}
+
+    <table class="w5 w-100-ns overflow-auto">
+        <thead>
+        <tr class="f3">
+            <th scope="col"></th>
+            <th scope="col">Date published</th>
+            <th scope="col">Post title</th>
+            <th scope="col">Published by</th>
+            <th scope="col">Tags</th>
+        </tr>
+
+        </thead>
+
+
+        <tbody>
+        {% for post in posts %}
+            <tr class="f3 normal">
+                <th class="normal">
+                    <a href={% url "edit_post" post.id %}>edit</a>
+                </th>
+                <th class="normal">
+                    {{ post.pub_date }}
+                </th>
+                <th class="normal">
+                    <a href={% url "post_detail" post.id %}>{{ post.title }}</a>
+                </th>
+                <th class="normal">
+                    {{ post.user.username }}
+                </th>
+                <th class="normal">
+                    {% for tag in post.tags.all %}
+                        <span>{{ tag.name }}</span>
+                    {% endfor %}
+                </th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
