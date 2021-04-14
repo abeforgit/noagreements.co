@@ -20,7 +20,7 @@ class CreatePostPage(PermissionRequiredMixin, CreateView):
 
     def form_valid(self, form: Form):
         self.object = form.save(commit=False)
-        self.object.content = sanitize(self.object.content)
+        self.object.content = self.object.content
         self.object.user = self.request.user
         self.object.save()
         self.object.tags.set(form.cleaned_data["tags"])
