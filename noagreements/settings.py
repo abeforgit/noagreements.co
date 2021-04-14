@@ -60,7 +60,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'noagreements.wsgi.application'
-TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/35q01w0ppi7bsnb3w28qlodvtiee4nf53f8c85hdpk1pv0g2/tinymce/5/tinymce.min.js'
 TINYMCE_DEFAULT_CONFIG = {
     "height": "100%",
     "width": "100%",
