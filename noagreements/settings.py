@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,20 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'noagreements.wsgi.application'
-
+TINYMCE_JS_URL = 'https://cdn.tiny.cloud/1/35q01w0ppi7bsnb3w28qlodvtiee4nf53f8c85hdpk1pv0g2/tinymce/5/tinymce.min.js'
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "100%",
+    "width": "100%",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+               "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+               "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+               "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+               "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+               "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+}
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 

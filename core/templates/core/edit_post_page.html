@@ -3,9 +3,6 @@
 {% load basic_form_field %}
 {% block title %}
     <title>No Agreements | New Post</title>
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
     <style>
         input, select {
             width: 100%
@@ -26,7 +23,6 @@
                 {% basic_form_field form.title "title" %}
                 {% basic_form_field form.cover_img "cover_img" %}
             </div>
-            {% basic_form_field form.content "content" %}
             <div class="w-75-l w-100 flex flex-row flex-wrap">
                 {% for tag in form.tags %}
                     <label class="pa1 w5" for="{{ tag.id_for_label }}">
@@ -35,15 +31,10 @@
                     </label>
                 {% endfor %}
             </div>
+            <div class="vh-75">
+                {% basic_form_field form.content "content" %}
+            </div>
             <button type="submit">Save</button>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         </form>
     </div>
-
-    <script>
-        var simplemde = new SimpleMDE({
-            element: document.getElementById("id_content"),
-            forceSync: true
-        });
-    </script>
 {% endblock %}

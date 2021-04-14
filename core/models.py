@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
+from tinymce.models import HTMLField
 
 from noagreements import settings
 
@@ -32,7 +33,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=500)
-    content = models.TextField()
+    content = HTMLField()
     pub_date = models.DateTimeField('Date published', default=timezone.now)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     cover_img = models.URLField(blank=True)
