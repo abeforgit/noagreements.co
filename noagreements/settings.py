@@ -158,7 +158,6 @@ else:
     EMAIL_PORT = os.environ.get("EMAIL_PORT")
     EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-    TINYMCE_COMPRESSOR = True
     EMAIL_USE_SSL = True
 
     # SECURITY WARNING: keep the secret key used in production secret!
