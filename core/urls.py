@@ -3,8 +3,10 @@ from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, 
 from django.contrib.auth.views import PasswordResetConfirmView
 
 from .views.about import AboutPage
+from .views.create_creator import CreateCreatorPage
 from .views.creator_detail import CreatorDetailPage
 from .views.creators import CreatorsPage
+from .views.edit_creator import EditCreatorPage
 from .views.edit_post import EditPostPage
 from .views.group import GroupPage
 from .views.home import HomeView
@@ -20,7 +22,9 @@ urlpatterns = [
     path("", HomeView.as_view(), name="home"),
     path("about", AboutPage.as_view(), name="about"),
     path("creators", CreatorsPage.as_view(), name="creators"),
+    path("creators/add", CreateCreatorPage.as_view(), name="new_creator"),
     path("creators/<int:pk>", CreatorDetailPage.as_view(), name="creator_detail"),
+    path("creators/<int:pk>/edit", EditCreatorPage.as_view(), name="edit_creator"),
     path("group", GroupPage.as_view(), name="group"),
     path("news", NewsPage.as_view(), name="news"),
     path("mixes", MixesPage.as_view(), name="mixes"),

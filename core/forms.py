@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import CheckboxSelectMultiple
 
-from core.models import Post
+from core.models import Post, User
 
 
 class PostForm(forms.ModelForm):
@@ -11,3 +11,8 @@ class PostForm(forms.ModelForm):
         widgets = {
             "tags": CheckboxSelectMultiple
         }
+
+class CreatorForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["email", "description", "profile_img", "artist_name", "username"]

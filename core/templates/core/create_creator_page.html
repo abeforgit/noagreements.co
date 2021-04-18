@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load basic_form_field %}
+{% block title %}
+    <title>No Agreements | New Creator</title>
+    {{ form.media.js }}
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+    {{ form.media.css }}
+{% endblock %}
+{% block content %}
+    <div class="w-100">
+        <form method="post">
+            {% csrf_token %}
+            <div class="flex flex-row">
+                <div class="flex flex-column pa3">
+                    {% basic_form_field form.username "username" %}
+                    {% basic_form_field form.artist_name "artist_name" %}
+                    {% basic_form_field form.profile_img "profile_img" %}
+                    {% basic_form_field form.email "email" %}
+                </div>
+                <div class="pa3 vh-75">
+                    {{ form.description }}
+                </div>
+            </div>
+
+            <button class="ml3" type="submit">Save</button>
+        </form>
+    </div>
+{% endblock %}

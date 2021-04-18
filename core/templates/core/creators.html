@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load link_button %}
 {% block title %}
     <title>No Agreements | Creators</title>
 {% endblock %}
@@ -7,10 +8,16 @@
     {{ block.super }}
 {% endblock %}
 {% block content %}
+    {% if perms.core.add_user %}
+        <div class="flex flex-row ph3 pt3">
+            {% link_button "ADD" "success" "new_creator" %}
+        </div>
+
+    {% endif %}
     <div class="pa2 flex flex-wrap">
-    {% for creator in creators %}
-        {% include "core/components/creator_card.html" with creator=creator only %}
-    {% endfor %}
+        {% for creator in creators %}
+            {% include "core/components/creator_card.html" with creator=creator only %}
+        {% endfor %}
     </div>
 
 {% endblock %}
