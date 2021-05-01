@@ -1,14 +1,11 @@
-html {
-    font-family: coolvetica, serif;
-    background-color: #f1eef7;
-}
-
 @font-face {
     font-family: "coolvetica";
-    src: url('../fonts/coolvetica.ttf');
+    src: url('/static/core/fonts/coolvetica.ttf');
 }
 
 body {
+    font-family: coolvetica, serif;
+    background-color: #f1eef7;
     margin: 0;
     height: 100vh;
 }

@@ -64,14 +64,31 @@ TINYMCE_DEFAULT_CONFIG = {
     "height": "100%",
     "width": "100%",
     "menubar": "file edit view insert format tools table help",
-    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+    "plugins": "advlist autolink lists link image charmap print preview "
+               "anchor searchreplace visualblocks code "
                "fullscreen insertdatetime media table paste code help wordcount",
-    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
-               "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
-               "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
-               "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect "
+               "fontsizeselect formatselect | alignleft "
+               "aligncenter alignright alignjustify | outdent indent |  "
+               "numlist bullist checklist | forecolor "
+               "backcolor casechange permanentpen formatpainter removeformat "
+               "| pagebreak | charmap emoticons | "
+               "fullscreen  preview save print | insertfile image media "
+               "pageembed template link anchor codesample | "
                "a11ycheck ltr rtl | showcomments addcomment code",
     "custom_undo_redo_levels": 10,
+    "content_css": "/static/core/styles/editor_content.css",
+    "font_formats": "Andale Mono=andale mono,times; Arial=arial,helvetica,"
+                    "sans-serif; Arial Black=arial black,avant garde; Book "
+                    "Antiqua=book antiqua,palatino; Comic Sans MS=comic sans "
+                    "ms,sans-serif; Courier New=courier new,courier; "
+                    "Georgia=georgia,palatino; Coolvetica=coolvetica; "
+                    "Helvetica=helvetica; Impact=impact,chicago; "
+                    "Symbol=symbol; Tahoma=tahoma,arial,helvetica,sans-serif; "
+                    "Terminal=terminal,monaco; Times New Roman=times new "
+                    "roman,times; Trebuchet MS=trebuchet ms,geneva; "
+                    "Verdana=verdana,geneva; Webdings=webdings; "
+                    "Wingdings=wingdings,zapf dingbats",
 }
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases

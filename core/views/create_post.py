@@ -2,11 +2,9 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.forms import Form
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
-from markdown import markdown
 
 from core.forms import PostForm
-from core.models import Post, Tag
-from core.util.content_sanitizer import sanitize
+from core.models import Post
 
 
 class CreatePostPage(PermissionRequiredMixin, CreateView):
@@ -20,7 +18,6 @@ class CreatePostPage(PermissionRequiredMixin, CreateView):
 
     def form_valid(self, form: Form):
         self.object = form.save(commit=False)
-        self.object.content = self.object.content
         self.object.user = self.request.user
         self.object.save()
         self.object.tags.set(form.cleaned_data["tags"])

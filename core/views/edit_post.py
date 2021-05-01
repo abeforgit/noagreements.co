@@ -1,11 +1,9 @@
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.http import HttpResponseRedirect
 from django.views.generic import UpdateView
-from markdown import markdown
 
 from core.forms import PostForm
 from core.models import Post
-from core.util.content_sanitizer import sanitize
 
 
 class EditPostPage(PermissionRequiredMixin, UpdateView):
@@ -19,7 +17,6 @@ class EditPostPage(PermissionRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
-        self.object.content = sanitize(markdown(self.object.content))
         self.object.user = self.request.user
         self.object.save()
         self.object.tags.set(form.cleaned_data["tags"])

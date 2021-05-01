@@ -9,7 +9,7 @@
 {% block content %}
     <div class="post-detail pa3">
         <div>
-            <h1 class="dib">{{ object.title }}</h1>
+            <h1 class="dib tc w-100">{{ object.title }}</h1>
 
 
             {% if perms.auth.add_post %}
@@ -18,7 +18,7 @@
                 </button>
             {% endif %}
         </div>
-        <div>{{ object.pub_date }}</div>
         <div>{{ object.content | safe }}</div>
+        <div>{{ object.pub_date }}</div>
     </div>
 {% endblock %}

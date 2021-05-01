@@ -1,0 +1,7 @@
+@font-face {
+    font-family: "coolvetica";
+    src: url('../fonts/coolvetica.ttf');
+}
+body {
+    font-family: "coolvetica";
+}
