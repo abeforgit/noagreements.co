@@ -17,9 +17,11 @@ from .views.create_post import CreatePostPage
 from .views.post_detail import PostDetailPage
 from .views.login import LoginPage
 from .views.posts import PostsPage
+from .views.splash import SplashView
 
 urlpatterns = [
-    path("", HomeView.as_view(), name="home"),
+    path("", SplashView.as_view(), name="splash"),
+    path("home", HomeView.as_view(), name="home"),
     path("about", AboutPage.as_view(), name="about"),
     path("creators", CreatorsPage.as_view(), name="creators"),
     path("creators/add", CreateCreatorPage.as_view(), name="new_creator"),
