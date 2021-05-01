@@ -31,6 +31,7 @@
 
 :root {
     --card-size: 11rem;
+    --sidebar-size: 20rem;
 }
 
 .wcard {
@@ -40,6 +41,9 @@
 .hcard {
     height: var(--card-size)
 }
+.min-w-sidebar {
+    min-width: var(--sidebar-size);
+}
 
 @media (--breakpoint-not-small) {
     .wcard-ns {
@@ -48,6 +52,9 @@
 
     .hcard-ns {
         height: var(--card-size)
+    }
+    .min-w-sidebar-ns {
+        min-width: var(--sidebar-size);
     }
 }
 
@@ -59,6 +66,9 @@
     .hcard-m {
         height: var(--card-size)
     }
+    .min-w-sidebar-m {
+        min-width: var(--sidebar-size);
+    }
 }
 
 @media (--breakpoint-large) {
@@ -68,5 +78,8 @@
 
     .hcard-l {
         height: var(--card-size)
+    }
+    .min-w-sidebar-l {
+        min-width: var(--sidebar-size);
     }
 }
