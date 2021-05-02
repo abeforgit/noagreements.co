@@ -5,45 +5,52 @@
     <title>No Agreements | {{ object.username }}</title>
 {% endblock %}
 {% block content %}
-    {% if perms.core.change_user %}
-        <div class="pa3">
-            {% link_button "Edit" "primary" "edit_creator" object.id %}
-        </div>
-    {% endif %}
     <div>
-
-        {% if object.profile_img %}
-            <img class="fl-l h-0 w-50-l object-cover mr4-l"
-                 src={{ object.profile_img }} alt={{ object.username }}>
-        {% else %}
-            <img class="fl-l h-50 w-50-l object-cover mr4-l"
-                 src={% static "core/img/doggie.png" %} alt={{ object.username }}>
-        {% endif %}
-        <div class="pa4-l">
-            <div class="pa1 ml-auto mr-auto tc">
-                <h1 class="f2">{{ object.artist_name }}</h1>
+        <div class="bb bl b--moon-purple bw2 flex-l flex-row content-start bg-moon-gray pa3">
+            <div class="object-cover pb3">
+                {% if object.profile_img %}
+                    <img class="fl-l h-100 w-100-l object-cover mr4-l"
+                         src={{ object.profile_img }} alt={{ object.username }}>
+                {% else %}
+                    <img class="fl-l h-100 w-100-l object-cover mr4-l"
+                         src={% static "core/img/doggie.png" %} alt={{ object.username }}>
+                {% endif %}
             </div>
-            <div class="f2 pa3 mr-auto ml-auto tc">
+            <div class="f2 pa3 mr-auto ml-auto tl">
                 {% if object.bandcamp_url %}
-                    <a class="purple ttu no-underline"
+                    <a class="purple ttu no-underline db"
                        href={{ object.bandcamp_url }}>/bandcamp/</a>
                 {% endif %}
                 {% if object.spotify_url %}
-                    <a class="purple ttu no-underline"
+                    <a class="purple ttu no-underline db"
                        href={{ object.spotify_url }}>/spotify/</a>
                 {% endif %}
                 {% if object.facebook_url %}
-                    <a class="purple ttu no-underline"
+                    <a class="purple ttu no-underline db"
                        href={{ object.facebook_url }}>/facebook/</a>
                 {% endif %}
                 {% if object.instagram_url %}
-                    <a class="purple ttu no-underline"
+                    <a class="purple ttu no-underline db"
                        href={{ object.instagram_url }}>/instagram/</a>
                 {% endif %}
 
             </div>
+            <div class="pa4-l w-100 self-end">
+                {% if perms.core.change_user %}
+                    <div class="pa3">
+                        {% link_button "Edit" "primary" "edit_creator" object.id %}
+                    </div>
+                {% endif %}
+                <div class="pa1 ml-auto mr-auto tc relative">
+                    <div class="f-headline white">///{{ object.artist_name }}///</div>
+                    <div class="f-headline black absolute bottom-1">///{{ object.artist_name }}///</div>
+                </div>
+            </div>
         </div>
-        {{ object.description | safe }}
+
+        <div class="pa3">
+            {{ object.description | safe }}
+        </div>
 
     </div>
 
