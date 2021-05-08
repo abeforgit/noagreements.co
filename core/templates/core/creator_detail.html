@@ -52,59 +52,9 @@
 
         </div>
     </div>
-    {#    <div>#}
-    {#        <div class="bb bl b--moon-purple bw2 flex flex-column flex-row-ns items-center bg-moon-gray pa3">#}
-    {#            <div class="order-1 flex flex-row justify-around">#}
-    {#                <div class="wcard pb3 order-1 order-0-ns">#}
-    {#                    {% if object.profile_img %}#}
-    {#                        <img class="h-auto wcard mr4-l"#}
-    {#                             src={{ object.profile_img }} alt={{ object.username }}>#}
-    {#                    {% else %}#}
-    {#                        <img class="h-auto wcard mr4-l"#}
-    {#                             src={% static "core/img/doggie.png" %} alt={{ object.username }}>#}
-    {#                    {% endif %}#}
-    {#                </div>#}
-    {#                <div class="f2 pa3 tl order-2 flex flex-column">#}
-    {#                    {% if object.bandcamp_url %}#}
-    {#                        <a class="purple ttu no-underline db"#}
-    {#                           href={{ object.bandcamp_url }}>/bandcamp/</a>#}
-    {#                    {% endif %}#}
-    {#                    {% if object.spotify_url %}#}
-    {#                        <a class="purple ttu no-underline db"#}
-    {#                           href={{ object.spotify_url }}>/spotify/</a>#}
-    {#                    {% endif %}#}
-    {#                    {% if object.facebook_url %}#}
-    {#                        <a class="purple ttu no-underline db"#}
-    {#                           href={{ object.facebook_url }}>/facebook/</a>#}
-    {#                    {% endif %}#}
-    {#                    {% if object.instagram_url %}#}
-    {#                        <a class="purple ttu no-underline db"#}
-    {#                           href={{ object.instagram_url }}>/instagram/</a>#}
-    {#                    {% endif %}#}
-    {##}
-    {#                </div>#}
-    {#            </div>#}
-    {#            <div class="pa4-l w-100 self-end order-0 order-1-ns">#}
-    {#                {% if perms.core.change_user %}#}
-    {#                    <div class="pa3">#}
-    {#                        {% link_button "Edit" "primary" "edit_creator" object.id %}#}
-    {#                    </div>#}
-    {#                {% endif %}#}
-    {#                <div class="pa1 ml-auto mr-auto tc relative">#}
-    {#                    <div class="f-headline white">#}
-    {#                        ///{{ object.artist_name }}///#}
-    {#                    </div>#}
-    {#                    <div class="f-headline black absolute bottom-1 left-0 right-0">#}
-    {#                        ///{{ object.artist_name }}///#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            </div>#}
-    {#        </div>#}
-
     <div class="pa3 relative z-1 bg-moon-gray min-h-100">
         {{ object.description | safe }}
     </div>
 
-    </div>
 
 {% endblock %}
