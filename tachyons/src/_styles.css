@@ -32,6 +32,7 @@
 :root {
     --card-size: 11rem;
     --sidebar-size: 20rem;
+    --shadow-distance: 7px;
 }
 
 .wcard {
@@ -44,6 +45,10 @@
 .min-w-sidebar {
     min-width: var(--sidebar-size);
 }
+.text-shadow {
+    bottom: var(--shadow-distance);
+    right: var(--shadow-distance);
+}
 
 @media (--breakpoint-not-small) {
     .wcard-ns {
@@ -55,6 +60,10 @@
     }
     .min-w-sidebar-ns {
         min-width: var(--sidebar-size);
+    }
+    .text-shadow-ns {
+        bottom: var(--shadow-distance);
+        right: var(--shadow-distance);
     }
 }
 
@@ -69,6 +78,10 @@
     .min-w-sidebar-m {
         min-width: var(--sidebar-size);
     }
+    .text-shadow-m {
+        bottom: var(--shadow-distance);
+        right: var(--shadow-distance);
+    }
 }
 
 @media (--breakpoint-large) {
@@ -81,5 +94,9 @@
     }
     .min-w-sidebar-l {
         min-width: var(--sidebar-size);
+    }
+    .text-shadow-l {
+        bottom: var(--shadow-distance);
+        right: var(--shadow-distance);
     }
 }
