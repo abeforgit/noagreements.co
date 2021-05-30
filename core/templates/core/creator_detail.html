@@ -33,23 +33,11 @@
             </div>
         </div>
         <div class="f2 f1-ns tl relative tc z-2 flex-ns flex-row-ns flex-wrap-ns justify-center pt3-ns">
-            {% if object.bandcamp_url %}
+            {% for contact_link in socials %}
                 <a class="purple ttu no-underline db"
-                   href={{ object.bandcamp_url }}>/bandcamp/</a>
-            {% endif %}
-            {% if object.spotify_url %}
-                <a class="purple ttu no-underline db"
-                   href={{ object.spotify_url }}>/spotify/</a>
-            {% endif %}
-            {% if object.facebook_url %}
-                <a class="purple ttu no-underline db"
-                   href={{ object.facebook_url }}>/facebook/</a>
-            {% endif %}
-            {% if object.instagram_url %}
-                <a class="purple ttu no-underline db"
-                   href={{ object.instagram_url }}>/instagram/</a>
-            {% endif %}
+                   href={{ contact_link.url }}>/{{ contact_link.name }}/</a>
 
+            {% endfor %}
         </div>
     </div>
     <div class="pa3 relative z-1 bg-moon-gray min-h-100">

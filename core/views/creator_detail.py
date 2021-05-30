@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.views.generic import DetailView
 
-from core.models import Post
+from core.models import Post, ContactLink
 
 
 class CreatorDetailPage(DetailView):
@@ -11,6 +11,6 @@ class CreatorDetailPage(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.order_by("pub_date").reverse().filter(user_id=self.object.id)
+        context["socials"] = ContactLink.objects.filter(user=self.object)
         context["description_paragraphs"] = self.object.description.split("\n")
         return context
