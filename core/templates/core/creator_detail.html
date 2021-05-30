@@ -12,12 +12,12 @@
                 {% link_button "Edit" "primary" "edit_creator" object.id %}
             </div>
         {% endif %}
-        <div class="absolute h-100 w-100-ns left-0 bottom-0 z-0">
+        <div class="absolute w-100-ns z-0 tc tac vh-50">
             {% if object.profile_img %}
-                <img class="h-100 object-cover w-auto h-auto-ns w-100-ns"
+                <img class="h-100 center object-cover w-auto h-auto-ns w-100-ns blur center-image"
                      src={{ object.profile_img }} alt={{ object.username }}>
             {% else %}
-                <img class="h-100 object-cover w-auto h-auto-ns w-100-ns"
+                <img class="h-100 object-cover w-auto h-auto-ns min-w-100-ns blur"
                      src={% static "core/img/doggie.png" %} alt={{ object.username }}>
             {% endif %}
         </div>

@@ -31,10 +31,15 @@
     min-height: 50%;
 }
 
+.blur {
+    filter: blur(var(--blur-strength));
+}
+
 :root {
     --card-size: 11rem;
     --sidebar-size: 20rem;
     --shadow-distance: 7px;
+    --blur-strength: 1rem;
 }
 
 .wcard {
@@ -82,6 +87,9 @@
     .margin-auto-ns {
         margin: auto;
     }
+    .blur-ns {
+        filter: blur(var(--blur-strength));
+    }
 }
 
 @media (--breakpoint-medium) {
@@ -108,6 +116,9 @@
     .margin-auto-m {
         margin: auto;
     }
+    .blur-m {
+        filter: blur(var(--blur-strength));
+    }
 }
 
 @media (--breakpoint-large) {
@@ -133,5 +144,16 @@
     }
     .margin-auto-l {
         margin: auto;
+    }
+    .blur-l {
+        filter: blur(var(--blur-strength));
+    }
+    .center-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        max-width: 100%;
+        max-height: 100%;
     }
 }
