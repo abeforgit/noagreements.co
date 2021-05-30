@@ -1,0 +1,63 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load link_button %}
+{% block title %}
+    <title>No Agreements | Creators</title>
+{% endblock %}
+{% block css %}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+    <div class="bg-white pa3">
+        <div class="flex flex-row bg-white justify-around b">
+            <div class="relative">
+                {% if name == "label" %}
+                    <a class="f1 bold moon-purple"
+                       href={% url "roster_label" %}>LABEL</a>
+                    <div class="f1 absolute text-shadow left-0 right-0 bottom-0 black">
+                        LABEL
+                    </div>
+                {% else %}
+                    <a class="f1 bold black"
+                       href={% url "roster_label" %}>LABEL</a>
+                {% endif %}
+            </div>
+            <div class="relative">
+                {% if name == "collective" %}
+                    <a class="f1 bold moon-purple" href={% url "roster_collective" %}>COLLECTIVE</a>
+                    <div class="f1 absolute text-shadow left-0 right-0 bottom-0 black">
+                        COLLECTIVE
+                    </div>
+                {% else %}
+                    <a class="f1 bold black"
+                       href={% url "roster_collective" %}>COLLECTIVE</a>
+                {% endif %}
+            </div>
+            <div class="relative">
+                {% if name == "art" %}
+                    <a class="f1 bold moon-purple" href={% url "roster_art" %}>ART
+                        DEPT.</a>
+                    <div class="f1 absolute text-shadow left-0 right-0 bottom-0 black">
+                        ART&nbsp;DEPT.
+                    </div>
+                {% else %}
+                    <a class="f1 bold black"
+                       href={% url "roster_art" %}>ART DEPT.</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="w-100 tc italic f2 pt i b">{{ description }}</div>
+    </div>
+    {% if perms.core.add_user %}
+        <div class="flex flex-row ph3 pt3">
+            {% link_button "ADD" "success" "admin:core_user_add" %}
+        </div>
+
+    {% endif %}
+    <div class="pa2 flex flex-wrap">
+        {% for member in roster %}
+            {% include "core/components/creator_card.html" with creator=member only %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
