@@ -19,6 +19,22 @@
                     {% basic_form_field form.artist_name "artist_name" %}
                     {% basic_form_field form.profile_img "profile_img" %}
                     {% basic_form_field form.email "email" %}
+
+                    <div>
+                        <div>Contact links</div>
+                        <table>
+                            <tbody>
+                            {% for contactform in contact_link_formset %}
+                                {{ contactform.id }}
+                                <tr>
+                                    <td>{{ contactform.name }}</td>
+                                    <td>{{ contactform.url }}</td>
+                                </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="pa3 vh-75">
                     {{ form.description }}

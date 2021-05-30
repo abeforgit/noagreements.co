@@ -11,15 +11,20 @@ class User(AbstractUser):
     profile_img = models.URLField(blank=True)
     description = HTMLField(blank=True)
     artist_name = models.CharField(max_length=500, blank=True)
-    bandcamp_url = models.URLField(blank=True)
-    facebook_url = models.URLField(blank=True)
-    instagram_url = models.URLField(blank=True)
-    spotify_url = models.URLField(blank=True)
 
     def save(self, *args, **kwargs):
         if not self.artist_name:
             self.artist_name = self.username
         super().save(*args, **kwargs)
+
+
+class ContactLink(models.Model):
+    url = models.URLField(blank=True)
+    name = models.CharField(max_length=500)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['name']
 
 
 class Tag(models.Model):

@@ -9,7 +9,7 @@
     <div class="bg-moon-purple relative pa3 min-h-50 overflow-hidden">
         {% if perms.core.change_user %}
             <div class="pa3 absolute right-0 top-0 z-3">
-                {% link_button "Edit" "primary" "edit_creator" object.id %}
+                {% link_button "Edit" "primary" "admin:core_user_change" object.id %}
             </div>
         {% endif %}
         <div class="absolute w-100-ns z-0 tc tac vh-50">

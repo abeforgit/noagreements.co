@@ -10,7 +10,7 @@
 {% block content %}
     {% if perms.core.add_user %}
         <div class="flex flex-row ph3 pt3">
-            {% link_button "ADD" "success" "new_creator" %}
+            {% link_button "ADD" "success" "admin:core_user_add" %}
         </div>
 
     {% endif %}

@@ -1,39 +1,48 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import Post, User, Tag
+from .models import Post, User, Tag, ContactLink
+
+
+class ContactLinkInline(admin.TabularInline):
+    model = ContactLink
+    extra = 3
+    fields = ["name", "url"]
 
 
 class CustomUserAdmin(UserAdmin):
     fieldsets = (
-        ('Account info', {"fields": (("username", "email"), "password")}),
+        ('Account info',
+         {"fields": (("username", "email"), "password", "profile_img")}),
         ('Personal info',
-         {'fields': ('artist_name', ('first_name', 'last_name'), "description")}),
-        ("Social info", {"fields": (
-            "profile_img", ("bandcamp_url", "spotify_url"), ("facebook_url",
-                                                             "instagram_url"))}),
+         {'fields': (
+             'artist_name', ('first_name', 'last_name'), "description")}),
         ('Permissions', {
-            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups',
-                       'user_permissions'),
+            'fields': ('groups', 'is_staff', 'is_superuser'),
         }),
-        ('Important dates', {'fields': ('last_login', 'date_joined')}),
+        ('Important dates', {'fields': ('last_login', 'date_joined'), 'classes': ('collapse', )}),
     )
+    inlines = [ContactLinkInline]
     save_on_top = True
+    list_display = ["username", "artist_name"]
+
     add_fieldsets = (
-        (
-            None,
-            {
-                "fields": [
-                    "email",
-                    "username",
-                    "artist_name",
-                    "password1",
-                    "password2"
-                ]
-            }
-        )
-        ,
+        ('Account info',
+         {"fields": (("username", "email"), "password", "profile_img")}),
+        ('Personal info',
+         {'fields': (
+             'artist_name', ('first_name', 'last_name'), "description")}),
+        ('Permissions', {
+            'fields': ('groups', 'is_staff', 'is_superuser'),
+        }),
     )
+
+    class Media:
+        css = {
+            'all': (
+                'admin/styles/useradmin.css',
+            )
+        }
 
 
 def feature(modeladmin, request, queryset):

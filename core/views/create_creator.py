@@ -3,12 +3,12 @@ import string
 
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.auth.models import Group
-from django.forms import Form
+from django.forms import Form, inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.views.generic import CreateView
 
-from core.forms import CreatorForm
-from core.models import User
+from core.forms import CreatorForm, ContactLinkInlineFormset
+from core.models import User, ContactLink
 
 
 class CreateCreatorPage(PermissionRequiredMixin, CreateView):
@@ -29,3 +29,9 @@ class CreateCreatorPage(PermissionRequiredMixin, CreateView):
         self.object.save()
         self.object.groups.add(Group.objects.get(name="creator"))
         return HttpResponseRedirect(self.get_success_url())
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        contact_link_formset = ContactLinkInlineFormset(instance=self.object)
+        context['contact_link_formset'] = contact_link_formset
+        return context
