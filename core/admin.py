@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import Post, User, Tag, ContactLink
+from .models import Post, User, Tag, ContactLink, TagPostPosition
 
 
 class ContactLinkInline(admin.TabularInline):
@@ -68,7 +68,7 @@ unfeature.short_description = "Remove featured tag"
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     autocomplete_fields = ["tags"]
-    list_display = ["title", "pub_date", "user", "show_tags"]
+    list_display = ["id", "title", "pub_date", "user", "show_tags"]
     list_filter = ["user", "pub_date", "tags"]
     search_fields = ["content"]
     actions = [feature, unfeature]
@@ -82,3 +82,4 @@ class TagAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(User, CustomUserAdmin)
+admin.site.register(TagPostPosition)

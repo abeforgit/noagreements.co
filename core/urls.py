@@ -4,6 +4,7 @@ from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, 
 from django.contrib.auth.views import PasswordResetConfirmView
 
 from .views.about import AboutPage
+from .views.ajax import inc_post_position, dec_post_position
 from .views.create_creator import CreateCreatorPage
 from .views.creator_detail import CreatorDetailPage
 from .views.creators import CreatorsPage
@@ -51,5 +52,9 @@ urlpatterns = [
     path("reset/done", PasswordResetDoneView.as_view(),
          name="password_reset_done"),
     path("reset/complete", PasswordResetCompleteView.as_view(),
-         name="password_reset_complete")
+         name="password_reset_complete"),
+    path("inc_post_position/<int:postposition_id>", inc_post_position,
+         name="inc_post_position"),
+    path("dec_post_position/<int:postposition_id>", dec_post_position,
+         name="dec_post_position")
 ]

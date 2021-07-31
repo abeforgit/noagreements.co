@@ -1,8 +1,10 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load post_card %}
 {% block title %}
     <title>Home</title>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src={% static "core/js/ordering.js" %}></script>
 {% endblock %}
 {% block css %}
     {{ block.super }}
@@ -25,7 +27,7 @@
                      "autoPlay": true
                      }'>
             {% for post in featured_posts %}
-                {% include "core/components/featured_post.html" with post=post only %}
+                {% include "core/components/featured_post.html" with post=post %}
             {% endfor %}
         </div>
 
@@ -38,7 +40,7 @@
 
                             <div class="dn w-100 h-inherit-l flex-l flex-wrap flex-row">
                                 {% for post in tag.post_set.all %}
-                                    {% include "core/components/post_card.html" with post=post only %}
+                                    {% post_card post tag %}
                                 {% endfor %}
                             </div>
                             <div class="db dn-l w-100 main-carousel w-100-l h5 h-inherit-l"
@@ -49,7 +51,7 @@
                      "pageDots": false
                      }'>
                                 {% for post in tag.post_set.all %}
-                                    {% include "core/components/post_card.html" with post=post only %}
+                                    {% post_card post tag %}
                                 {% endfor %}
                             </div>
                         </div>

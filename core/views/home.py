@@ -9,5 +9,5 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["tags"] = Tag.objects.filter(show_on_home=True)
-        context["featured_posts"] = Post.objects.order_by("pub_date").filter(tags__name="featured")
+        context["featured_posts"] = Post.objects.filter(tags__name="featured").order_by("tagpostposition__position")
         return context

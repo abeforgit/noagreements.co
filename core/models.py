@@ -54,3 +54,27 @@ class Post(models.Model):
         return ", ".join(map(lambda t: str(t), self.tags.all().iterator()))
 
     show_tags.short_description = "tags"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        for tag in self.tags.all():
+            tag_post_position = TagPostPosition.objects.filter(post=self,
+                                                               tag=tag).first()
+            if tag_post_position is None:
+                newpos = TagPostPosition.objects.filter(tag=tag).last()
+                if newpos is None:
+                    pos = 0
+                else:
+                    pos = newpos.position + 1
+                tag_post_position = TagPostPosition(post=self, tag=tag,
+                                                    position=pos)
+                tag_post_position.save()
+
+
+class TagPostPosition(models.Model):
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    position = models.IntegerField()
+
+    class Meta:
+        ordering = ["position"]

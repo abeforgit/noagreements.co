@@ -1,4 +1,10 @@
 {% load static %}
+{% if perms.core.add_post and has_pos %}
+    <div class="z-5">
+        <span onclick="decPosition({{ pp_url }})">LEFT</span>
+        <span onclick="incPosition({{ pp_url }})">RIGHT</span>
+    </div>
+{% endif %}
 <a href={% url "post_detail" post.id %}>
     <div class="w5 h5 wcard-l hcard-l relative carousel-cell ba bw2 b--black mr3 mb3-l overflow-hidden">
 
@@ -11,6 +17,7 @@
         {% endif %}
 
         <div class="absolute bg-black-20 h3 bottom-0 left-0 right-0 ph2 flex justify-center items-center">
+            <span class="title f3 tc white ttu">{{ pos }}</span>
             <span class="title f3 tc white ttu">{{ post.title }}</span>
         </div>
     </div>
