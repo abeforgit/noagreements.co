@@ -14,22 +14,25 @@
                 {% if name == "label" %}
                     <a class="f1 bold moon-purple"
                        href={% url "roster_label" %}>LABEL</a>
-                    <div class="f1 absolute text-shadow left-0 right-0 bottom-0 black">
+                    <a class="f1 absolute text-shadow left-0 right-0 bottom-0 black hover-purple no-underline"
+                       href={% url "roster_label" %}>
                         LABEL
-                    </div>
+                    </a>
                 {% else %}
-                    <a class="f1 bold black"
+                    <a class="f1 bold black hover-purple"
                        href={% url "roster_label" %}>LABEL</a>
                 {% endif %}
             </div>
             <div class="relative">
                 {% if name == "collective" %}
-                    <a class="f1 bold moon-purple" href={% url "roster_collective" %}>COLLECTIVE</a>
-                    <div class="f1 absolute text-shadow left-0 right-0 bottom-0 black">
+                    <a class="f1 bold moon-purple"
+                       href={% url "roster_collective" %}>COLLECTIVE</a>
+                    <a class="f1 absolute text-shadow left-0 right-0 bottom-0 black hover-purple no-underline"
+                       href={% url "roster_collective" %}>
                         COLLECTIVE
-                    </div>
+                    </a>
                 {% else %}
-                    <a class="f1 bold black"
+                    <a class="f1 bold black hover-purple"
                        href={% url "roster_collective" %}>COLLECTIVE</a>
                 {% endif %}
             </div>
@@ -37,11 +40,12 @@
                 {% if name == "art" %}
                     <a class="f1 bold moon-purple" href={% url "roster_art" %}>ART
                         DEPT.</a>
-                    <div class="f1 absolute text-shadow left-0 right-0 bottom-0 black">
+                    <a class="f1 absolute text-shadow left-0 right-0 bottom-0 black hover-purple no-underline"
+                       href={% url "roster_art" %}>
                         ART&nbsp;DEPT.
-                    </div>
+                    </a>
                 {% else %}
-                    <a class="f1 bold black"
+                    <a class="f1 bold black hover-purple"
                        href={% url "roster_art" %}>ART DEPT.</a>
                 {% endif %}
             </div>

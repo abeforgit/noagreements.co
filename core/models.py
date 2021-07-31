@@ -57,18 +57,16 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
+        TagPostPosition.objects.filter(post=self).delete()
         for tag in self.tags.all():
-            tag_post_position = TagPostPosition.objects.filter(post=self,
-                                                               tag=tag).first()
-            if tag_post_position is None:
-                newpos = TagPostPosition.objects.filter(tag=tag).last()
-                if newpos is None:
-                    pos = 0
-                else:
-                    pos = newpos.position + 1
-                tag_post_position = TagPostPosition(post=self, tag=tag,
-                                                    position=pos)
-                tag_post_position.save()
+            newpos = TagPostPosition.objects.filter(tag=tag).last()
+            if newpos is None:
+                pos = 0
+            else:
+                pos = newpos.position + 1
+            tag_post_position = TagPostPosition(post=self, tag=tag,
+                                                position=pos)
+            tag_post_position.save()
 
 
 class TagPostPosition(models.Model):
