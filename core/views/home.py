@@ -12,7 +12,7 @@ class HomeView(TemplateView):
         context["tags"] = {
             tag.name: {"tag": tag, "post_positions": tag.tagpostposition_set.order_by(
                 "position")}
-            for tag in tags}
+            for tag in tags if tag.name != "featured"}
 
         context["featured_posts"] = Post.objects.filter(
             tags__name="featured").order_by("tagpostposition__position")
