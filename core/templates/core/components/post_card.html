@@ -1,24 +1,26 @@
 {% load static %}
-{% if perms.core.add_post and has_pos %}
-    <div class="z-5">
-        <span onclick="changePosition({{ pp_dec_url }})">LEFT</span>
-        <span onclick="changePosition({{ pp_inc_url }})">RIGHT</span>
-    </div>
-{% endif %}
-<a href={% url "post_detail" post.id %}>
-    <div class="w5 h5 wcard-l hcard-l relative carousel-cell ba bw2 b--black mr3 mb3-l overflow-hidden">
+<div class="relative">
+    <a href={% url "post_detail" post.id %}>
+        <div class="w5 h5 wcard-l hcard-l relative carousel-cell ba bw2 b--black mr3 mb3-l overflow-hidden">
 
-        {% if post.cover_img %}
-            <img class="h-100 hcard-l z-0" alt="{{ post.title }}"
-                 src="{{ post.cover_img }}"/>
-        {% else %}
-            <img class="h-100 hcard-l z-0" alt="{{ post.title }}"
-                 src="{% static "core/img/doggie.png" %}"/>
-        {% endif %}
+            {% if post.cover_img %}
+                <img class="h-100 hcard-l z-0" alt="{{ post.title }}"
+                     src="{{ post.cover_img }}"/>
+            {% else %}
+                <img class="h-100 hcard-l z-0" alt="{{ post.title }}"
+                     src="{% static "core/img/doggie.png" %}"/>
+            {% endif %}
 
-        <div class="absolute bg-black-20 h3 bottom-0 left-0 right-0 ph2 flex justify-center items-center">
-            <span class="title f3 tc white ttu">{{ pos }}</span>
-            <span class="title f3 tc white ttu">{{ post.title }}</span>
+            <div class="absolute bg-black-20 h3 bottom-0 left-0 right-0 ph2 flex justify-center items-center">
+                <span class="title f3 tc white ttu">{{ post.title }}</span>
+            </div>
         </div>
-    </div>
-</a>
+    </a>
+    {% if perms.core.add_post and has_pos %}
+        <div class="z-5 mr3">
+            <span class="pointer hover-purple f1 pl4" onclick="changePosition({{ pp_dec_url }})"><</span>
+            <span class="pointer hover-purple f1 fr pr4" onclick="changePosition({{ pp_inc_url }})">></span>
+        </div>
+    {% endif %}
+
+</div>
