@@ -1,8 +1,8 @@
 {% load static %}
 {% if perms.core.add_post and has_pos %}
     <div class="z-5">
-        <span onclick="decPosition({{ pp_url }})">LEFT</span>
-        <span onclick="incPosition({{ pp_url }})">RIGHT</span>
+        <span onclick="changePosition({{ pp_dec_url }})">LEFT</span>
+        <span onclick="changePosition({{ pp_inc_url }})">RIGHT</span>
     </div>
 {% endif %}
 <a href={% url "post_detail" post.id %}>

@@ -33,14 +33,14 @@
 
         <div class="w-100 w-50-l h-100-l bg-light-purple overflow-auto-l pl3-l">
             <div class="flex flex-wrap flex-column tac ttu">
-                {% for tag in tags %}
-                    {% if tag.post_set.count %}
+                {% for tagpost in tags.values %}
+                    {% if tagpost.post_positions.count %}
                         <div class="flex flex-column">
-                            <div class="w-100 pv2 tc f3 underline black">{{ tag.description }}</div>
+                            <div class="w-100 pv2 tc f3 underline black">{{ tagpost.tag.description }}</div>
 
                             <div class="dn w-100 h-inherit-l flex-l flex-wrap flex-row">
-                                {% for post in tag.post_set.all %}
-                                    {% post_card post tag %}
+                                {% for postpos in tagpost.post_positions %}
+                                    {% post_card postpos.post tagpost.tag %}
                                 {% endfor %}
                             </div>
                             <div class="db dn-l w-100 main-carousel w-100-l h5 h-inherit-l"
@@ -50,8 +50,8 @@
                      "prevNextButtons": false,
                      "pageDots": false
                      }'>
-                                {% for post in tag.post_set.all %}
-                                    {% post_card post tag %}
+                                {% for postpos in tagpost.post_positions %}
+                                    {% post_card postpos.post tagpost.tag %}
                                 {% endfor %}
                             </div>
                         </div>

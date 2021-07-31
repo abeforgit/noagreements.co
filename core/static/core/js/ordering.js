@@ -14,18 +14,13 @@ function getCookie(name) {
     return cookieValue;
 }
 
-async function incPosition(url) {
+async function changePosition(url) {
     const csrftoken = getCookie('csrftoken')
     const request = new Request(url, {
         headers: {'X-CSRFToken': csrftoken}
     })
-    const result = await fetch(request, {method: 'POST', mode: 'same-origin'})
+    const result = await fetch(request, {method: 'POST', mode: 'same-origin'});
 
-    console.log(result)
-
-}
-
-function decPosition() {
-    console.log("DEC")
+    location.reload();
 
 }

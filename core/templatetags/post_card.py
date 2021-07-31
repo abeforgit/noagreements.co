@@ -12,8 +12,10 @@ def post_card(context, post, tag):
     post_position = TagPostPosition.objects.filter(post=post, tag=tag).first()
     if post_position is None:
         return result
-    pp_url = reverse("inc_post_position", args=[post_position.id])
-    result["pp_url"] = '"' + pp_url + '"'
+    pp_inc_url = reverse("inc_post_position", args=[post_position.id])
+    pp_dec_url = reverse("dec_post_position", args=[post_position.id])
+    result["pp_inc_url"] = '"' + pp_inc_url + '"'
+    result["pp_dec_url"] = '"' + pp_dec_url + '"'
     result["has_pos"] = True
     result["pos"] = post_position.position
     return result
