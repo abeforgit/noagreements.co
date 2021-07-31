@@ -18,4 +18,5 @@ def post_card(context, post, tag):
     result["pp_dec_url"] = '"' + pp_dec_url + '"'
     result["has_pos"] = True
     result["pos"] = post_position.position
+    result["editing"] = context["editing"]
     return result

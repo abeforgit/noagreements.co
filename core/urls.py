@@ -27,6 +27,7 @@ from .views.splash import SplashView
 urlpatterns = [
     path("", SplashView.as_view(), name="splash"),
     path("home", HomeView.as_view(), name="home"),
+    path("home/edit", HomeView.as_view(), {"editing": True}, name="home_edit"),
     path("about", AboutPage.as_view(), name="about"),
     path("roster", RosterLabelPage.as_view(), name="roster"),
     path("roster/label", RosterLabelPage.as_view(), name="roster_label"),

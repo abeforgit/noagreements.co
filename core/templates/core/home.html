@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 {% load static %}
 {% load post_card %}
+{% load link_button %}
 {% block title %}
     <title>Home</title>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
@@ -32,6 +33,15 @@
         </div>
 
         <div class="w-100 w-50-l h-100-l bg-light-purple overflow-auto-l pl3-l">
+            {% if perms.core.edit_post %}
+                <div class="pt2">
+                    {% if editing %}
+                        {% link_button "STOP EDITING" "cancel" "home" %}
+                    {% else %}
+                        {% link_button "EDIT" "default" "home_edit" %}
+                    {% endif %}
+                </div>
+            {% endif %}
             <div class="flex flex-wrap flex-column tac ttu">
                 {% for tagpost in tags.values %}
                     {% if tagpost.post_positions.count %}

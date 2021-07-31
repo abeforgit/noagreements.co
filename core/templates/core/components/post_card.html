@@ -16,7 +16,7 @@
             </div>
         </div>
     </a>
-    {% if perms.core.add_post and has_pos %}
+    {% if editing and perms.core.add_post and has_pos %}
         <div class="z-5 mr3">
             <span class="pointer hover-purple f1 pl4" onclick="changePosition({{ pp_dec_url }})"><</span>
             <span class="pointer hover-purple f1 fr pr4" onclick="changePosition({{ pp_inc_url }})">></span>

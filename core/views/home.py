@@ -16,4 +16,5 @@ class HomeView(TemplateView):
 
         context["featured_posts"] = Post.objects.filter(
             tags__name="featured").order_by("tagpostposition__position")
+        context["editing"] = "editing" in kwargs
         return context
